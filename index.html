@@ -2,70 +2,54 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clipadas — Os melhores clips da internet</title>
-
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clipadas</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <!-- HEADER -->
-  <header class="topbar">
-    <div class="logo">
-      <img src="logo.png" alt="Clipadas" />
+  <header class="header">
+    <div class="logo-area">
+      <img src="assets/logo.png" alt="Clipadas" class="logo">
     </div>
 
-    <nav class="menu">
-      <a href="shorts.html">Shorts</a>
-      <a href="gaming.html">Gaming</a>
-      <a href="rage.html">Rage</a>
-      <a href="reacts.html">Reacts</a>
-      <a href="podcasts.html">Podcasts</a>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#">Shorts</a>
+      <a href="#">Twitch</a>
+      <a href="#">Gaming</a>
+      <a href="#">Rage</a>
     </nav>
-
-    <div class="actions">
-      <input type="text" placeholder="Pesquisar clips..." />
-    </div>
   </header>
 
   <!-- HERO -->
   <section class="hero">
-    <h1>Os melhores <span>clips</span> da Twitch & YouTube</h1>
-    <p>Gaming, rage, reacts e momentos épicos — tudo num só sítio.</p>
-
-    <a href="shorts.html" class="cta">
-      Ver Shorts 🔥
-    </a>
+    <h1>Os melhores clips da internet 🎮🔥</h1>
+    <p>YouTube Shorts, Twitch Clips e momentos épicos num só sítio</p>
   </section>
 
-  <!-- CATEGORIAS -->
-  <section class="categories">
-    <h2>Categorias</h2>
+  <!-- FEED PRINCIPAL -->
+  <section class="feed">
+    <h2>🔥 Em Destaque</h2>
 
     <div class="grid">
-      <a href="gaming.html" class="card gaming">
-        <span>🎮 Gaming</span>
-      </a>
+      <!-- Card de vídeo -->
+      <div class="card">
+        <iframe
+          src="https://www.youtube.com/embed/VIDEOID"
+          allowfullscreen>
+        </iframe>
+      </div>
 
-      <a href="rage.html" class="card rage">
-        <span>😡 Rage</span>
-      </a>
-
-      <a href="reacts.html" class="card reacts">
-        <span>😂 Reacts</span>
-      </a>
-
-      <a href="podcasts.html" class="card podcasts">
-        <span>🎙️ Podcasts</span>
-      </a>
+      <div class="card">
+        <iframe
+          src="https://clips.twitch.tv/embed?clip=CLIPID&parent=clipadas.pt"
+          allowfullscreen>
+        </iframe>
+      </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p>© 2026 Clipadas.pt — Todos os direitos reservados</p>
-  </footer>
-
 </body>
 </html>
-
