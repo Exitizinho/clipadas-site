@@ -1,55 +1,71 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Clipadas</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="logo-area">
-      <img src="assets/logo.png" alt="Clipadas" class="logo">
-    </div>
+<div class="layout">
 
-    <nav class="nav">
-      <a href="#">Home</a>
-      <a href="#">Shorts</a>
-      <a href="#">Twitch</a>
-      <a href="#">Gaming</a>
-      <a href="#">Rage</a>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <img src="assets/logo.png" class="sidebar-logo">
+
+    <nav class="side-nav">
+      <a class="active">🎮 Gaming</a>
+      <a>🔥 Rage</a>
+      <a>😂 Reacts</a>
+      <a>🎙 Podcasts</a>
+      <a>🎬 Clips</a>
     </nav>
-  </header>
+  </aside>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Os melhores clips da internet 🎮🔥</h1>
-    <p>YouTube Shorts, Twitch Clips e momentos épicos num só sítio</p>
-  </section>
+  <!-- MAIN -->
+  <main class="main">
 
-  <!-- FEED PRINCIPAL -->
-  <section class="feed">
-    <h2>🔥 Em Destaque</h2>
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <nav class="top-nav">
+        <a class="active">Gaming</a>
+        <a>Rage</a>
+        <a>Reacts</a>
+        <a>Podcasts</a>
+        <a>Clips</a>
+      </nav>
 
-    <div class="grid">
-      <!-- Card de vídeo -->
-      <div class="card">
-        <iframe
-          src="https://www.youtube.com/embed/VIDEOID"
-          allowfullscreen>
-        </iframe>
+      <div class="top-actions">
+        <input placeholder="Search">
+        <span>✉️</span>
+        <span>👤</span>
+      </div>
+    </header>
+
+    <!-- HERO CAROUSEL -->
+    <section class="hero-row">
+      <div class="hero-card live">
+        <span class="badge">LIVE</span>
+        <img src="https://picsum.photos/400/600">
+        <h3>Epic Victory!</h3>
       </div>
 
-      <div class="card">
-        <iframe
-          src="https://clips.twitch.tv/embed?clip=CLIPID&parent=clipadas.pt"
-          allowfullscreen>
-        </iframe>
+      <div class="hero-card">
+        <img src="https://picsum.photos/401/600">
+        <h3>This Game is Broken!</h3>
       </div>
-    </div>
-  </section>
+
+      <div class="hero-card">
+        <img src="https://picsum.photos/402/600">
+        <h3>OMG! Hilarious!</h3>
+      </div>
+    </section>
+
+    <!-- POPULAR -->
+    <section class="block">
+      <h2>Popular Games</h2>
+
+      <div class="grid-row">
+        <div class="game-card">Fortnite</div>
+        <div class="game-card">COD</div>
+        <div class="game-card">Minecraft</div>
+      </div>
+    </section>
+
+  </main>
+</div>
 
 </body>
-</html>
