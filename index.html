@@ -1,10 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Clipadas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
 <div class="layout">
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
-    <img src="assets/logo.png" class="sidebar-logo">
+    <img src="assets/logo.png" class="logo">
 
     <nav class="side-nav">
       <a class="active">🎮 Gaming</a>
@@ -28,44 +36,59 @@
         <a>Clips</a>
       </nav>
 
-      <div class="top-actions">
-        <input placeholder="Search">
+      <div class="actions">
+        <input type="text" placeholder="Search">
         <span>✉️</span>
         <span>👤</span>
       </div>
     </header>
 
-    <!-- HERO CAROUSEL -->
-    <section class="hero-row">
+    <!-- HERO / CAROUSEL -->
+    <section class="hero">
       <div class="hero-card live">
         <span class="badge">LIVE</span>
-        <img src="https://picsum.photos/400/600">
+        <img src="https://picsum.photos/500/700?1">
         <h3>Epic Victory!</h3>
       </div>
 
       <div class="hero-card">
-        <img src="https://picsum.photos/401/600">
+        <img src="https://picsum.photos/500/700?2">
         <h3>This Game is Broken!</h3>
       </div>
 
       <div class="hero-card">
-        <img src="https://picsum.photos/402/600">
+        <img src="https://picsum.photos/500/700?3">
         <h3>OMG! Hilarious!</h3>
+      </div>
+
+      <div class="hero-card">
+        <img src="https://picsum.photos/500/700?4">
+        <h3>True Crime Podcast</h3>
       </div>
     </section>
 
-    <!-- POPULAR -->
-    <section class="block">
+    <!-- SECTION -->
+    <section class="section">
       <h2>Popular Games</h2>
+      <div class="grid">
+        <div class="card">Fortnite</div>
+        <div class="card">Call of Duty</div>
+        <div class="card">Minecraft</div>
+      </div>
+    </section>
 
-      <div class="grid-row">
-        <div class="game-card">Fortnite</div>
-        <div class="game-card">COD</div>
-        <div class="game-card">Minecraft</div>
+    <section class="section">
+      <h2>Top Rage Clips</h2>
+      <div class="grid">
+        <div class="card">Rage 1</div>
+        <div class="card">Rage 2</div>
+        <div class="card">Rage 3</div>
       </div>
     </section>
 
   </main>
 </div>
 
+<script src="script.js"></script>
 </body>
+</html>
