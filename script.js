@@ -25,4 +25,3 @@ prevBtn.addEventListener("click", () => {
 function updateCarousel() {
   track.style.transform = `translateX(-${index * cardWidth}px)`;
 }
-
