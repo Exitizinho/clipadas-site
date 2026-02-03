@@ -208,5 +208,5 @@ body {
   cursor: pointer;
 }
 
-.video-btn.left { margin-right: 40px; }
-.video-btn.right { margin-left: 40px; }
+.video-btn.left { margin-right: 14px; }
+.video-btn.right { margin-left: 14px; }
