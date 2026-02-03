@@ -173,6 +173,7 @@ body {
 .video-window {
   width: 50%;
   overflow: hidden;
+  position: center;
 }
 
 .video-track {
