@@ -165,9 +165,12 @@ body {
 /* HOME HORIZONTAL VIDEO CAROUSEL */
 
 .home-video-carousel {
-  margin: 30px 0;
+  margin: 40px auto;
+  max-width: 1100px;   /* controla o afastamento das margens */
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 12px;
 }
 
 .video-window {
