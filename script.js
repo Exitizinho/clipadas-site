@@ -12,14 +12,18 @@ function updateCarousel() {
 nextBtn.addEventListener("click", () => {
   if (index < slides.length - 1) {
     index++;
-    updateCarousel();
+  } else {
+    index = 0; // volta ao primeiro
   }
+  updateCarousel();
 });
 
 prevBtn.addEventListener("click", () => {
   if (index > 0) {
     index--;
-    updateCarousel();
+  } else {
+    index = slides.length - 1; // vai para o último
   }
+  updateCarousel();
 });
 
