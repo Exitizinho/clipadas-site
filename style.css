@@ -162,79 +162,50 @@ body {
   box-shadow: 0 10px 30px rgba(168,85,247,0.4);
 }
 
-/* ======================
-   HOME VIDEO CAROUSEL
-====================== */
+/* HOME HORIZONTAL VIDEO CAROUSEL */
 
-.home-carousel {
-  margin: 32px 0;
-  position: relative;
+.home-video-carousel {
+  margin: 30px 0;
   display: flex;
   align-items: center;
 }
 
-/* janela visível */
-.carousel-window {
-  overflow: hidden;
+.video-window {
   width: 100%;
+  overflow: hidden;
 }
 
-/* pista que anda */
-.carousel-track {
+.video-track {
   display: flex;
-  gap: 22px;
-  transition: transform 0.45s ease;
+  transition: transform 0.5s ease;
 }
 
-/* card */
-.carousel-card {
-  min-width: 260px;
-  height: 380px;
-  background: linear-gradient(180deg, #2b1652, #160b2e);
+.video-slide {
+  min-width: 100%;
+  aspect-ratio: 16 / 9;
   border-radius: 18px;
-  padding: 16px;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  text-decoration: none;
-  color: white;
-  box-shadow: 0 15px 45px rgba(0,0,0,.6);
+  overflow: hidden;
+  background: black;
+  box-shadow: 0 20px 60px rgba(0,0,0,.6);
 }
 
-.carousel-card h4 {
-  font-size: 16px;
-  font-weight: 600;
-}
-
-/* HOT */
-.carousel-card.hot .tag {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: red;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: bold;
+.video-slide iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* setas */
-.carousel-btn {
+
+.video-btn {
   background: linear-gradient(135deg,#7c3aed,#facc15);
   border: none;
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  font-size: 28px;
+  font-size: 30px;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,.5);
-  z-index: 5;
 }
 
-.carousel-btn.left {
-  margin-right: 14px;
-}
-
-.carousel-btn.right {
-  margin-left: 14px;
-}
+.video-btn.left { margin-right: 14px; }
+.video-btn.right { margin-left: 14px; }
