@@ -2,129 +2,56 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Inter, Arial, sans-serif;
+  font-family: Inter, system-ui, sans-serif;
 }
 
 body {
-  background: #0f0f14;
-  color: #fff;
+  background: radial-gradient(circle at top, #2b134f, #0c0814);
+  color: white;
 }
 
-/* HEADER */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 32px;
-  background: #14141c;
-}
-
-.logo {
-  height: 56px;
-}
-
-nav a {
-  color: #bbb;
-  margin-left: 20px;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-nav a:hover {
-  color: #f5a623;
-}
-
-/* HERO */
-.hero {
-  padding: 48px 32px;
-}
-
-.hero h1 {
-  font-size: 40px;
-  margin-bottom: 12px;
-}
-
-.hero p {
-  color: #aaa;
-  font-size: 18px;
-}
-
-/* GRID */
-.section {
-  padding: 32px;
-}
-
-.section h2 {
-  margin-bottom: 16px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
-}
-
-.card {
-  background: #1b1b26;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.card iframe {
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  border: 0;
-}
-
-
-
-
-
-
-/* ===== LAYOUT ===== */
-
+/* LAYOUT */
 .layout {
   display: flex;
   min-height: 100vh;
 }
 
 /* SIDEBAR */
-
 .sidebar {
-  width: 230px;
-  background: linear-gradient(180deg,#1a102e,#0e0b14);
+  width: 240px;
+  background: linear-gradient(180deg, #1a0f2e, #0b0713);
   padding: 24px;
 }
 
-.sidebar-logo {
-  height: 48px;
+.logo {
+  width: 170px;
   margin-bottom: 40px;
+  filter: drop-shadow(0 0 12px #a855f7);
 }
 
 .side-nav a {
   display: block;
   padding: 14px;
-  margin-bottom: 8px;
-  border-radius: 12px;
-  color: #ddd;
+  margin-bottom: 10px;
+  border-radius: 14px;
+  color: #d1d1d1;
   cursor: pointer;
+  transition: 0.2s;
 }
 
-.side-nav a.active,
-.side-nav a:hover {
-  background: linear-gradient(90deg,#7c3aed,#facc15);
+.side-nav a:hover,
+.side-nav a.active {
+  background: linear-gradient(90deg, #7c3aed, #facc15);
   color: black;
 }
 
 /* MAIN */
-
 .main {
   flex: 1;
-  padding: 20px 32px;
+  padding: 24px 36px;
 }
 
 /* TOPBAR */
-
 .topbar {
   display: flex;
   justify-content: space-between;
@@ -132,8 +59,9 @@ nav a:hover {
 }
 
 .top-nav a {
-  margin-right: 24px;
-  color: #bbb;
+  margin-right: 28px;
+  color: #bdbdbd;
+  font-weight: 500;
 }
 
 .top-nav a.active {
@@ -142,29 +70,40 @@ nav a:hover {
   padding-bottom: 6px;
 }
 
-.top-actions input {
-  background: #1f1b2e;
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.actions input {
+  background: #1f1830;
   border: none;
-  padding: 8px 14px;
+  padding: 10px 16px;
   border-radius: 20px;
   color: white;
 }
 
 /* HERO */
-
-.hero-row {
-  margin-top: 32px;
+.hero {
+  margin-top: 30px;
   display: flex;
   gap: 18px;
   overflow-x: auto;
 }
 
+.hero::-webkit-scrollbar {
+  display: none;
+}
+
 .hero-card {
   min-width: 260px;
-  height: 380px;
-  border-radius: 18px;
+  height: 400px;
+  border-radius: 20px;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
 }
 
 .hero-card img {
@@ -175,8 +114,10 @@ nav a:hover {
 
 .hero-card h3 {
   position: absolute;
-  bottom: 14px;
-  left: 14px;
+  bottom: 16px;
+  left: 16px;
+  font-size: 18px;
+  text-shadow: 0 4px 10px black;
 }
 
 .badge {
@@ -187,27 +128,36 @@ nav a:hover {
   padding: 6px 10px;
   border-radius: 6px;
   font-weight: bold;
+  font-size: 12px;
 }
 
-/* GRID */
-
-.block {
-  margin-top: 50px;
+/* SECTIONS */
+.section {
+  margin-top: 48px;
 }
 
-.grid-row {
+.section h2 {
+  margin-bottom: 16px;
+}
+
+.grid {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-.game-card {
+.card {
   height: 160px;
-  background: #1f1b2e;
-  border-radius: 14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  background: linear-gradient(135deg, #24163d, #1b102e);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: bold;
+  transition: 0.2s;
 }
 
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(168,85,247,0.4);
+}
