@@ -232,3 +232,24 @@ body {
 
 .video-btn.left { margin-right: 14px; }
 .video-btn.right { margin-left: 14px; }
+
+.video-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.video-indicators span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.video-indicators span.active {
+  background: #fff;
+  transform: scale(1.3);
+}
