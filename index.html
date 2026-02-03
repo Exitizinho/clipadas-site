@@ -1,42 +1,175 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Clipadas</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+<div class="layout">
 
-<section class="video-slider">
-  <h2>🔥 Em Destaque</h2>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <img src="assets/logo.png" class="logo" alt="Clipadas" />
 
-  <div class="slider">
-    <a href="https://www.youtube.com/watch?v=AAA" target="_blank" class="slide">
-      <img src="https://picsum.photos/400/600?1">
-      <span class="title">Momento Insano 😂</span>
-    </a>
+    <nav class="side-nav">
+      <a class="active">🎮 Gaming</a>
+      <a>🔥 Rage</a>
+      <a>😂 Reacts</a>
+      <a>🎙 Podcasts</a>
+      <a>🎬 Clips</a>
+    </nav>
+  </aside>
 
-    <a href="https://www.youtube.com/watch?v=BBB" target="_blank" class="slide">
-      <img src="https://picsum.photos/400/600?2">
-      <span class="title">Rage Total 😡</span>
-    </a>
+  <!-- MAIN -->
+  <main class="main">
 
-    <a href="https://www.youtube.com/watch?v=CCC" target="_blank" class="slide">
-      <img src="https://picsum.photos/400/600?3">
-      <span class="title">Clip Épico 🎮</span>
-    </a>
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <nav class="top-nav">
+        <a class="active">Gaming</a>
+        <a>Rage</a>
+        <a>Reacts</a>
+        <a>Podcasts</a>
+        <a>Clips</a>
+      </nav>
 
-    <a href="https://www.youtube.com/watch?v=DDD" target="_blank" class="slide">
-      <img src="https://picsum.photos/400/600?4">
-      <span class="title">Não Acreditas 🤯</span>
-    </a>
-  </div>
-</section>
+      <div class="actions">
+        <input type="text" placeholder="Search" />
+        <span>✉️</span>
+        <span>👤</span>
+      </div>
+    </header>
 
+    <!-- HERO / DESTAQUES -->
+    <section class="hero">
+
+      <a
+        href="https://www.youtube.com/watch?v=XXXXXXX"
+        target="_blank"
+        class="hero-card live"
+      >
+        <span class="badge">LIVE</span>
+        <img src="assets/thumbs/hero1.jpg" />
+        <h3>Epic Victory!</h3>
+        <span class="creator">by YoutuberX</span>
+      </a>
+
+      <a
+        href="https://www.youtube.com/watch?v=YYYYYYY"
+        target="_blank"
+        class="hero-card"
+      >
+        <img src="assets/thumbs/hero2.jpg" />
+        <h3>This Game is Broken!</h3>
+        <span class="creator">by GamerPro</span>
+      </a>
+
+      <a
+        href="https://www.youtube.com/watch?v=ZZZZZZZ"
+        target="_blank"
+        class="hero-card"
+      >
+        <img src="assets/thumbs/hero3.jpg" />
+        <h3>OMG 😂 Hilarious</h3>
+        <span class="creator">by ReactKing</span>
+      </a>
+
+      <a
+        href="https://www.youtube.com/watch?v=AAAAAAA"
+        target="_blank"
+        class="hero-card"
+      >
+        <img src="assets/thumbs/hero4.jpg" />
+        <h3>True Crime Podcast</h3>
+        <span class="creator">by PodTalk</span>
+      </a>
+
+    </section>
+
+    <!-- SECTION: POPULAR GAMES -->
+    <section class="section">
+      <h2>Popular Gaming</h2>
+
+      <div class="grid">
+        <a
+          href="https://www.youtube.com/watch?v=BBBBBBB"
+          target="_blank"
+          class="card"
+        >
+          <img src="assets/thumbs/game1.jpg" />
+          <h4>Fortnite INSANO 😂</h4>
+          <span class="creator">by Zorlak</span>
+        </a>
+
+        <a
+          href="https://www.youtube.com/watch?v=CCCCCCC"
+          target="_blank"
+          class="card"
+        >
+          <img src="assets/thumbs/game2.jpg" />
+          <h4>COD Rage Quit</h4>
+          <span class="creator">by RagePT</span>
+        </a>
+
+        <a
+          href="https://www.youtube.com/watch?v=DDDDDDD"
+          target="_blank"
+          class="card"
+        >
+          <img src="assets/thumbs/game3.jpg" />
+          <h4>Minecraft Troll</h4>
+          <span class="creator">by CraftMan</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION: RAGE -->
+    <section class="section">
+      <h2>Top Rage Moments</h2>
+
+      <div class="grid">
+        <a
+          href="https://www.youtube.com/watch?v=EEEEEEE"
+          target="_blank"
+          class="card"
+        >
+          <img src="assets/thumbs/rage1.jpg" />
+          <h4>PARTIU O TECLADO 😡</h4>
+          <span class="creator">by MadPlayer</span>
+        </a>
+
+        <a
+          href="https://www.youtube.com/watch?v=FFFFFFF"
+          target="_blank"
+          class="card"
+        >
+          <img src="assets/thumbs/rage2.jpg" />
+          <h4>Rage Total</h4>
+          <span class="creator">by Tilted</span>
+        </a>
+
+        <a
+          href="https://www.youtube.com/watch?v=GGGGGGG"
+          target="_blank"
+          class="card"
+        >
+          <img src="assets/thumbs/rage3.jpg" />
+          <h4>Não aguentou 💀</h4>
+          <span class="creator">by NoChill</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
+
 <script src="script.js"></script>
 </body>
 </html>
