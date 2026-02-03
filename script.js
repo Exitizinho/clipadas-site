@@ -38,3 +38,41 @@ prevBtn.addEventListener("click", () => {
   index = (index - 1 + slides.length) % slides.length;
   updateCarousel();
 });
+
+const autoplayDelay = 5000; // 5 segundos
+let autoplayInterval;
+
+function startAutoplay() {
+  autoplayInterval = setInterval(() => {
+    index++;
+    if (index >= slides.length) {
+      index = 0; // volta ao primeiro
+    }
+    updateCarousel();
+  }, autoplayDelay);
+}
+
+function stopAutoplay() {
+  clearInterval(autoplayInterval);
+}
+
+/* iniciar autoplay */
+startAutoplay();
+
+/* pausa autoplay quando o user clica nas setas */
+nextBtn.addEventListener("click", () => {
+  stopAutoplay();
+  index++;
+  if (index >= slides.length) index = 0;
+  updateCarousel();
+  startAutoplay();
+});
+
+prevBtn.addEventListener("click", () => {
+  stopAutoplay();
+  index--;
+  if (index < 0) index = slides.length - 1;
+  updateCarousel();
+  startAutoplay();
+});
+
