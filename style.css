@@ -497,22 +497,4 @@ body {
     font-size: 14px;
   }
 }
-.video-card {
-    display: flex;
-    flex-direction: column;
-  }
 
-  .video-card .thumb {
-    height: auto;
-    aspect-ratio: 16 / 9;
-  }
-
-  .video-card .info {
-    display: block;
-  }
-}
-.video-card h4 {
-    line-height: 1.3;
-    white-space: normal;
-  }
-}
