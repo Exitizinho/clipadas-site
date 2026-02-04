@@ -2,45 +2,58 @@ const track = document.getElementById("videoTrack");
 const slides = document.querySelectorAll(".video-slide");
 const prevBtn = document.querySelector(".video-btn.left");
 const nextBtn = document.querySelector(".video-btn.right");
-const carousel = document.querySelector(".home-video-carousel");
-const dots = document.querySelectorAll(".carousel-dot");
+const dotsContainer = document.getElementById("carouselDots");
 
 let index = 0;
-let autoplayInterval;
-let isPlaying = false;
+let autoplayInterval = null;
+let autoplayEnabled = true;
 
-/* ---------------- FUNÇÕES ---------------- */
-
+// ---------------- SLIDE ----------------
 function updateCarousel() {
-  stopAllVideos();
   track.style.transform = `translateX(-${index * 100}%)`;
   updateDots();
 }
 
-function nextSlide() {
-  index = (index + 1) % slides.length;
-  updateCarousel();
+// ---------------- DOTS ----------------
+function createDots() {
+  dotsContainer.innerHTML = "";
+  slides.forEach((_, i) => {
+    const dot = document.createElement("span");
+    dot.addEventListener("click", () => {
+      stopAllVideos();
+      autoplayEnabled = false;
+      stopAutoplay();
+      index = i;
+      updateCarousel();
+    });
+    dotsContainer.appendChild(dot);
+  });
 }
 
-function prevSlide() {
-  index = (index - 1 + slides.length) % slides.length;
-  updateCarousel();
+function updateDots() {
+  const dots = dotsContainer.querySelectorAll("span");
+  dots.forEach((dot, i) => {
+    dot.classList.toggle("active", i === index);
+  });
 }
 
-/* ---------------- AUTOPLAY ---------------- */
-
+// ---------------- AUTOPLAY ----------------
 function startAutoplay() {
-  if (!isPlaying) {
-    autoplayInterval = setInterval(nextSlide, 4000);
-  }
+  stopAutoplay();
+  if (!autoplayEnabled) return;
+
+  autoplayInterval = setInterval(() => {
+    index = (index + 1) % slides.length;
+    updateCarousel();
+  }, 4000);
 }
 
 function stopAutoplay() {
   clearInterval(autoplayInterval);
+  autoplayInterval = null;
 }
 
-/* ---------------- PARAR TODOS OS VÍDEOS ---------------- */
-
+// ---------------- VIDEOS ----------------
 function stopAllVideos() {
   slides.forEach(slide => {
     const iframe = slide.querySelector("iframe");
@@ -49,56 +62,35 @@ function stopAllVideos() {
       "*"
     );
   });
-  isPlaying = false;
 }
 
-/* ---------------- DETETAR PLAY REAL ---------------- */
-
+// ⚠️ DETETAR PLAY REAL (mouse em cima do iframe)
 slides.forEach(slide => {
-  const iframe = slide.querySelector("iframe");
-
-  iframe.addEventListener("load", () => {
-    iframe.contentWindow.postMessage(
-      '{"event":"listening","id":""}',
-      "*"
-    );
+  slide.addEventListener("mouseenter", () => {
+    autoplayEnabled = false;
+    stopAutoplay();
   });
 });
 
-/* ---------------- BOTÕES ---------------- */
-
+// ---------------- BOTÕES ----------------
 nextBtn.addEventListener("click", () => {
+  autoplayEnabled = false;
   stopAutoplay();
-  nextSlide();
+  stopAllVideos();
+  index = (index + 1) % slides.length;
+  updateCarousel();
 });
 
 prevBtn.addEventListener("click", () => {
+  autoplayEnabled = false;
   stopAutoplay();
-  prevSlide();
+  stopAllVideos();
+  index = (index - 1 + slides.length) % slides.length;
+  updateCarousel();
 });
 
-/* ---------------- DOTS ---------------- */
-
-dots.forEach((dot, i) => {
-  dot.addEventListener("click", () => {
-    stopAutoplay();
-    index = i;
-    updateCarousel();
-  });
-});
-
-function updateDots() {
-  dots.forEach((dot, i) => {
-    dot.classList.toggle("active", i === index);
-  });
-}
-
-/* ---------------- PAUSE ON HOVER ---------------- */
-
-carousel.addEventListener("mouseenter", stopAutoplay);
-carousel.addEventListener("mouseleave", startAutoplay);
-
-/* ---------------- START ---------------- */
-
+// ---------------- INIT ----------------
+createDots();
+updateCarousel();
 startAutoplay();
 
