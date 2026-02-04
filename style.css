@@ -478,6 +478,7 @@ body {
 }
 
 @media (max-width: 480px) {
+
   .grid,
   .trending-grid,
   .videos-grid {
@@ -492,9 +493,26 @@ body {
     font-size: 18px;
   }
 
-  .trending-info h3,
+  /* 🔥 FIX PRINCIPAL DOS TÍTULOS */
+  .video-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .video-card .thumb {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .video-card .info {
+    display: block;
+  }
+
   .video-card h4 {
     font-size: 14px;
+    line-height: 1.3;
+    white-space: normal;
   }
+
 }
 
