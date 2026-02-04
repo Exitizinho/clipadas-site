@@ -475,8 +475,17 @@ body {
   .video-btn {
     display: none; /* swipe no mobile */
   }
+  
+.video-card .info {
+  padding: 14px;
+  display: block;
 }
 
+.video-card h4 {
+  line-height: 1.3;
+  white-space: normal;
+}
+}
 @media (max-width: 480px) {
 
   .grid,
