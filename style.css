@@ -80,6 +80,29 @@ body {
 /* a search fica colada à direita */
 .search-box {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.08);
+  padding: 10px 16px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+.search-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  width: 220px;
+}
+
+.search-box input::placeholder {
+  color: #bdbdbd;
+}
+
+.search-icon {
+  opacity: 0.8;
 }
 
 .actions input {
