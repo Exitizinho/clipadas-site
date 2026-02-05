@@ -446,11 +446,18 @@ body {
     width: 100%;
     padding: 14px 12px;
     background: linear-gradient(180deg, #140b25, #0b0713);
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: thin; /* Firefox */
   }
 
   .side-nav {
     display: flex;
     gap: 12px;
+    display: flex;
+    gap: 12px;
+    min-width: max-content; /* 🔥 força overflow */
+    
   }
 
   .side-nav a {
@@ -460,6 +467,8 @@ body {
     background: #1f1830;
     color: #d1d1d1;
     font-size: 14px;
+    white-space: nowrap;
+    flex: 0 0 auto;   /* 🔥 NÃO encolhe */
     white-space: nowrap;
   }
 
