@@ -77,6 +77,10 @@ body {
   align-items: center;
   gap: 16px;
 }
+/* a search fica colada à direita */
+.search-box {
+  margin-left: auto;
+}
 
 .actions input {
   background: #1f1830;
