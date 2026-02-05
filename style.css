@@ -541,4 +541,49 @@ body {
   }
 }
 
+/* SEARCH BOX */
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  background: rgba(31, 24, 48, 0.9);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  padding: 12px 16px 12px 42px; /* espaço para o ícone */
+  border-radius: 999px;
+  color: white;
+  width: 220px;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* placeholder */
+.search-box input::placeholder {
+  color: #9b8fb8;
+}
+
+/* ícone */
+.search-icon {
+  position: absolute;
+  left: 14px;
+  font-size: 16px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* foco bonito */
+.search-box input:focus {
+  border-color: #facc15;
+  box-shadow:
+    0 0 0 3px rgba(250, 204, 21, 0.15),
+    0 0 20px rgba(168, 85, 247, 0.35);
+  background: #1f1830;
+}
+
+/* hover */
+.search-box input:hover {
+  border-color: rgba(168, 85, 247, 0.5);
+}
 
