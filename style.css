@@ -22,6 +22,13 @@ body {
   background: linear-gradient(180deg, #1a0f2e, #0b0713);
   padding: 24px;
 }
+/* SIDEBAR À DIREITA NO DESKTOP */
+@media (min-width: 769px) {
+  .layout {
+    flex-direction: row-reverse;
+  }
+}
+
 
 
 .logo {
