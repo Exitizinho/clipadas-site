@@ -442,40 +442,65 @@ body {
     flex-direction: column;
   }
 
-  .sidebar {
-    width: 100%;
-    padding: 14px 12px;
-    background: linear-gradient(180deg, #140b25, #0b0713);
-    width: 100%;
-    overflow-x: auto;
-    scrollbar-width: thin; /* Firefox */
-  }
+  /* SIDEBAR MOBILE (barra fixa) */
+.sidebar {
+  width: 100%;
+  padding: 14px 12px;
+  background: linear-gradient(180deg, #140b25, #0b0713);
 
-  .side-nav {
-    display: flex;
-    gap: 12px;
-    display: flex;
-    gap: 12px;
-    min-width: max-content; /* 🔥 força overflow */
-    
-  }
+  overflow-x: hidden;   /* 🔥 A BARRA NÃO FAZ SCROLL */
+  overflow-y: hidden;
+}
 
-  .side-nav a {
-    margin: 0;
-    padding: 12px 18px;
-    border-radius: 999px; /* pill */
-    background: #1f1830;
-    color: #d1d1d1;
-    font-size: 14px;
-    white-space: nowrap;
-    flex: 0 0 auto;   /* 🔥 NÃO encolhe */
-    white-space: nowrap;
-  }
+/* CONTAINER QUE FAZ SCROLL */
+.side-nav {
+  display: flex;
+  gap: 12px;
 
-  .side-nav a.active {
-    background: linear-gradient(90deg, #7c3aed, #facc15);
-    color: black;
-  }
+  overflow-x: auto;     /* 🔥 SÓ ISTO SCROLLA */
+  overflow-y: hidden;
+
+  padding-bottom: 6px;  /* espaço para scrollbar */
+  min-width: 100%;
+  scroll-behavior: smooth;
+
+  scrollbar-width: thin;           /* Firefox */
+}
+
+/* scrollbar webkit */
+.side-nav::-webkit-scrollbar {
+  height: 6px;
+}
+.side-nav::-webkit-scrollbar-thumb {
+  background: #3b2a5e;
+  border-radius: 999px;
+}
+.side-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* BOTÕES */
+.side-nav a {
+  flex: 0 0 auto;        /* 🔥 NÃO ENCOLHE */
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: #1f1830;
+  color: #d1d1d1;
+  font-size: 14px;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+.side-nav a:hover {
+  background: #2a1f45;
+}
+
+.side-nav a.active {
+  background: linear-gradient(90deg, #7c3aed, #facc15);
+  color: black;
+}
+
 
   .main {
     padding: 20px;
