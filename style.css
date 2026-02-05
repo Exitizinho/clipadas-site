@@ -73,6 +73,7 @@ body {
 }
 
 .actions {
+  margin-left: auto;   /* 🔥 isto é a chave */
   display: flex;
   align-items: center;
   gap: 16px;
