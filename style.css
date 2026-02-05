@@ -520,8 +520,14 @@ body {
   .video-btn {
     display: none;
   }
+  
+.search-box input {
+  width: 100%;
 }
-
+.actions {
+  flex: 1;
+}
+}
 
 @media (max-width: 480px) {
   .grid,
