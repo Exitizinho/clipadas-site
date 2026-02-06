@@ -17,34 +17,6 @@
   font-size: 15px;
 }
 
-/* FILTERS */
-.gaming-filters {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 28px;
-  flex-wrap: wrap;
-}
-
-.gaming-filters button {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.08);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.25s;
-}
-
-.gaming-filters button:hover {
-  background: rgba(168,85,247,0.25);
-}
-
-.gaming-filters .active {
-  background: linear-gradient(135deg, #a855f7, #facc15);
-  color: #1a102b;
-  font-weight: 600;
-}
 
 
 /* GRID */
