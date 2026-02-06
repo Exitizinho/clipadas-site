@@ -4,69 +4,72 @@
   <meta charset="UTF-8">
   <title>Gaming | Clipadas</title>
 
-  <!-- CSS GLOBAL -->
   <link rel="stylesheet" href="style.css">
-  <!-- CSS DA GAMING PAGE -->
   <link rel="stylesheet" href="gaming.css">
 </head>
 
 <body>
-  <div class="layout">
+<div class="layout">
 
-    <!-- SIDEBAR -->
-    <nav class="side-nav">
-      <a href="index.html">🏠 Home</a>
-      <a class="active" href="gaming.html">🎮 Gaming</a>
-      <a>🔥 Rage</a>
-      <a>😂 Reacts</a>
-      <a>🎙 Podcasts</a>
-      <a>🎬 TopClipadas</a>
-    </nav>
+  <!-- SIDEBAR -->
+  <nav class="side-nav">
+    <a href="index.html">🏠 Home</a>
+    <a class="active" href="gaming.html">🎮 Gaming</a>
+    <a>🔥 Rage</a>
+    <a>😂 Reacts</a>
+    <a>🎙 Podcasts</a>
+    <a>🎬 TopClipadas</a>
+  </nav>
 
-    <!-- CONTEÚDO -->
-    <main class="main">
-      <section class="gaming-page">
+  <!-- MAIN -->
+  <main class="main">
 
-        <!-- HEADER -->
-        <header class="gaming-header">
-          <h1>🎮 Gaming</h1>
-          <p>Os melhores vídeos e clips de gaming, tudo num só sítio</p>
-        </header>
-
-        <!-- GRID -->
-        <div class="gaming-grid">
-
-          <!-- CARD -->
-          <a href="https://www.youtube.com/watch?v=XXXX" target="_blank" class="gaming-card">
-            <div class="thumb">
-              <img src="https://i.ytimg.com/vi/XXXX/hqdefault.jpg" alt="">
-              <span class="play">▶</span>
-              <span class="duration">12:34</span>
-            </div>
-            <div class="info">
-              <h3>Título do vídeo gaming</h3>
-              <span class="channel">Canal • GTA V</span>
-            </div>
-          </a>
-
-          <!-- CARD -->
-          <a href="https://www.youtube.com/watch?v=YYYY" target="_blank" class="gaming-card">
-            <div class="thumb">
-              <img src="https://i.ytimg.com/vi/YYYY/hqdefault.jpg" alt="">
-              <span class="play">▶</span>
-              <span class="duration">08:21</span>
-            </div>
-            <div class="info">
-              <h3>Outro clip incrível</h3>
-              <span class="channel">Streamer • Valorant</span>
-            </div>
-          </a>
-
+    <!-- HERO VIDEO -->
+    <section class="gaming-hero">
+      <a href="https://www.youtube.com/watch?v=XXXX" target="_blank" class="hero-card">
+        <img src="https://i.ytimg.com/vi/XXXX/maxresdefault.jpg">
+        <div class="hero-overlay">
+          <span class="badge">🔥 Destaque</span>
+          <h2>O clip gaming mais visto da semana</h2>
+          <p>Canal • 320k views</p>
         </div>
-      </section>
-    </main>
+      </a>
+    </section>
 
-  </div>
+    <!-- GRID -->
+    <section class="gaming-page">
+      <h3 class="section-title">🎮 Últimos clips</h3>
+
+      <div class="gaming-grid">
+
+        <a href="https://www.youtube.com/watch?v=YYYY" target="_blank" class="gaming-card">
+          <div class="thumb">
+            <img src="https://i.ytimg.com/vi/YYYY/hqdefault.jpg">
+            <span class="duration">12:34</span>
+          </div>
+          <div class="info">
+            <h4>Clip insano no GTA RP</h4>
+            <span>Streamer • 54k views</span>
+          </div>
+        </a>
+
+        <a href="#" class="gaming-card">
+          <div class="thumb">
+            <img src="https://i.ytimg.com/vi/XXXX/hqdefault.jpg">
+            <span class="duration">08:21</span>
+          </div>
+          <div class="info">
+            <h4>Fail mais engraçado do Valorant</h4>
+            <span>Canal Gaming</span>
+          </div>
+        </a>
+
+        <!-- duplica os cards -->
+      </div>
+    </section>
+
+  </main>
+</div>
 </body>
 </html>
 
