@@ -6,17 +6,15 @@
 
   <!-- CSS GLOBAL -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- CSS ESPECÍFICO DA GAMING -->
+  <!-- CSS DA GAMING PAGE -->
   <link rel="stylesheet" href="gaming.css">
 </head>
 
-  <body>
-
+<body>
   <div class="layout">
 
     <!-- SIDEBAR -->
-   <nav class="side-nav">
+    <nav class="side-nav">
       <a href="index.html">🏠 Home</a>
       <a class="active" href="gaming.html">🎮 Gaming</a>
       <a>🔥 Rage</a>
@@ -27,44 +25,48 @@
 
     <!-- CONTEÚDO -->
     <main class="main">
-
       <section class="gaming-page">
+
+        <!-- HEADER -->
         <header class="gaming-header">
           <h1>🎮 Gaming</h1>
           <p>Os melhores vídeos e clips de gaming, tudo num só sítio</p>
         </header>
 
+        <!-- GRID -->
         <div class="gaming-grid">
 
+          <!-- CARD -->
           <a href="https://www.youtube.com/watch?v=XXXX" target="_blank" class="gaming-card">
             <div class="thumb">
-              <img src="https://i.ytimg.com/vi/XXXX/hqdefault.jpg">
+              <img src="https://i.ytimg.com/vi/XXXX/hqdefault.jpg" alt="">
               <span class="play">▶</span>
+              <span class="duration">12:34</span>
             </div>
             <div class="info">
               <h3>Título do vídeo gaming</h3>
-              <span>Canal</span>
-              <span class="duration">12:34</span>
+              <span class="channel">Canal • GTA V</span>
             </div>
           </a>
 
+          <!-- CARD -->
           <a href="https://www.youtube.com/watch?v=YYYY" target="_blank" class="gaming-card">
             <div class="thumb">
-              <img src="https://i.ytimg.com/vi/YYYY/hqdefault.jpg">
+              <img src="https://i.ytimg.com/vi/YYYY/hqdefault.jpg" alt="">
               <span class="play">▶</span>
+              <span class="duration">08:21</span>
             </div>
             <div class="info">
               <h3>Outro clip incrível</h3>
-              <span>Canal</span>
-              <span class="duration">12:34</span>
+              <span class="channel">Streamer • Valorant</span>
             </div>
           </a>
 
         </div>
       </section>
-
     </main>
-  </div>
 
+  </div>
 </body>
 </html>
+
