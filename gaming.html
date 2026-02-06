@@ -1,47 +1,68 @@
-<section class="gaming-page">
-  <header class="gaming-header">
-    <h1>🎮 Gaming</h1>
-    <p>Os melhores vídeos e clips de gaming, tudo num só sítio</p>
-    <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/gaming.css">
-  </header>
-  
- 
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Gaming | Clipadas</title>
 
-  <nav class="side-nav">
-  <a href="index.html">🏠 Home</a>
-  <a class="active" href="gaming.html">🎮 Gaming</a>
-  <a>🔥 Rage</a>
-  <a>😂 Reacts</a>
-  <a>🎙 Podcasts</a>
-  <a>🎬 TopClipadas</a>
-</nav>
+  <!-- CSS GLOBAL -->
+  <link rel="stylesheet" href="css/style.css">
 
+  <!-- CSS ESPECÍFICO DA GAMING -->
+  <link rel="stylesheet" href="css/gaming.css">
+</head>
 
-  <div class="gaming-grid">
-    <a href="https://www.youtube.com/watch?v=XXXX" target="_blank" class="gaming-card">
-      <div class="thumb">
-        <img src="https://i.ytimg.com/vi/XXXX/hqdefault.jpg" alt="Video thumbnail">
-        <span class="play">▶</span>
-      </div>
-      <div class="info">
-        <h3>Título do vídeo gaming</h3>
-        <span>Canal • 120k views</span>
-      </div>
-    </a>
+<body>
 
-    <a href="https://www.youtube.com/watch?v=YYYY" target="_blank" class="gaming-card">
-      <div class="thumb">
-        <img src="https://i.ytimg.com/vi/YYYY/hqdefault.jpg" alt="Video thumbnail">
-        <span class="play">▶</span>
-      </div>
-      <div class="info">
-        <h3>Outro clip incrível</h3>
-        <span>Streamer • 54k views</span>
-      </div>
-    </a>
+  <div class="layout">
 
-    <!-- duplica os cards -->
+    <!-- SIDEBAR -->
+    <nav class="side-nav">
+      <a href="index.html">🏠 Home</a>
+      <a class="active" href="gaming.html">🎮 Gaming</a>
+      <a>🔥 Rage</a>
+      <a>😂 Reacts</a>
+      <a>🎙 Podcasts</a>
+      <a>🎬 TopClipadas</a>
+    </nav>
+
+    <!-- CONTEÚDO -->
+    <main class="main">
+
+      <section class="gaming-page">
+        <header class="gaming-header">
+          <h1>🎮 Gaming</h1>
+          <p>Os melhores vídeos e clips de gaming, tudo num só sítio</p>
+        </header>
+
+        <div class="gaming-grid">
+
+          <a href="https://www.youtube.com/watch?v=XXXX" target="_blank" class="gaming-card">
+            <div class="thumb">
+              <img src="https://i.ytimg.com/vi/XXXX/hqdefault.jpg">
+              <span class="play">▶</span>
+            </div>
+            <div class="info">
+              <h3>Título do vídeo gaming</h3>
+              <span>Canal • 120k views</span>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/watch?v=YYYY" target="_blank" class="gaming-card">
+            <div class="thumb">
+              <img src="https://i.ytimg.com/vi/YYYY/hqdefault.jpg">
+              <span class="play">▶</span>
+            </div>
+            <div class="info">
+              <h3>Outro clip incrível</h3>
+              <span>Streamer • 54k views</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+    </main>
   </div>
-</section>
 
+</body>
+</html>
