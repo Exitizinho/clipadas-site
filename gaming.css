@@ -1,18 +1,5 @@
 
-/* ============================= */
-/* GAMING PAGE */
-/* ============================= */
-
-/* garante compatibilidade com a sidebar */
-.main {
-  flex: 1;
-  padding: 24px 36px;
-}
-
-/* ============================= */
 /* HERO */
-/* ============================= */
-
 .gaming-hero {
   margin-bottom: 60px;
 }
@@ -25,14 +12,13 @@
   overflow: hidden;
   box-shadow: 0 30px 80px rgba(0,0,0,.6);
   transition: .3s;
-  text-decoration: none;
 }
 
 .hero-card:hover {
   transform: scale(1.01);
 }
 
-/* BACKGROUND */
+/* BACKGROUND IMAGE */
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -45,13 +31,14 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(15,8,30,.95) 0%,
-    rgba(15,8,30,.75) 40%,
-    rgba(15,8,30,.3) 70%,
-    transparent 100%
-  );
+  background:
+    linear-gradient(
+      90deg,
+      rgba(15,8,30,.95) 0%,
+      rgba(15,8,30,.75) 40%,
+      rgba(15,8,30,.3) 70%,
+      transparent 100%
+    );
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -97,19 +84,14 @@
   font-size: 14px;
 }
 
-/* ============================= */
-/* SECTION */
-/* ============================= */
 
+/* SECTION */
 .section-title {
   font-size: 20px;
   margin-bottom: 18px;
 }
 
-/* ============================= */
 /* GRID */
-/* ============================= */
-
 .gaming-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -143,20 +125,14 @@
   object-fit: cover;
 }
 
-.thumb .play {
+.duration {
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 42px;
-  background: rgba(0,0,0,.35);
-  opacity: 0;
-  transition: .3s;
-}
-
-.gaming-card:hover .play {
-  opacity: 1;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0,0,0,.7);
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
 }
 
 /* INFO */
@@ -174,10 +150,12 @@
   color: #bdbdbd;
 }
 
-/* ============================= */
-/* RESPONSIVE */
-/* ============================= */
+.main {
+  margin-left: 220px;
+}
 
+
+/* RESPONSIVE */
 @media (max-width: 1100px) {
   .gaming-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -188,18 +166,5 @@
   .gaming-grid {
     grid-template-columns: 1fr;
   }
-
-  .hero-card {
-    height: 300px;
-  }
-
-  .hero-overlay {
-    padding: 24px;
-  }
-
-  .hero-overlay h2 {
-    font-size: 22px;
-  }
 }
-
 
