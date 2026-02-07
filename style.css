@@ -342,12 +342,15 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: .25s;
+  color: inherit;          /* mantém a cor atual */
+  text-decoration: none;   /* remove o sublinhado */
 }
 
 .category-card:hover {
   background: linear-gradient(135deg,#7c3aed,#facc15);
   color: black;
   transform: translateY(-3px);
+  text-decoration: none;
 }
 
 
