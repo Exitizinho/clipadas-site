@@ -150,7 +150,9 @@
   color: #bdbdbd;
 }
 
-
+.main {
+  margin-left: 220px;
+}
 
 /* RESPONSIVE */
 @media (max-width: 1100px) {
