@@ -150,43 +150,7 @@
   color: #bdbdbd;
 }
 
-.layout {
-  display: flex;
-  min-height: 100vh;
-}
 
-/* SIDEBAR */
-.side-nav {
-  width: 220px;
-  background: linear-gradient(180deg, #1a102b, #12081f);
-  padding: 24px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.side-nav a {
-  color: #d1d1d1;
-  text-decoration: none;
-  padding: 12px 14px;
-  border-radius: 14px;
-  font-size: 15px;
-  transition: .25s;
-}
-
-.side-nav a:hover {
-  background: rgba(168,85,247,.15);
-}
-
-.side-nav a.active {
-  background: linear-gradient(135deg, #a855f7, #facc15);
-  color: #1a102b;
-  font-weight: 700;
-}
 
 /* RESPONSIVE */
 @media (max-width: 1100px) {
