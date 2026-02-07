@@ -154,15 +154,6 @@
   margin-left: 220px;
 }
 
-.category-card {
-  color: inherit;          /* mantém a cor atual */
-  text-decoration: none;   /* remove o sublinhado */
-}
-
-.category-card:hover {
-  text-decoration: none;
-  color: inherit;
-}
 
 
 /* RESPONSIVE */
