@@ -72,9 +72,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  image-rendering: auto;
-  transform: scale(1.02); /* antes tinhas 1.05 ou 1.15 */
+  transform: scale(1.05);
+  transition: transform .6s ease;
+}
+
+.hero-card:hover .hero-bg {
+  transform: scale(1.12);
 }
 
 
