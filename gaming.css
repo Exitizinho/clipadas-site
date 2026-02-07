@@ -159,6 +159,12 @@
   text-decoration: none;   /* remove o sublinhado */
 }
 
+.category-card:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+
 /* RESPONSIVE */
 @media (max-width: 1100px) {
   .gaming-grid {
