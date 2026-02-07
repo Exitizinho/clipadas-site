@@ -7,8 +7,22 @@
 /* ========================= */
 
 .gaming-hero {
-  margin-bottom: 80px;
+  margin-bottom: 90px;
 }
+
+.gaming-search::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 30px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(168,85,247,.6),
+    transparent
+  );
+}
+
 
 /* CARD PRINCIPAL */
 .hero-card {
