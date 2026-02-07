@@ -1,36 +1,45 @@
+
 /* HERO */
 .gaming-hero {
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 .hero-card {
   position: relative;
   display: block;
-  border-radius: 26px;
+  border-radius: 28px;
   overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0,0,0,.6);
+  box-shadow: 0 35px 90px rgba(0,0,0,.65);
+  text-decoration: none;
+  color: white;
 }
 
 .hero-card img {
   width: 100%;
-  height: 360px;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
+  display: block;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.75), transparent);
-  padding: 28px;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.85) 10%,
+    rgba(0,0,0,.35) 45%,
+    transparent 70%
+  );
+  padding: 32px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  color: white;
 }
 
 .hero-overlay h2 {
   font-size: 26px;
   margin-bottom: 6px;
+  line-height: 1.25;
 }
 
 .hero-overlay p {
@@ -39,15 +48,16 @@
 }
 
 .badge {
+  align-self: flex-start;
+  margin-bottom: 10px;
   background: linear-gradient(135deg, #a855f7, #facc15);
   color: #1a102b;
   font-weight: 700;
   font-size: 12px;
-  padding: 6px 12px;
+  padding: 6px 14px;
   border-radius: 14px;
-  width: fit-content;
-  margin-bottom: 10px;
 }
+
 
 /* SECTION */
 .section-title {
