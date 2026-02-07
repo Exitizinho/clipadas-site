@@ -78,10 +78,6 @@
 }
 
 
-.hero-card:hover .hero-bg {
-  transform: scale(1.05);
-}
-
 /* OVERLAY CINEMATOGRÁFICO */
 .hero-overlay {
   position: absolute;
