@@ -36,25 +36,23 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===============================
      SEARCH GAMING
   =============================== */
-  const searchInput = document.getElementById("gamingSearch");
+  const searchInput = document.querySelector(".global-search");
+  if (!searchInput) return; // página sem search
+
   const cards = document.querySelectorAll(".gaming-card");
 
-  if (!searchInput) return;
-
   searchInput.addEventListener("input", () => {
-    const value = searchInput.value.toLowerCase().trim();
+    const query = searchInput.value.toLowerCase().trim();
 
     cards.forEach(card => {
-      const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
-      const creator = card.querySelector("span")?.textContent.toLowerCase() || "";
+      const title = card.querySelector(".info h3")?.innerText.toLowerCase() || "";
+      const channel = card.querySelector(".info span")?.innerText.toLowerCase() || "";
 
-      if (title.includes(value) || creator.includes(value)) {
-        card.style.display = "";
-      } else {
-        card.style.display = "none";
-      }
+      const match =
+        title.includes(query) ||
+        channel.includes(query);
+
+      card.style.display = match ? "" : "none";
     });
   });
-
-});
 
