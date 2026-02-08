@@ -33,15 +33,16 @@ document.addEventListener("DOMContentLoaded", () => {
     img.decoding = "async";
   });
 
-  /* ===========================
+/* ===========================
    SEARCH GLOBAL (HOME + GAMING)
 =========================== */
-const searchInputs = document.querySelectorAll(".global-search");
-const cards = document.querySelectorAll("[data-video], .video-card");
-
-searchInputs.forEach(input => {
+document.querySelectorAll(".search-box input").forEach(input => {
   input.addEventListener("input", () => {
     const query = input.value.toLowerCase().trim();
+
+    const cards = document.querySelectorAll(
+      ".gaming-card, .video-card"
+    );
 
     cards.forEach(card => {
       const title =
@@ -50,7 +51,7 @@ searchInputs.forEach(input => {
       let channel =
         card.querySelector(".info span")?.innerText.toLowerCase() || "";
 
-      // normalização (HOME + GAMING)
+      // normalizar "by "
       channel = channel.replace(/^by\s+/i, "").trim();
 
       const match =
@@ -60,6 +61,7 @@ searchInputs.forEach(input => {
     });
   });
 });
+
 
 });
 
