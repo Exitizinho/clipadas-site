@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gaming | Clipadas</title>
 
   <link rel="stylesheet" href="style.css">
@@ -15,7 +15,8 @@
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <nav class="side-nav">
-      <img src="assets/logo.png" class="logo" alt="Clipadas" />
+      <img src="assets/logo.png" class="logo" alt="Clipadas">
+
       <a href="index.html">🏠 Home</a>
       <a class="active" href="gaming.html">🎮 Gaming</a>
       <a href="#">🔥 Rage</a>
@@ -37,7 +38,7 @@
             type="text"
             class="global-search"
             placeholder="Search clips, creators..."
-          />
+          >
         </div>
         <span>✉️</span>
         <span>👤</span>
@@ -52,12 +53,14 @@
         class="hero-card"
         data-video="https://www.youtube.com/watch?v=3vP_Zjz9HBw"
       >
-        <img class="hero-bg" alt="Video thumbnail">
+        <img class="hero-bg" alt="">
         <div class="hero-overlay">
           <span class="badge">🔥 Destaque</span>
           <h2>GTA 5 Online - O DAIZER PRECISOU DE MIM PARA MEGA ASSALTO</h2>
           <p>RicFazeres</p>
-          <span class="hero-play">▶ Ver vídeo</span>
+          <div class="hero-actions">
+            <span class="hero-play">▶ Ver vídeo</span>
+          </div>
         </div>
       </a>
     </section>
@@ -65,9 +68,13 @@
     <!-- CONTENT -->
     <section class="gaming-page">
 
-      <h3 class="section-title">🎮 Últimos vídeos</h3>
+      <header class="section-header">
+        <h3 class="section-title">🎮 Últimos vídeos</h3>
+      </header>
 
-      <p id="noResults">😕 Nenhum vídeo encontrado</p>
+      <p id="noResults" class="no-results">
+        😕 Nenhum vídeo encontrado
+      </p>
 
       <div class="gaming-grid">
 
@@ -79,51 +86,93 @@
             <span class="play">▶</span>
           </div>
           <div class="info">
-            <h3>CRIME SIMULATOR #2 A FOMOS PRESOS...</h3>
+            <h3>CRIME SIMULATOR #2 A FOMOS PRESOS PELA POLICIA...</h3>
             <span>Clips do Tiagovski</span>
           </div>
         </a>
 
         <a href="https://www.youtube.com/watch?v=ymwtawaxXXE" target="_blank"
            class="gaming-card" data-video="https://www.youtube.com/watch?v=ymwtawaxXXE">
-          <div class="thumb"><img alt=""><span class="play">▶</span></div>
-          <div class="info"><h3>É GIGANTE E PERIGOSA - CAIRN</h3><span>RicFazeres</span></div>
+          <div class="thumb">
+            <img alt="">
+            <span class="play">▶</span>
+          </div>
+          <div class="info">
+            <h3>É GIGANTE E PERIGOSA - CAIRN - Parte 2</h3>
+            <span>RicFazeres</span>
+          </div>
         </a>
 
         <a href="https://www.youtube.com/watch?v=QwT357zVTd0" target="_blank"
            class="gaming-card" data-video="https://www.youtube.com/watch?v=QwT357zVTd0">
-          <div class="thumb"><img alt=""><span class="play">▶</span></div>
-          <div class="info"><h3>EAFC 26 MODO CARREIRA #40</h3><span>RicFazeres</span></div>
+          <div class="thumb">
+            <img alt="">
+            <span class="play">▶</span>
+          </div>
+          <div class="info">
+            <h3>EAFC 26 MODO CARREIRA #40 - CRISE!!!!!</h3>
+            <span>RicFazeres</span>
+          </div>
         </a>
 
         <a href="https://www.youtube.com/watch?v=_qhs6O6G3Yg" target="_blank"
            class="gaming-card" data-video="https://www.youtube.com/watch?v=_qhs6O6G3Yg">
-          <div class="thumb"><img alt=""><span class="play">▶</span></div>
-          <div class="info"><h3>DIVINITY OS 2</h3><span>Tji Gaming</span></div>
+          <div class="thumb">
+            <img alt="">
+            <span class="play">▶</span>
+          </div>
+          <div class="info">
+            <h3>PARTIMOS A LOHSE TODA! (DIVINITY OS 2)</h3>
+            <span>Tji Gaming</span>
+          </div>
         </a>
 
         <a href="https://www.youtube.com/watch?v=7mBs4oLCkuo" target="_blank"
            class="gaming-card" data-video="https://www.youtube.com/watch?v=7mBs4oLCkuo">
-          <div class="thumb"><img alt=""><span class="play">▶</span></div>
-          <div class="info"><h3>PUBG BLINDSPOT</h3><span>Tji Gaming</span></div>
+          <div class="thumb">
+            <img alt="">
+            <span class="play">▶</span>
+          </div>
+          <div class="info">
+            <h3>EXPERIMENTEI O NOVO PUBG: BLINDSPOT</h3>
+            <span>Tji Gaming</span>
+          </div>
         </a>
 
         <a href="https://www.youtube.com/watch?v=Ln-iL9k9fEA" target="_blank"
            class="gaming-card" data-video="https://www.youtube.com/watch?v=Ln-iL9k9fEA">
-          <div class="thumb"><img alt=""><span class="play">▶</span></div>
-          <div class="info"><h3>NÃO PAGUEI A LUZ</h3><span>Alexandre Santos</span></div>
+          <div class="thumb">
+            <img alt="">
+            <span class="play">▶</span>
+          </div>
+          <div class="info">
+            <h3>NÃO PAGUEI AS CONTAS DA LUZ 😦</h3>
+            <span>Clips do Alexandre Santos</span>
+          </div>
         </a>
 
         <a href="https://www.youtube.com/watch?v=6McOPj5-jRY" target="_blank"
            class="gaming-card" data-video="https://www.youtube.com/watch?v=6McOPj5-jRY">
-          <div class="thumb"><img alt=""><span class="play">▶</span></div>
-          <div class="info"><h3>UMA RONDA QUASE ACABOU</h3><span>Runah</span></div>
+          <div class="thumb">
+            <img alt="">
+            <span class="play">▶</span>
+          </div>
+          <div class="info">
+            <h3>UMA RONDA QUASE ACABOU COM O JOGO…</h3>
+            <span>Runah</span>
+          </div>
         </a>
 
-        <a href="https://www.youtube.com/watch?v=oz8zRwth3Ko" target="_翦
+        <a href="https://www.youtube.com/watch?v=oz8zRwth3Ko" target="_blank"
            class="gaming-card" data-video="https://www.youtube.com/watch?v=oz8zRwth3Ko">
-          <div class="thumb"><img alt=""><span class="play">▶</span></div>
-          <div class="info"><h3>HYTALE PRIMEIRA HORA</h3><span>Tiagovski</span></div>
+          <div class="thumb">
+            <img alt="">
+            <span class="play">▶</span>
+          </div>
+          <div class="info">
+            <h3>PRIMEIRA HORA DO NOVO JOGO HYTALE!</h3>
+            <span>Clips do Tiagovski</span>
+          </div>
         </a>
 
       </div>
