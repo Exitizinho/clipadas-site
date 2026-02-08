@@ -3,29 +3,41 @@ document.addEventListener("DOMContentLoaded", () => {
     const url = card.dataset.video;
     let videoId = null;
 
+    // youtu.be/ID
     if (url.includes("youtu.be/")) {
       videoId = url.split("youtu.be/")[1].split("?")[0];
-    } 
-    else if (url.includes("watch?v=")) {
+    }
+
+    // youtube.com/watch?v=ID
+    if (url.includes("watch?v=")) {
       videoId = url.split("watch?v=")[1].split("&")[0];
     }
 
     if (!videoId) return;
 
-    // procura SEMPRE o img correto
-    const img =
-      card.querySelector(".hero-bg") ||
-      card.querySelector(".video-thumb");
-
+    const img = card.querySelector("img");
     if (!img) return;
 
-    // thumbnail de melhor qualidade possível
-    img.src = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-    img.loading = "lazy";
+    // URLs das thumbnails
+    const maxRes = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+    const hqRes  = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
 
-    // fallback automático se o maxres não existir
-    img.onerror = () => {
-      img.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+    // Tenta carregar MAXRES primeiro
+    const testImg = new Image();
+    testImg.src = maxRes;
+
+    testImg.onload = () => {
+      // maxres existe
+      img.src = maxRes;
     };
+
+    testImg.onerror = () => {
+      // fallback para hq
+      img.src = hqRes;
+    };
+
+    img.loading = "lazy";
+    img.decoding = "async";
   });
 });
+
