@@ -171,6 +171,19 @@
 /* GRID */
 /* ========================= */
 
+.no-results {
+  margin-top: 40px;
+  text-align: center;
+  color: #cfc3ff;
+  font-size: 15px;
+}
+
+.no-results span {
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+
 .gaming-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
