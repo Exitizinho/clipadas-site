@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ===========================
-     SEARCH (TÍTULO + CANAL)
+     SEARCH GLOBAL (HOME + GAMING)
   ============================ */
   const searchInputs = document.querySelectorAll(".global-search");
-  const cards = document.querySelectorAll(".gaming-card");
+  const cards = document.querySelectorAll("[data-video]");
 
   if (!searchInputs.length || !cards.length) return;
 
@@ -46,10 +46,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const query = input.value.toLowerCase().trim();
 
       cards.forEach(card => {
-        const title  = card.querySelector("h3")?.innerText.toLowerCase() || "";
-        const canal  = card.querySelector("span")?.innerText.toLowerCase() || "";
+        const title =
+          card.querySelector("h3")?.innerText.toLowerCase() || "";
 
-        const match = title.includes(query) || canal.includes(query);
+        const channel =
+          card.querySelector(".info span")?.innerText.toLowerCase() || "";
+
+        const match =
+          title.includes(query) || channel.includes(query);
 
         card.style.display = match ? "" : "none";
       });
@@ -57,5 +61,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
-
 
