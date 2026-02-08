@@ -97,15 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     filterCards(q);
   }
 
-  const menuBtn = document.querySelector(".mobile-menu-btn");
-
-if (menuBtn) {
-  menuBtn.addEventListener("click", () => {
-    document.body.classList.toggle("gaming-open");
-  });
-}
-  });
-
+});
 
 
 
