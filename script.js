@@ -94,3 +94,25 @@ createDots();
 updateCarousel();
 startAutoplay();
 
+/* ===============================
+     SEARCH GAMING
+  =============================== */
+  const searchInput = document.getElementById("gamingSearch");
+  const cards = document.querySelectorAll(".gaming-card");
+
+  if (!searchInput) return;
+
+  searchInput.addEventListener("input", () => {
+    const value = searchInput.value.toLowerCase().trim();
+
+    cards.forEach(card => {
+      const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
+      const creator = card.querySelector("span")?.textContent.toLowerCase() || "";
+
+      if (title.includes(value) || creator.includes(value)) {
+        card.style.display = "";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
