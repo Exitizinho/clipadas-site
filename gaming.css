@@ -18,9 +18,19 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(168,85,247,.6),
-    transparent
-  );
+    rgba(168,85,247,.6),transparent);
+}
+
+.gaming-search {
+  margin-bottom: 80px;
+}
+
+.gaming-hero {
+  margin-bottom: 100px;
+}
+
+.gaming-page {
+  margin-top: 20px;
 }
 
 
