@@ -31,7 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ===========================
-     NORMALIZAR TEXTO
+     FUNÇÃO NORMALIZAR TEXTO
+     - remove acentos
+     - remove espaços
+     - lowercase
   ============================ */
   function normalizeText(text) {
     return text
@@ -42,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ===========================
-     SEARCH GAMING
+     SEARCH GAMING (TÍTULO + CANAL)
   ============================ */
   const input = document.querySelector(".global-search");
   const cards = document.querySelectorAll(".gaming-card");
@@ -53,11 +56,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let visibleCount = 0;
 
     cards.forEach(card => {
-      const title = card.querySelector("h3")?.textContent || "";
-      let channel = card.querySelector(".info span")?.textContent || "";
+      const title =
+        card.querySelector("h3")?.textContent || "";
+      let channel =
+        card.querySelector(".info span")?.textContent || "";
+
       channel = channel.replace(/^by\s+/i, "");
 
-      const searchableText = normalizeText(title + " " + channel);
+      const searchableText =
+        normalizeText(title + " " + channel);
+
       const match = searchableText.includes(normalizedQuery);
 
       card.style.display = match ? "" : "none";
@@ -89,34 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     filterCards(q);
   }
 
-  /* ===========================
-     MOBILE SIDEBAR
-  ============================ */
-  const menuBtn = document.querySelector(".mobile-menu-btn");
-  const sidebar = document.querySelector(".sidebar");
-
-  if (menuBtn && sidebar) {
-    menuBtn.addEventListener("click", () => {
-      sidebar.classList.toggle("open");
-      document.body.classList.toggle("sidebar-open");
-    });
-
-    document.body.addEventListener("click", e => {
-      if (
-        document.body.classList.contains("sidebar-open") &&
-        !sidebar.contains(e.target) &&
-        !menuBtn.contains(e.target)
-      ) {
-        sidebar.classList.remove("open");
-        document.body.classList.remove("sidebar-open");
-      }
-    });
-  }
-
 });
-
-
-
 
 
 
