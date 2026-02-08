@@ -96,8 +96,33 @@ document.addEventListener("DOMContentLoaded", () => {
     input.value = q;
     filterCards(q);
   }
-
 });
+/* ===========================
+   MOBILE SIDEBAR
+=========================== */
+const menuBtn = document.querySelector(".mobile-menu-btn");
+const sidebar = document.querySelector(".sidebar");
+
+if (menuBtn && sidebar) {
+  menuBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+    document.body.classList.toggle("sidebar-open");
+  });
+
+  document.body.addEventListener("click", e => {
+    if (
+      document.body.classList.contains("sidebar-open") &&
+      !sidebar.contains(e.target) &&
+      !menuBtn.contains(e.target)
+    ) {
+      sidebar.classList.remove("open");
+      document.body.classList.remove("sidebar-open");
+    }
+  });
+}
+
+
+
 
 
 
