@@ -96,35 +96,24 @@ startAutoplay();
 
 
 
+// ===============================
+// HOME SEARCH → REDIRECT PARA GAMING
+// ===============================
 document.addEventListener("DOMContentLoaded", () => {
-  const searchInputs = document.querySelectorAll(".global-search");
+  const inputs = document.querySelectorAll(".global-search");
 
-  if (!searchInputs.length) return;
+  inputs.forEach(input => {
+    input.addEventListener("keydown", e => {
+      if (e.key !== "Enter") return;
 
-  // Apanha cards da HOME e da GAMING
-  const cards = document.querySelectorAll(".gaming-card, .video-card");
+      const query = input.value.trim();
+      if (!query) return;
 
-  searchInputs.forEach(input => {
-    input.addEventListener("input", () => {
-      const query = input.value.toLowerCase().trim();
-
-      cards.forEach(card => {
-        const titleEl = card.querySelector("h3");
-        const channelEl = card.querySelector(".info span");
-
-        // ignora cards sem texto (iframes, etc)
-        if (!titleEl && !channelEl) return;
-
-        const title = titleEl ? titleEl.textContent.toLowerCase() : "";
-        const channel = channelEl ? channelEl.textContent.toLowerCase() : "";
-
-        const match =
-          title.includes(query) ||
-          channel.includes(query);
-
-        card.style.display = match ? "" : "none";
-      });
+      // redireciona para gaming com query
+      window.location.href = `gaming.html?q=${encodeURIComponent(query)}`;
     });
   });
+});
+
 });
 
