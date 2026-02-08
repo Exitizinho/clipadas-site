@@ -57,7 +57,7 @@ function filterCards(query) {
 
   if (visibleCount === 0) {
     noResults.style.display = "block";
-    noResults.textContent = `❌ Nenhum vídeo encontrado para "${query}"`;
+    noResults.textContent = `😕 Nenhum vídeo encontrado para "${query}"`;
   } else {
     noResults.style.display = "none";
   }
