@@ -10,11 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (url.includes("youtu.be/")) {
       videoId = url.split("youtu.be/")[1].split("?")[0];
     }
-
     if (url.includes("watch?v=")) {
       videoId = url.split("watch?v=")[1].split("&")[0];
     }
-
     if (!videoId) return;
 
     const img = card.querySelector("img");
@@ -25,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const testImg = new Image();
     testImg.src = maxRes;
-
     testImg.onload = () => img.src = maxRes;
     testImg.onerror = () => img.src = hqRes;
 
@@ -33,25 +30,22 @@ document.addEventListener("DOMContentLoaded", () => {
     img.decoding = "async";
   });
 
-/* ===========================
-   SEARCH GLOBAL (HOME + GAMING)
-=========================== */
-document.querySelectorAll(".search-box input").forEach(input => {
-  input.addEventListener("input", () => {
-    const query = input.value.toLowerCase().trim();
+  /* ===========================
+     SEARCH GAMING (TÍTULO + CANAL)
+  ============================ */
+  const input = document.querySelector(".global-search");
+  const cards = document.querySelectorAll(".gaming-card");
 
-    const cards = document.querySelectorAll(
-      ".gaming-card, .video-card"
-    );
+  function filterCards(query) {
+    query = query.toLowerCase().trim();
 
     cards.forEach(card => {
       const title =
-        card.querySelector("h3")?.innerText.toLowerCase() || "";
+        card.querySelector("h3")?.textContent.toLowerCase() || "";
 
       let channel =
-        card.querySelector(".info span")?.innerText.toLowerCase() || "";
+        card.querySelector(".info span")?.textContent.toLowerCase() || "";
 
-      // normalizar "by "
       channel = channel.replace(/^by\s+/i, "").trim();
 
       const match =
@@ -59,9 +53,24 @@ document.querySelectorAll(".search-box input").forEach(input => {
 
       card.style.display = match ? "" : "none";
     });
-  });
+  }
+
+  if (input) {
+    input.addEventListener("input", () => {
+      filterCards(input.value);
+    });
+  }
+
+  /* ===========================
+     QUERY vinda da HOME (?q=)
+  ============================ */
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get("q");
+
+  if (q && input) {
+    input.value = q;
+    filterCards(q);
+  }
 });
 
-
-});
 
