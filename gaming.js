@@ -79,6 +79,7 @@ if (q && input) {
   input.value = q;
   filterCards(q);
 }
+  });
 
 
 
