@@ -104,6 +104,7 @@ if (menuBtn) {
     document.body.classList.toggle("gaming-open");
   });
 }
+  });
 
 
 
