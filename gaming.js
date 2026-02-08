@@ -34,31 +34,32 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ===========================
-     SEARCH GLOBAL (HOME + GAMING)
-  ============================ */
-  const searchInputs = document.querySelectorAll(".global-search");
-  const cards = document.querySelectorAll("[data-video]");
+   SEARCH GLOBAL (HOME + GAMING)
+=========================== */
+const searchInputs = document.querySelectorAll(".global-search");
+const cards = document.querySelectorAll("[data-video], .video-card");
 
-  if (!searchInputs.length || !cards.length) return;
+searchInputs.forEach(input => {
+  input.addEventListener("input", () => {
+    const query = input.value.toLowerCase().trim();
 
-  searchInputs.forEach(input => {
-    input.addEventListener("input", () => {
-      const query = input.value.toLowerCase().trim();
+    cards.forEach(card => {
+      const title =
+        card.querySelector("h3")?.innerText.toLowerCase() || "";
 
-      cards.forEach(card => {
-        const title =
-          card.querySelector("h3")?.innerText.toLowerCase() || "";
+      let channel =
+        card.querySelector(".info span")?.innerText.toLowerCase() || "";
 
-        const channel =
-          card.querySelector(".info span")?.innerText.toLowerCase() || "";
+      // normalização (HOME + GAMING)
+      channel = channel.replace(/^by\s+/i, "").trim();
 
-        const match =
-          title.includes(query) || channel.includes(query);
+      const match =
+        title.includes(query) || channel.includes(query);
 
-        card.style.display = match ? "" : "none";
-      });
+      card.style.display = match ? "" : "none";
     });
   });
+});
 
 });
 
