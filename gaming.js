@@ -36,38 +36,31 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ===========================
    SEARCH GLOBAL (HOME + GAMING)
 =========================== */
-document.addEventListener("DOMContentLoaded", () => {
-  const searchInputs = document.querySelectorAll(".global-search");
+document.querySelectorAll(".search-box input").forEach(input => {
+  input.addEventListener("input", () => {
+    const query = input.value.toLowerCase().trim();
 
-  if (!searchInputs.length) return;
+    const cards = document.querySelectorAll(
+      ".gaming-card, .video-card"
+    );
 
-  // Apanha cards da HOME e da GAMING
-  const cards = document.querySelectorAll(".gaming-card, .video-card");
+    cards.forEach(card => {
+      const title =
+        card.querySelector("h3")?.innerText.toLowerCase() || "";
 
-  searchInputs.forEach(input => {
-    input.addEventListener("input", () => {
-      const query = input.value.toLowerCase().trim();
+      let channel =
+        card.querySelector(".info span")?.innerText.toLowerCase() || "";
 
-      cards.forEach(card => {
-        const titleEl = card.querySelector("h3");
-        const channelEl = card.querySelector(".info span");
+      // normalizar "by "
+      channel = channel.replace(/^by\s+/i, "").trim();
 
-        // ignora cards sem texto (iframes, etc)
-        if (!titleEl && !channelEl) return;
+      const match =
+        title.includes(query) || channel.includes(query);
 
-        const title = titleEl ? titleEl.textContent.toLowerCase() : "";
-        const channel = channelEl ? channelEl.textContent.toLowerCase() : "";
-
-        const match =
-          title.includes(query) ||
-          channel.includes(query);
-
-        card.style.display = match ? "" : "none";
-      });
+      card.style.display = match ? "" : "none";
     });
   });
 });
-
 
 
 });
