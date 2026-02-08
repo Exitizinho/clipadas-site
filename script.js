@@ -94,3 +94,37 @@ createDots();
 updateCarousel();
 startAutoplay();
 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInputs = document.querySelectorAll(".global-search");
+
+  if (!searchInputs.length) return;
+
+  // Apanha cards da HOME e da GAMING
+  const cards = document.querySelectorAll(".gaming-card, .video-card");
+
+  searchInputs.forEach(input => {
+    input.addEventListener("input", () => {
+      const query = input.value.toLowerCase().trim();
+
+      cards.forEach(card => {
+        const titleEl = card.querySelector("h3");
+        const channelEl = card.querySelector(".info span");
+
+        // ignora cards sem texto (iframes, etc)
+        if (!titleEl && !channelEl) return;
+
+        const title = titleEl ? titleEl.textContent.toLowerCase() : "";
+        const channel = channelEl ? channelEl.textContent.toLowerCase() : "";
+
+        const match =
+          title.includes(query) ||
+          channel.includes(query);
+
+        card.style.display = match ? "" : "none";
+      });
+    });
+  });
+});
+
