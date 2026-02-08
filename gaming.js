@@ -1,14 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  /* ===========================
+     THUMBNAILS YOUTUBE
+  ============================ */
   document.querySelectorAll("[data-video]").forEach(card => {
     const url = card.dataset.video;
     let videoId = null;
 
-    // youtu.be/ID
     if (url.includes("youtu.be/")) {
       videoId = url.split("youtu.be/")[1].split("?")[0];
     }
 
-    // youtube.com/watch?v=ID
     if (url.includes("watch?v=")) {
       videoId = url.split("watch?v=")[1].split("&")[0];
     }
@@ -18,26 +20,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const img = card.querySelector("img");
     if (!img) return;
 
-    // URLs das thumbnails
     const maxRes = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
     const hqRes  = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
 
-    // Tenta carregar MAXRES primeiro
     const testImg = new Image();
     testImg.src = maxRes;
 
-    testImg.onload = () => {
-      // maxres existe
-      img.src = maxRes;
-    };
-
-    testImg.onerror = () => {
-      // fallback para hq
-      img.src = hqRes;
-    };
+    testImg.onload = () => img.src = maxRes;
+    testImg.onerror = () => img.src = hqRes;
 
     img.loading = "lazy";
     img.decoding = "async";
   });
+
+  /* ===========================
+     SEARCH (TÍTULO + CANAL)
+  ============================ */
+  const searchInputs = document.querySelectorAll(".global-search");
+  const cards = document.querySelectorAll(".gaming-card");
+
+  if (!searchInputs.length || !cards.length) return;
+
+  searchInputs.forEach(input => {
+    input.addEventListener("input", () => {
+      const query = input.value.toLowerCase().trim();
+
+      cards.forEach(card => {
+        const title  = card.querySelector("h3")?.innerText.toLowerCase() || "";
+        const canal  = card.querySelector("span")?.innerText.toLowerCase() || "";
+
+        const match = title.includes(query) || canal.includes(query);
+
+        card.style.display = match ? "" : "none";
+      });
+    });
+  });
+
 });
+
 
