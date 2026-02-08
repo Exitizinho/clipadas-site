@@ -1,9 +1,11 @@
 /* ===================== */
-/* LAYOUT */
+/* LAYOUT BASE */
 /* ===================== */
 .layout {
   display: flex;
   min-height: 100vh;
+  background: #0b0715;
+  color: white;
 }
 
 /* ===================== */
@@ -11,24 +13,30 @@
 /* ===================== */
 .sidebar {
   width: 240px;
-  background: #0c0820;
+  background: #0f0a1f;
+  padding: 24px;
 }
 
 .side-nav {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 24px;
 }
 
 .side-nav a {
-  color: #bdb2ff;
+  color: #cfc3ff;
   text-decoration: none;
-  font-weight: 600;
+  font-size: 15px;
 }
 
 .side-nav a.active {
   color: #facc15;
+  font-weight: 700;
+}
+
+.logo {
+  width: 140px;
+  margin-bottom: 30px;
 }
 
 /* ===================== */
@@ -40,14 +48,38 @@
 }
 
 /* ===================== */
+/* SEARCH */
+/* ===================== */
+.gaming-search {
+  margin-bottom: 40px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #1c1233;
+  padding: 12px 16px;
+  border-radius: 999px;
+}
+
+.search-box input {
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
+  margin-left: 8px;
+  width: 100%;
+}
+
+/* ===================== */
 /* HERO */
 /* ===================== */
 .hero-card {
-  display: block;
+  position: relative;
   height: 420px;
   border-radius: 28px;
   overflow: hidden;
-  position: relative;
+  display: block;
 }
 
 .hero-bg {
@@ -59,12 +91,11 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  padding: 32px;
-  background: linear-gradient(90deg, rgba(8,4,18,.95), transparent);
+  padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 12px;
+  background: linear-gradient(90deg, rgba(8,4,18,.95), transparent);
 }
 
 /* ===================== */
@@ -73,19 +104,24 @@
 .gaming-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 28px;
+  margin-top: 20px;
 }
 
+/* ===================== */
+/* CARD */
+/* ===================== */
 .gaming-card {
   background: #120b22;
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: hidden;
-  color: white;
   text-decoration: none;
+  color: white;
 }
 
 .thumb {
   height: 180px;
+  position: relative;
 }
 
 .thumb img {
@@ -94,36 +130,66 @@
   object-fit: cover;
 }
 
+.play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  opacity: 0;
+  background: rgba(0,0,0,.6);
+}
+
+.gaming-card:hover .play {
+  opacity: 1;
+}
+
+.info {
+  padding: 14px;
+}
+
+.info h3 {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.info span {
+  font-size: 13px;
+  color: #bdb2ff;
+}
+
 /* ===================== */
 /* MOBILE */
 /* ===================== */
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .gaming-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+
   .layout {
     flex-direction: column;
   }
 
-  /* sidebar vira barra inferior */
   .sidebar {
     width: 100%;
-    position: fixed;
-    bottom: 0;
-    z-index: 100;
+    padding: 14px;
   }
 
   .side-nav {
     flex-direction: row;
     justify-content: space-around;
-    padding: 12px;
+  }
+
+  .logo {
+    display: none;
   }
 
   .main {
-    padding-bottom: 90px;
+    padding: 20px;
   }
 
   .gaming-grid {
@@ -132,6 +198,14 @@
 
   .hero-card {
     height: 300px;
+  }
+
+  .hero-overlay {
+    padding: 24px;
+  }
+
+  .hero-overlay h2 {
+    font-size: 22px;
   }
 }
 
