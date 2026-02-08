@@ -50,9 +50,8 @@ body {
 
 /* MAIN */
 .main {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 40px;
+  flex: 1;
+  padding: 24px 36px;
 }
 
 /* TOPBAR */
