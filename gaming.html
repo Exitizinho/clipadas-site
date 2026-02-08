@@ -2,21 +2,18 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gaming | Clipadas</title>
-
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="gaming.css">
 </head>
-<body>
 
+<body>
 <div class="layout">
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <nav class="side-nav">
-      <img src="assets/logo.png" class="logo" alt="Clipadas">
-
+      <img src="assets/logo.png" class="logo" alt="Clipadas" />
       <a href="index.html">🏠 Home</a>
       <a class="active" href="gaming.html">🎮 Gaming</a>
       <a href="#">🔥 Rage</a>
@@ -34,18 +31,14 @@
       <div class="actions">
         <div class="search-box">
           <span class="search-icon">🔍</span>
-          <input
-            type="text"
-            class="global-search"
-            placeholder="Search clips, creators..."
-          >
+          <input type="text" class="global-search" placeholder="Search clips, creators..." />
         </div>
         <span>✉️</span>
         <span>👤</span>
       </div>
     </header>
 
-    <!-- HERO -->
+    <!-- FEATURED / HERO -->
     <section class="gaming-hero">
       <a
         href="https://www.youtube.com/watch?v=3vP_Zjz9HBw"
@@ -53,7 +46,7 @@
         class="hero-card"
         data-video="https://www.youtube.com/watch?v=3vP_Zjz9HBw"
       >
-        <img class="hero-bg" alt="">
+        <img class="hero-bg" alt="Video thumbnail">
         <div class="hero-overlay">
           <span class="badge">🔥 Destaque</span>
           <h2>GTA 5 Online - O DAIZER PRECISOU DE MIM PARA MEGA ASSALTO</h2>
@@ -70,19 +63,28 @@
 
       <header class="section-header">
         <h3 class="section-title">🎮 Últimos vídeos</h3>
+        <!-- espaço futuro para filtros -->
+        <!-- <div class="filters">Mais recentes | Populares</div> -->
       </header>
-
-      <p id="noResults" class="no-results">
-        😕 Nenhum vídeo encontrado
-      </p>
+      <p id="noResults" style="
+  display:none;
+  margin:40px 0;
+  font-size:18px;
+  color:#bdb2ff;
+  text-align:center;
+">
+  😕 Nenhum vídeo encontrado
+</p>
 
       <div class="gaming-grid">
 
         <!-- CARD -->
-        <a href="https://www.youtube.com/watch?v=-l1uQfw62b0" target="_blank"
-           class="gaming-card" data-video="https://www.youtube.com/watch?v=-l1uQfw62b0">
+        <a href="https://www.youtube.com/watch?v=-l1uQfw62b0"
+           target="_blank"
+           class="gaming-card"
+           data-video="https://www.youtube.com/watch?v=-l1uQfw62b0">
           <div class="thumb">
-            <img alt="">
+            <img alt="Video thumbnail">
             <span class="play">▶</span>
           </div>
           <div class="info">
@@ -91,10 +93,12 @@
           </div>
         </a>
 
-        <a href="https://www.youtube.com/watch?v=ymwtawaxXXE" target="_blank"
-           class="gaming-card" data-video="https://www.youtube.com/watch?v=ymwtawaxXXE">
+        <a href="https://www.youtube.com/watch?v=ymwtawaxXXE"
+           target="_blank"
+           class="gaming-card"
+           data-video="https://www.youtube.com/watch?v=ymwtawaxXXE">
           <div class="thumb">
-            <img alt="">
+            <img alt="Video thumbnail">
             <span class="play">▶</span>
           </div>
           <div class="info">
@@ -103,10 +107,12 @@
           </div>
         </a>
 
-        <a href="https://www.youtube.com/watch?v=QwT357zVTd0" target="_blank"
-           class="gaming-card" data-video="https://www.youtube.com/watch?v=QwT357zVTd0">
+        <a href="https://www.youtube.com/watch?v=QwT357zVTd0"
+           target="_blank"
+           class="gaming-card"
+           data-video="https://www.youtube.com/watch?v=QwT357zVTd0">
           <div class="thumb">
-            <img alt="">
+            <img alt="Video thumbnail">
             <span class="play">▶</span>
           </div>
           <div class="info">
@@ -115,10 +121,12 @@
           </div>
         </a>
 
-        <a href="https://www.youtube.com/watch?v=_qhs6O6G3Yg" target="_blank"
-           class="gaming-card" data-video="https://www.youtube.com/watch?v=_qhs6O6G3Yg">
+        <a href="https://www.youtube.com/watch?v=_qhs6O6G3Yg"
+           target="_blank"
+           class="gaming-card"
+           data-video="https://www.youtube.com/watch?v=_qhs6O6G3Yg">
           <div class="thumb">
-            <img alt="">
+            <img alt="Video thumbnail">
             <span class="play">▶</span>
           </div>
           <div class="info">
@@ -127,10 +135,12 @@
           </div>
         </a>
 
-        <a href="https://www.youtube.com/watch?v=7mBs4oLCkuo" target="_blank"
-           class="gaming-card" data-video="https://www.youtube.com/watch?v=7mBs4oLCkuo">
+        <a href="https://www.youtube.com/watch?v=7mBs4oLCkuo"
+           target="_blank"
+           class="gaming-card"
+           data-video="https://www.youtube.com/watch?v=7mBs4oLCkuo">
           <div class="thumb">
-            <img alt="">
+            <img alt="Video thumbnail">
             <span class="play">▶</span>
           </div>
           <div class="info">
@@ -139,10 +149,12 @@
           </div>
         </a>
 
-        <a href="https://www.youtube.com/watch?v=Ln-iL9k9fEA" target="_blank"
-           class="gaming-card" data-video="https://www.youtube.com/watch?v=Ln-iL9k9fEA">
+        <a href="https://www.youtube.com/watch?v=Ln-iL9k9fEA"
+           target="_blank"
+           class="gaming-card"
+           data-video="https://www.youtube.com/watch?v=Ln-iL9k9fEA">
           <div class="thumb">
-            <img alt="">
+            <img alt="Video thumbnail">
             <span class="play">▶</span>
           </div>
           <div class="info">
@@ -151,10 +163,12 @@
           </div>
         </a>
 
-        <a href="https://www.youtube.com/watch?v=6McOPj5-jRY" target="_blank"
-           class="gaming-card" data-video="https://www.youtube.com/watch?v=6McOPj5-jRY">
+        <a href="https://www.youtube.com/watch?v=6McOPj5-jRY"
+           target="_blank"
+           class="gaming-card"
+           data-video="https://www.youtube.com/watch?v=6McOPj5-jRY">
           <div class="thumb">
-            <img alt="">
+            <img alt="Video thumbnail">
             <span class="play">▶</span>
           </div>
           <div class="info">
@@ -163,10 +177,12 @@
           </div>
         </a>
 
-        <a href="https://www.youtube.com/watch?v=oz8zRwth3Ko" target="_blank"
-           class="gaming-card" data-video="https://www.youtube.com/watch?v=oz8zRwth3Ko">
+        <a href="https://www.youtube.com/watch?v=oz8zRwth3Ko"
+           target="_blank"
+           class="gaming-card"
+           data-video="https://www.youtube.com/watch?v=oz8zRwth3Ko">
           <div class="thumb">
-            <img alt="">
+            <img alt="Video thumbnail">
             <span class="play">▶</span>
           </div>
           <div class="info">
