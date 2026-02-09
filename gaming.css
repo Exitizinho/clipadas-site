@@ -311,3 +311,71 @@
   }
 }
 
+/* ============================= */
+/* GAMING – MOBILE ONLY */
+/* ============================= */
+@media (max-width: 768px) {
+
+  /* layout base */
+  body.gaming-page .layout {
+    flex-direction: row; /* impede layout da HOME */
+  }
+
+  /* SIDEBAR OFF-CANVAS */
+  body.gaming-page .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 260px;
+    background: linear-gradient(180deg, #1a0f2e, #0b0713);
+    padding: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.35s ease;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  /* sidebar aberta */
+  body.gaming-page.sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+
+  /* CONTEÚDO */
+  body.gaming-page .main {
+    padding: 16px;
+  }
+
+  /* BOTÃO ☰ */
+  body.gaming-page .mobile-menu-btn {
+    display: block;
+    background: none;
+    border: 0;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+  }
+
+  /* esconder botão no desktop */
+  .mobile-menu-btn {
+    display: none;
+  }
+
+  /* OVERLAY */
+  body.gaming-page::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 900;
+  }
+
+  body.gaming-page.sidebar-open::after {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
