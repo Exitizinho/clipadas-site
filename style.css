@@ -456,33 +456,38 @@ body {
     flex-direction: column;
   }
 
-  /* SIDEBAR FIXA */
-  .sidebar {
+ /* layout só na HOME */
+  body.home-page .layout {
+    flex-direction: column;
+  }
+
+  /* SIDEBAR HORIZONTAL (HOME) */
+  body.home-page .sidebar {
     position: relative;
     width: 100%;
     padding: 14px 12px;
     background: linear-gradient(180deg, #140b25, #0b0713);
-    overflow: hidden; /* 🔥 NUNCA SCROLLA */
+    overflow: hidden; /* 🔥 sidebar não scrolla */
   }
 
   /* NAV SCROLLÁVEL */
-  .side-nav {
+  body.home-page .side-nav {
     display: flex;
     gap: 12px;
-    overflow-x: auto;       /* 🔥 SÓ ISTO SCROLLA */
+    overflow-x: auto;
     overflow-y: hidden;
     padding-bottom: 8px;
     scroll-behavior: smooth;
     min-width: 100%;
-    scrollbar-width: none;  /* Firefox */
+    scrollbar-width: none;
   }
 
-  .side-nav::-webkit-scrollbar {
-    display: none;          /* Chrome / Safari */
+  body.home-page .side-nav::-webkit-scrollbar {
+    display: none;
   }
 
   /* BOTÕES */
-  .side-nav a {
+  body.home-page .side-nav a {
     flex: 0 0 auto;
     padding: 12px 18px;
     border-radius: 999px;
@@ -494,18 +499,18 @@ body {
     transition: 0.25s;
   }
 
-  .side-nav a:hover {
+  body.home-page .side-nav a:hover {
     background: #2a1f45;
   }
 
-  .side-nav a.active {
+  body.home-page .side-nav a.active {
     background: linear-gradient(90deg, #7c3aed, #facc15);
     color: black;
   }
 
-  /* 🔥 FADES LATERAIS */
-  .sidebar::before,
-  .sidebar::after {
+  /* FADES LATERAIS */
+  body.home-page .sidebar::before,
+  body.home-page .sidebar::after {
     content: "";
     position: absolute;
     top: 0;
@@ -515,30 +520,33 @@ body {
     z-index: 5;
   }
 
-  .sidebar::before {
+  body.home-page .sidebar::before {
     left: 0;
     background: linear-gradient(to right, #140b25, transparent);
   }
 
-  .sidebar::after {
+  body.home-page .sidebar::after {
     right: 0;
     background: linear-gradient(to left, #140b25, transparent);
   }
 
-  .main {
+  /* MAIN */
+  body.home-page .main {
     padding: 20px;
   }
+}
 
-  .video-btn {
+  body.home-page .video-btn {
     display: none;
   }
-  
-.search-box input {
-  width: 100%;
-}
-.actions {
-  flex: 1;
-}
+
+  body.home-page .search-box input {
+    width: 100%;
+  }
+
+  body.home-page .actions {
+    flex: 1;
+  }
 }
 
 @media (max-width: 480px) {
