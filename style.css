@@ -452,11 +452,7 @@ body {
 
 @media (max-width: 768px) {
 
-  .layout {
-    flex-direction: column;
-  }
-
- /* layout só na HOME */
+  /* layout só na HOME */
   body.home-page .layout {
     flex-direction: column;
   }
@@ -467,7 +463,7 @@ body {
     width: 100%;
     padding: 14px 12px;
     background: linear-gradient(180deg, #140b25, #0b0713);
-    overflow: hidden; /* 🔥 sidebar não scrolla */
+    overflow: hidden;
   }
 
   /* NAV SCROLLÁVEL */
@@ -534,8 +530,8 @@ body {
   body.home-page .main {
     padding: 20px;
   }
-}
 
+  /* AJUSTES MOBILE */
   body.home-page .video-btn {
     display: none;
   }
@@ -547,7 +543,9 @@ body {
   body.home-page .actions {
     flex: 1;
   }
+
 }
+
 
 @media (max-width: 480px) {
   .grid,
