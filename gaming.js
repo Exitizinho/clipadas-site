@@ -97,6 +97,15 @@ document.addEventListener("DOMContentLoaded", () => {
     filterCards(q);
   }
 
+  const btn = document.querySelector(".mobile-menu-btn");
+
+if (btn) {
+  btn.addEventListener("click", () => {
+    document.body.classList.toggle("sidebar-open");
+  });
+}
+
+
 });
 
 
