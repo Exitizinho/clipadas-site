@@ -97,16 +97,14 @@ document.addEventListener("DOMContentLoaded", () => {
     filterCards(q);
   }
 
-  const btn = document.querySelector(".mobile-menu-btn");
+  
+const btn = document.querySelector(".mobile-menu-btn");
 const sidebar = document.querySelector(".sidebar");
 
-if (btn && sidebar) {
-  btn.addEventListener("click", () => {
-    sidebar.classList.toggle("open");
-    document.body.classList.toggle("sidebar-open");
-  });
-}
-
+btn.addEventListener("click", () => {
+  sidebar.classList.toggle("open");
+  document.body.classList.toggle("sidebar-open");
+});
 
   
 });
