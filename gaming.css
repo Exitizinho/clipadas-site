@@ -320,11 +320,6 @@
 /* ============================= */
 @media (max-width: 768px) {
 
-  /* ANULA o layout mobile da HOME */
-  body.gaming-page .layout {
-    flex-direction: row;
-  }
-
   /* SIDEBAR OFF-CANVAS */
   body.gaming-page .sidebar {
     position: fixed;
