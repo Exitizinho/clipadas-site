@@ -282,9 +282,6 @@
   font-size: 13px;
   color: #bdb2ff;
 }
-.mobile-menu-btn {
-  display: none;
-}
 
 /* ========================= */
 /* RESPONSIVE */
@@ -311,82 +308,6 @@
 
   .hero-overlay h2 {
     font-size: 24px;
-  }
-}
-
-
-/* ============================= */
-/* GAMING – MOBILE SIDEBAR ONLY */
-/* ============================= */
-@media (max-width: 768px) {
-
-  /* SIDEBAR OFF-CANVAS */
-  body.gaming-page .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 260px;
-    background: linear-gradient(180deg, #1a0f2e, #0b0713);
-    transform: translateX(-100%);
-    transition: transform .3s ease;
-    z-index: 1000;
-  }
-
-  body.gaming-page .sidebar.open {
-    transform: translateX(0);
-  }
-
-  /* MAIN */
-  body.gaming-page .main {
-    padding: 16px;
-    width: 100%;
-  }
-
-  /* BOTÃO ☰ */
-  body.gaming-page .mobile-menu-btn {
-    display: block;
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    z-index: 1100;
-    background: none;
-    border: 0;
-    font-size: 26px;
-    color: white;
-  }
-}
-
-  /* OVERLAY */
-  body.gaming-page::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.6);
-    opacity: 0;
-    pointer-events: none;
-    transition: .3s;
-    z-index: 900;
-  }
-
-  body.gaming-page.sidebar-open::after {
-    opacity: 1;
-    pointer-events: auto;
-  }
-}
-
-  
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: 0;
-  color: white;
-  font-size: 26px;
-  cursor: pointer;
-}
-  
-.mobile-menu-btn {
-    display: block;
   }
 }
 
