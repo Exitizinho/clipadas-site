@@ -283,6 +283,11 @@
   color: #bdb2ff;
 }
 
+/* BOTÃO MOBILE – escondido por defeito (desktop) */
+.mobile-menu-btn {
+  display: none;
+}
+
 /* ========================= */
 /* RESPONSIVE */
 /* ========================= */
