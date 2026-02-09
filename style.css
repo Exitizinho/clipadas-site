@@ -452,34 +452,28 @@ body {
 
 @media (max-width: 768px) {
 
-  .layout {
+   body.home-page .layout {
     flex-direction: column;
   }
 
-  /* SIDEBAR FIXA */
-  .sidebar {
+  body.home-page .sidebar {
     position: relative;
     width: 100%;
     padding: 14px 12px;
-    background: linear-gradient(180deg, #140b25, #0b0713);
-    overflow: hidden; /* 🔥 NUNCA SCROLLA */
+    overflow: hidden;
   }
 
-  /* NAV SCROLLÁVEL */
-  .side-nav {
+  body.home-page .side-nav {
     display: flex;
     gap: 12px;
-    overflow-x: auto;       /* 🔥 SÓ ISTO SCROLLA */
+    overflow-x: auto;
     overflow-y: hidden;
-    padding-bottom: 8px;
-    scroll-behavior: smooth;
-    min-width: 100%;
-    scrollbar-width: none;  /* Firefox */
   }
 
-  .side-nav::-webkit-scrollbar {
-    display: none;          /* Chrome / Safari */
+  body.home-page .main {
+    padding: 20px;
   }
+}
 
   /* BOTÕES */
   .side-nav a {
