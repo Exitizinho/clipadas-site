@@ -282,6 +282,9 @@
   font-size: 13px;
   color: #bdb2ff;
 }
+.mobile-menu-btn {
+  display: none;
+}
 
 /* ========================= */
 /* RESPONSIVE */
