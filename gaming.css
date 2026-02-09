@@ -373,6 +373,10 @@
     padding: 16px;
   }
 }
+.categories-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* DESKTOP: botão escondido */
 @media (min-width: 769px) {
