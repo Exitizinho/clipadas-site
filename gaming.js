@@ -131,6 +131,48 @@ if (menuBtn && sidebar) {
   });
 }
 
+  const modal = document.getElementById("videoModal");
+const frame = document.getElementById("videoFrame");
+const closeBtn = document.querySelector(".video-close");
+const youtubeBtn = document.getElementById("youtubeLink");
+
+/* TODOS os cards + hero */
+document.querySelectorAll("[data-video]").forEach(card => {
+  card.addEventListener("click", e => {
+    e.preventDefault(); // 🚫 impede ir ao YouTube
+    e.stopPropagation();
+
+    const url = card.dataset.video;
+    const videoId = url.split("v=")[1];
+
+    frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    youtubeBtn.href = url;
+
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+  });
+});
+
+/* FECHAR MODAL */
+function closeModal() {
+  modal.classList.remove("open");
+  frame.src = "";
+  document.body.style.overflow = "";
+}
+
+closeBtn.addEventListener("click", closeModal);
+
+/* clicar fora do vídeo */
+modal.addEventListener("click", e => {
+  if (e.target === modal) closeModal();
+});
+
+/* ESC */
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeModal();
+});
+
+
 
 });
 
