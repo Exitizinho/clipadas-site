@@ -131,6 +131,39 @@ if (menuBtn && sidebar) {
   });
 }
 
+  /* ===========================
+   VIDEO MODAL PLAYER
+=========================== */
+const modal = document.getElementById("videoModal");
+const frame = document.getElementById("videoFrame");
+const ytLink = document.getElementById("youtubeLink");
+const closeBtn = document.querySelector(".video-close");
+
+document.querySelectorAll("[data-video]").forEach(card => {
+  card.addEventListener("click", () => {
+    const url = card.dataset.video;
+    const videoId = url.includes("watch?v=")
+      ? url.split("watch?v=")[1].split("&")[0]
+      : "";
+
+    frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    ytLink.href = url;
+    modal.classList.add("open");
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  modal.classList.remove("open");
+  frame.src = "";
+});
+
+modal.addEventListener("click", e => {
+  if (e.target === modal) {
+    modal.classList.remove("open");
+    frame.src = "";
+  }
+});
+
 
 });
 
