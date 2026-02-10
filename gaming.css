@@ -345,30 +345,17 @@ body.gaming-page .mobile-menu-btn {
 /* ========================= */
 /* RESPONSIVE */
 /* ========================= */
-
 @media (max-width: 1100px) {
-  .gaming-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .gaming-grid { grid-template-columns: repeat(2,1fr); }
 }
 
 @media (max-width: 600px) {
-  .gaming-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-card {
-    height: 360px;
-  }
-
-  .hero-overlay {
-    padding: 28px;
-  }
-
-  .hero-overlay h2 {
-    font-size: 24px;
-  }
+  .gaming-grid { grid-template-columns: 1fr; }
+  .hero-card { height: 360px; }
+  .hero-overlay { padding: 28px; }
+  .hero-overlay h2 { font-size: 24px; }
 }
+
 
 /* ============================= */
 /* GAMING – MOBILE ONLY */
