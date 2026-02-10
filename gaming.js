@@ -140,27 +140,41 @@ const ytLink = document.getElementById("youtubeLink");
 const closeBtn = document.querySelector(".video-close");
 
 document.querySelectorAll("[data-video]").forEach(card => {
-  card.addEventListener("click", () => {
+  card.addEventListener("click", (e) => {
+    e.preventDefault(); // ⬅️ IMPRESCINDÍVEL
+    e.stopPropagation();
+
     const url = card.dataset.video;
-    const videoId = url.includes("watch?v=")
-      ? url.split("watch?v=")[1].split("&")[0]
-      : "";
+    let videoId = "";
+
+    if (url.includes("watch?v=")) {
+      videoId = url.split("watch?v=")[1].split("&")[0];
+    } else if (url.includes("youtu.be/")) {
+      videoId = url.split("youtu.be/")[1].split("?")[0];
+    }
+
+    if (!videoId) return;
 
     frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
     ytLink.href = url;
+
     modal.classList.add("open");
+    document.body.style.overflow = "hidden"; // bloqueia scroll
   });
 });
+
 
 closeBtn.addEventListener("click", () => {
   modal.classList.remove("open");
   frame.src = "";
+  document.body.style.overflow = "";
 });
 
 modal.addEventListener("click", e => {
   if (e.target === modal) {
     modal.classList.remove("open");
     frame.src = "";
+    document.body.style.overflow = "";
   }
 });
 
