@@ -123,10 +123,18 @@ const videoCards = document.querySelectorAll(".video-card");
 
 videoCards.forEach(card => {
   card.addEventListener("click", function (e) {
+
+    // só funciona se for um <a>
+    if (this.tagName !== "A") return;
+
     e.preventDefault();
 
-    const url = this.dataset.video;
-    const videoId = url.split("v=")[1].split("&")[0];
+    const url = this.getAttribute("href");
+    if (!url) return;
+
+    const videoId = url.split("v=")[1]?.split("&")[0];
+    if (!videoId) return;
+
     const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
 
     frame.src = embedUrl;
@@ -135,6 +143,7 @@ videoCards.forEach(card => {
     modal.classList.add("active");
   });
 });
+
 
 // fechar botão
 closeBtn.addEventListener("click", closeModal);
