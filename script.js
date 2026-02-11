@@ -113,5 +113,46 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = `gaming.html?q=${encodeURIComponent(query)}`;
     });
   });
+
+  const modal = document.getElementById("videoModal");
+const frame = document.getElementById("videoFrame");
+const youtubeLink = document.getElementById("youtubeLink");
+const closeBtn = document.querySelector(".video-close");
+
+const videoCards = document.querySelectorAll(".video-card");
+
+videoCards.forEach(card => {
+  card.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const url = this.dataset.video;
+    const videoId = url.split("v=")[1].split("&")[0];
+    const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+    frame.src = embedUrl;
+    youtubeLink.href = url;
+
+    modal.classList.add("active");
+  });
+});
+
+// fechar botão
+closeBtn.addEventListener("click", closeModal);
+
+// fechar clicando fora
+modal.addEventListener("click", function (e) {
+  if (e.target === modal) closeModal();
+});
+
+// fechar ESC
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") closeModal();
+});
+
+function closeModal() {
+  modal.classList.remove("active");
+  frame.src = "";
+}
+
 });
 
