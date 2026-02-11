@@ -6,14 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body class="home-page">
 <div class="layout">
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <img src="assets/logo.png" class="logo" alt="Clipadas" />
-
     <nav class="side-nav">
       <a class="active">🏠 Home</a>
       <a href="gaming.html">🎮 Gaming</a>
@@ -28,155 +26,150 @@
   <main class="main">
 
     <!-- TOPBAR -->
-      <div class="actions">
-  <div class="search-box">
-    <span class="search-icon">🔍</span>
-    <input type="text" class="global-search" placeholder="Search clips, creators..." />
-  </div>
-  <span>✉️</span>
-  <span>👤</span>
-</div>
-
-    <!-- HERO / DESTAQUES GERAIS -->
-    <section class="home-video-carousel">
-
-  <button class="video-btn left"><span>❮</span></button>
-
-
-
-  <div class="video-window">
-    
-    <div class="video-track" id="videoTrack">
-
-      <div class="video-slide">
-    <iframe src="https://www.youtube.com/embed/ZaONwR_z1dM?enablejsapi=1"
-      allow="autoplay; encrypted-media"
-      allowfullscreen>
-      </iframe>
-  </div>
-
-      <div class="video-slide">
-    <iframe src="https://www.youtube.com/embed/OgjQjHMA9lI?enablejsapi=1"
-      allow="autoplay; encrypted-media"
-      allowfullscreen>
-      </iframe>
-  </div>
-
-     <div class="video-slide">
-    <iframe src="https://www.youtube.com/embed/lQqAKN91wKI?enablejsapi=1" 
-      allow="autoplay; encrypted-media"
-      allowfullscreen>
-      </iframe>
-  </div>
-
+    <div class="actions">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="global-search" placeholder="Search clips, creators..." />
+      </div>
+      <span>✉️</span>
+      <span>👤</span>
     </div>
-  </div>
 
-  <button class="video-btn right"><span>❯</span></button>
+    <!-- HERO CAROUSEL -->
+    <section class="home-video-carousel">
+      <button class="video-btn left"><span>❮</span></button>
+      <div class="video-window">
+        <div class="video-track" id="videoTrack">
 
-</section>
+          <div class="video-slide">
+            <iframe src="https://www.youtube.com/embed/ZaONwR_z1dM?enablejsapi=1"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="video-slide">
+            <iframe src="https://www.youtube.com/embed/OgjQjHMA9lI?enablejsapi=1"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="video-slide">
+            <iframe src="https://www.youtube.com/embed/lQqAKN91wKI?enablejsapi=1"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+        </div>
+      </div>
+      <button class="video-btn right"><span>❯</span></button>
+    </section>
+
     <div class="carousel-dots" id="carouselDots"></div>
-
-
-
 
     <!-- TRENDING -->
     <section class="section">
-  <h2>🔥 Trending Agora</h2>
+      <h2>🔥 Trending Agora</h2>
+      <div class="grid trending-grid">
 
-  <div class="grid trending-grid">
+        <!-- ALTERAÇÃO: removido target="_blank" e adicionado data-video -->
+        <a href="#" data-video="obzbRNvEanM" class="video-card">
+          <div class="thumb">
+            <img src="https://img.youtube.com/vi/obzbRNvEanM/hqdefault.jpg" />
+            <span class="play">▶</span>
+          </div>
+          <div class="info">
+            <h3>CENÁRIO DE GUERRA EM LEIRIA | FARIA DIAS</h3>
+            <span>by FARIA DIAS</span>
+          </div>
+        </a>
 
-    <a href="https://www.youtube.com/watch?v=obzbRNvEanM" target="_blank" class="video-card">
-      <div class="thumb">
-        <img src="https://img.youtube.com/vi/obzbRNvEanM/hqdefault.jpg" />
-        <span class="play">▶</span>
-      </div>
-      <div class="info">
-        <h3>CENÁRIO DE GUERRA EM LEIRIA | FARIA DIAS</h3>
-        <span>by FARIA DIAS</span>
-      </div>
-    </a>
+        <a href="#" data-video="mtPwDHAqB7k" class="video-card">
+          <div class="thumb">
+            <img src="https://img.youtube.com/vi/mtPwDHAqB7k/hqdefault.jpg" />
+            <span class="play">▶</span>
+          </div>
+          <div class="info">
+            <h3>A MULTA VALE MAIS QUE A MOTA | RIC REAGE</h3>
+            <span>by Clips do RicFazeres</span>
+          </div>
+        </a>
 
-    <a href="https://www.youtube.com/watch?v=mtPwDHAqB7k" target="_blank" class="video-card">
-      <div class="thumb">
-        <img src="https://img.youtube.com/vi/mtPwDHAqB7k/hqdefault.jpg" />
-        <span class="play">▶</span>
-      </div>
-      <div class="info">
-        <h3>A MULTA VALE MAIS QUE A MOTA | RIC REAGE</h3>
-        <span>by Clips do RicFazeres</span>
-      </div>
-    </a>
+        <a href="#" data-video="LFCo22cS7mA" class="video-card">
+          <div class="thumb">
+            <img src="https://img.youtube.com/vi/LFCo22cS7mA/hqdefault.jpg" />
+            <span class="play">▶</span>
+          </div>
+          <div class="info">
+            <h3>CONSEGUI A MELHOR BLUEPRINT DO JOGO !</h3>
+            <span>by Clips do Tiagovski</span>
+          </div>
+        </a>
 
-    <a href="https://www.youtube.com/watch?v=LFCo22cS7mA" target="_blank" class="video-card">
-      <div class="thumb">
-        <img src="https://img.youtube.com/vi/LFCo22cS7mA/hqdefault.jpg" />
-        <span class="play">▶</span>
       </div>
-      <div class="info">
-        <h3>CONSEGUI A MELHOR BLUEPRINT DO JOGO !</h3>
-        <span>by Clips do Tiagovski</span>
-      </div>
-    </a>
-
-  </div>
-</section>
-
+    </section>
 
     <!-- CATEGORIAS -->
     <section class="section">
-  <h2>📂 Categorias</h2>
-      
-<div class="categories-grid">
-  <a class="category-card" href="gaming.html">🎮 Gaming</a>
-  <a class="category-card">🔥 Rage</a>
-  <a class="category-card">😂 Reacts</a>
-  <a class="category-card">🎙 Podcasts</a>
-  <a class="category-card">🎬 TopClipadas</a>
-</div>
-
+      <h2>📂 Categorias</h2>
+      <div class="categories-grid">
+        <a class="category-card" href="gaming.html">🎮 Gaming</a>
+        <a class="category-card">🔥 Rage</a>
+        <a class="category-card">😂 Reacts</a>
+        <a class="category-card">🎙 Podcasts</a>
+        <a class="category-card">🎬 TopClipadas</a>
+      </div>
+    </section>
 
     <!-- ÚLTIMOS VÍDEOS -->
     <section class="section">
-  <h2>🆕 Últimos Vídeos</h2>
+      <h2>🆕 Últimos Vídeos</h2>
+      <div class="videos-grid">
 
-  <div class="videos-grid">
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/ZaONwR_z1dM"
-        allowfullscreen></iframe>
-    </div>
+        <!-- ALTERAÇÃO: substituído iframe por card com data-video -->
+        <div class="video-card" data-video="ZaONwR_z1dM">
+          <div class="thumb">
+            <img src="https://img.youtube.com/vi/ZaONwR_z1dM/hqdefault.jpg" />
+            <span class="play">▶</span>
+          </div>
+        </div>
 
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/OgjQjHMA9lI"
-        allowfullscreen></iframe>
-    </div>
+        <div class="video-card" data-video="OgjQjHMA9lI">
+          <div class="thumb">
+            <img src="https://img.youtube.com/vi/OgjQjHMA9lI/hqdefault.jpg" />
+            <span class="play">▶</span>
+          </div>
+        </div>
 
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/lQqAKN91wKI"
-        allowfullscreen></iframe>
-    </div>
-  </div>
-</section>
+        <div class="video-card" data-video="lQqAKN91wKI">
+          <div class="thumb">
+            <img src="https://img.youtube.com/vi/lQqAKN91wKI/hqdefault.jpg" />
+            <span class="play">▶</span>
+          </div>
+        </div>
 
+      </div>
+    </section>
 
   </main>
 </div>
 
-  <!-- MODAL VIDEO -->
+<!-- MODAL VIDEO -->
 <div id="videoModal" class="video-modal">
   <div class="video-box">
     <button class="video-close">✕</button>
-
     <iframe
       id="videoFrame"
       allow="autoplay; encrypted-media"
       allowfullscreen>
     </iframe>
-
     <a id="youtubeLink" target="_blank" class="youtube-btn">
       ▶ Ver no YouTube
     </a>
   </div>
+</div>
 
 <script src="script.js"></script>
 </body>
