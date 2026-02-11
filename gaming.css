@@ -316,18 +316,6 @@ body.gaming-page .mobile-menu-btn {
   }
 }
 
-.video-box {
-    width: 94vw;
-    border-radius: 18px;
-  }
-
-  .youtube-btn {
-    font-size: 13px;
-    padding: 12px 22px;
-  }
-}
-
-
 /* ========================= */
 /* VIDEO MODAL – PREMIUM */
 /* ========================= */
@@ -477,6 +465,20 @@ body.gaming-page .mobile-menu-btn {
 .youtube-btn:hover {
   transform: translateX(-50%) scale(1.08);
   box-shadow: 0 0 55px rgba(250,204,21,.9);
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+@media (max-width: 600px) {
+  .video-box {
+    width: 94vw;
+    border-radius: 18px;
+  }
+  .youtube-btn {
+    font-size: 13px;
+    padding: 12px 22px;
+  }
 }
 
 
