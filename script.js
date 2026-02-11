@@ -123,26 +123,19 @@ const videoCards = document.querySelectorAll(".video-card");
 
 videoCards.forEach(card => {
   card.addEventListener("click", function (e) {
-
-    // só funciona se for um <a>
-    if (this.tagName !== "A") return;
-
     e.preventDefault();
 
-    const url = this.getAttribute("href");
-    if (!url) return;
-
-    const videoId = url.split("v=")[1]?.split("&")[0];
-    if (!videoId) return;
+    const videoId = this.dataset.video; // já é só o ID
 
     const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
 
     frame.src = embedUrl;
-    youtubeLink.href = url;
+    youtubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
 
-    modal.classList.add("open");
+    modal.classList.add("open"); 
   });
 });
+
 
 
 // fechar botão
