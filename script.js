@@ -140,7 +140,7 @@ videoCards.forEach(card => {
     frame.src = embedUrl;
     youtubeLink.href = url;
 
-    modal.classList.add("active");
+    modal.classList.add(".open");
   });
 });
 
@@ -159,7 +159,7 @@ document.addEventListener("keydown", function (e) {
 });
 
 function closeModal() {
-  modal.classList.remove("active");
+  modal.classList.remove(".open");
   frame.src = "";
 }
 
