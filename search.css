@@ -2,46 +2,22 @@
 /* SEARCH PAGE */
 /* ========================= */
 
+.search-page {
+  padding: 40px;
+  color: white;
+}
+
+/* apenas ajustes visuais */
 .search-header {
   margin-bottom: 30px;
 }
 
-.search-header h2 {
-  font-size: 28px;
-  margin-bottom: 6px;
-}
-
 #searchQuery {
   color: #bdb2ff;
-  font-size: 14px;
+  margin-top: 6px;
 }
 
-/* grid dos resultados */
+/* garante espaçamento dos resultados */
 #results {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 28px;
-}
-
-/* reutiliza cards normais */
-#results .video-card {
-  background: linear-gradient(135deg, #1c1233, #120b22);
-  border-radius: 18px;
-  overflow: hidden;
-  text-decoration: none;
-  color: white;
-  transition: .3s;
-}
-
-#results .video-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 15px 40px rgba(0,0,0,.6);
-}
-
-/* mensagem vazio */
-#noResults {
-  margin-top: 60px;
-  text-align: center;
-  color: #bdb2ff;
-  font-size: 18px;
+  margin-top: 20px;
 }
