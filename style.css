@@ -541,9 +541,9 @@ body {
 /* ========================= */
 
 .youtube-btn {
-  position: absolute;
+  position: relative;
   left: 50%;
-  bottom: 18px;
+  bottom: 8px;
   transform: translateX(-50%);
 
   padding: 14px 30px;
