@@ -21,3 +21,15 @@
 #results {
   margin-top: 20px;
 }
+
+.video-card img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+}
+
+.video-card .thumb {
+  overflow: hidden;
+  border-radius: 14px;
+}
+
