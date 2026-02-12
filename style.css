@@ -543,7 +543,7 @@ body {
 .youtube-btn {
   position: absolute;
   left: 50%;
-  bottom: 8px;
+  bottom: 0px;
   transform: translateX(-50%);
 
   padding: 14px 30px;
