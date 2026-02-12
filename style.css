@@ -543,23 +543,20 @@ body {
 .youtube-btn {
   position: absolute;
   left: 50%;
-  bottom: 18px;
+  bottom: -22px;   /* 👈 truque aqui */
   transform: translateX(-50%);
-
   padding: 14px 30px;
   border-radius: 999px;
-
   background: linear-gradient(135deg, #7c3aed, #facc15);
   color: black;
-
   font-weight: 900;
   font-size: 14px;
   letter-spacing: .4px;
   text-decoration: none;
-
   box-shadow: 0 0 35px rgba(250,204,21,.7);
   transition: .3s;
 }
+
 
 .youtube-btn:hover {
   transform: translateX(-50%) scale(1.08);
