@@ -63,7 +63,3 @@ if (query) {
     });
   }
 }
-</script>
-
-</body>
-</html>
