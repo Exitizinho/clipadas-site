@@ -56,7 +56,7 @@ if (query) {
 
     filtered.forEach(video => {
       resultsContainer.innerHTML += `
-        <a href="${video.category}.html" class="rage-card">
+        <a href="${video.category}.html" class="video-card">
           <div class="thumb">
             <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg">
             <span class="play">▶</span>
