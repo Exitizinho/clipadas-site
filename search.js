@@ -16,7 +16,7 @@ const videos = [
     title: "CRIME SIMULATOR #2 A FOMOS PRESOS PELA POLICIA...",
     channel: "Clips do Tiagovski",
     id: "-l1uQfw62b0",
-    category: "rage"
+    category: "gaming"
   },
   {
     title: "EAFC 26 MODO CARREIRA #40 - CRISE!!!!!",
@@ -28,7 +28,7 @@ const videos = [
     title: "É GIGANTE E PERIGOSA - CAIRN - Parte 2",
     channel: "RicFazeres",
     id: "ymwtawaxXXE",
-    category: "rage"
+    category: "gaming"
   }
 ];
 
