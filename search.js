@@ -4,12 +4,15 @@
 const params = new URLSearchParams(window.location.search);
 const query = params.get("q");
 
-document.getElementById("searchQuery").innerText =
-  query ? `Pesquisa por: "${query}"` : "Sem pesquisa";
+const queryText = document.getElementById("searchQuery");
+if (query) {
+  queryText.innerText = `Pesquisa por: "${query}"`;
+} else {
+  queryText.innerText = "Sem pesquisa";
+}
 
 /* ========================= */
 /* BASE DE DADOS DOS VÍDEOS */
-/* (tu depois aumentas isto) */
 /* ========================= */
 const videos = [
   {
@@ -39,17 +42,21 @@ const resultsContainer = document.getElementById("results");
 const noResults = document.getElementById("noResults");
 
 if (query) {
+  const q = query.toLowerCase();
+
   const filtered = videos.filter(video =>
-    video.title.toLowerCase().includes(query.toLowerCase())
+    video.title.toLowerCase().includes(q) ||
+    video.channel.toLowerCase().includes(q)
   );
 
   if (filtered.length === 0) {
     noResults.style.display = "block";
   } else {
+    noResults.style.display = "none";
+
     filtered.forEach(video => {
       resultsContainer.innerHTML += `
-        <a href="${video.category}.html"
-           class="rage-card">
+        <a href="${video.category}.html" class="rage-card">
           <div class="thumb">
             <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg">
             <span class="play">▶</span>
