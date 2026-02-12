@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!query) return;
 
       // redireciona para gaming com query
-      window.location.href = `gaming.html?q=${encodeURIComponent(query)}`;
+      window.location.href = `search.html?q=${encodeURIComponent(query)}`;
     });
   });
 
