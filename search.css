@@ -2,23 +2,29 @@
 /* SEARCH PAGE */
 /* ========================= */
 
-.search-page {
-  color: white;
-}
-
-.search-title {
-  font-size: 28px;
+.search-header {
   margin-bottom: 30px;
 }
 
-.search-grid {
+.search-header h2 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+#searchQuery {
+  color: #bdb2ff;
+  font-size: 14px;
+}
+
+/* grid dos resultados */
+#results {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 28px;
 }
 
-/* reutiliza o mesmo card */
-.search-grid .video-card {
+/* reutiliza cards normais */
+#results .video-card {
   background: linear-gradient(135deg, #1c1233, #120b22);
   border-radius: 18px;
   overflow: hidden;
@@ -27,15 +33,15 @@
   transition: .3s;
 }
 
-.search-grid .video-card:hover {
+#results .video-card:hover {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 15px 40px rgba(0,0,0,.6);
 }
 
-.search-empty {
+/* mensagem vazio */
+#noResults {
   margin-top: 60px;
   text-align: center;
   color: #bdb2ff;
   font-size: 18px;
 }
-
