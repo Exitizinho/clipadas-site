@@ -456,7 +456,7 @@ body {
   border-radius: 26px;
 
   overflow: visible;          /* ← mudar isto */
-  padding-bottom: 70px;       /* ← espaço para o botão */
+  
 
   transform: scale(.9) translateY(40px);
   transition: transform .45s cubic-bezier(.16,1,.3,1);
