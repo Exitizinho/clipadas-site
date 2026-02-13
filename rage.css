@@ -444,27 +444,23 @@ body.rage-page .mobile-menu-btn {
 .youtube-btn {
   position: absolute;
   left: 50%;
-  bottom: 18px;
-  transform: translateX(-50%);
-
+  top: 100%; 
+  transform: translate(-50%, 22px); /* baixa aqui */
   padding: 14px 30px;
   border-radius: 999px;
-
   background: linear-gradient(135deg, #7c3aed, #facc15);
   color: black;
-
   font-weight: 900;
   font-size: 14px;
   letter-spacing: .4px;
   text-decoration: none;
-
-  box-shadow: 0 0 35px rgba(250,204,21,.7);
-  transition: .3s;
+  box-shadow: 0 15px 40px rgba(0,0,0,.4);
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .youtube-btn:hover {
-  transform: translateX(-50%) scale(1.08);
-  box-shadow: 0 0 55px rgba(250,204,21,.9);
+  transform: translateX(-50%) translateY(-4px) scale(1.05);
+  box-shadow: 0 25px 60px rgba(0,0,0,.6);
 }
 
 /* ========================= */
