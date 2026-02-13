@@ -438,10 +438,10 @@ body.gaming-page .mobile-menu-btn {
 }
 
 /* ========================= */
-/* BOTÃO YOUTUBE */
+/* BOTÃO  */
 /* ========================= */
 
-.youtube-btn {
+.-btn {
   position: absolute;
   left: 50%;
   bottom: -45px;   /* 👈 truque aqui */
@@ -462,6 +462,25 @@ body.gaming-page .mobile-menu-btn {
   transform: translateX(-50%) scale(1.08);
   box-shadow: 0 0 55px rgba(250,204,21,.9);
 }
+
+.youtube-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 20px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(250,204,21,.6),
+    transparent 70%
+  );
+  filter: blur(12px);
+  z-index: -1;
+  pointer-events: none;
+}
+
 
 /* ========================= */
 /* MOBILE */
