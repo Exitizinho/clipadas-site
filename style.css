@@ -451,7 +451,6 @@ body {
 .video-box {
   position: relative;
   width: min(92vw, 960px);
-  aspect-ratio: 16 / 9;
   background: #05030a;
   border-radius: 26px;
 
