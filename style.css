@@ -450,7 +450,6 @@ body {
 
 .video-box {
   position: relative;
-  aspect-ratio: 16 / 9;
   width: min(92vw, 960px);
   background: #05030a;
   border-radius: 26px;
@@ -471,6 +470,21 @@ body {
 .video-modal.open .video-box {
   transform: scale(1) translateY(0);
 }
+
+.video-frame-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 26px;
+}
+
+.video-frame-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 
 /* ========================= */
 /* GLOW ANIMADO */
