@@ -545,7 +545,7 @@ body {
 .youtube-btn {
   position: absolute;
   left: 50%;
-  bottom: -28px;   /* 👈 truque aqui */
+  bottom: -40px;   /* 👈 truque aqui */
   transform: translateX(-50%);
   padding: 14px 30px;
   border-radius: 999px;
