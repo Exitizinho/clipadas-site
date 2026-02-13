@@ -463,25 +463,6 @@ body.gaming-page .mobile-menu-btn {
   box-shadow: 0 25px 60px rgba(0,0,0,.6);
 }
 
-.youtube-btn::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -12px;
-  transform: translateX(-50%);
-  width: 80%;
-  height: 20px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(250,204,21,.6),
-    transparent 70%
-  );
-  filter: blur(12px);
-  z-index: -1;
-  pointer-events: none;
-}
-
-
 /* ========================= */
 /* MOBILE */
 /* ========================= */
