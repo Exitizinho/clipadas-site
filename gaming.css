@@ -444,8 +444,8 @@ body.gaming-page .mobile-menu-btn {
 .youtube-btn {
   position: absolute;
   left: 50%;
-  bottom: -32px; /* ajusta aqui se quiseres mais baixo */
-  transform: translateX(-50%);
+  top: 100%; 
+  transform: translate(-50%, 22px); /* baixa aqui */
   padding: 14px 30px;
   border-radius: 999px;
   background: linear-gradient(135deg, #7c3aed, #facc15);
