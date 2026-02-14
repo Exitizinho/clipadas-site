@@ -94,7 +94,25 @@ createDots();
 updateCarousel();
 startAutoplay();
 
-const modal = document.getElementById("videoModal");
+// ===============================
+// HOME SEARCH → REDIRECT PARA GAMING
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
+  const inputs = document.querySelectorAll(".global-search");
+
+  inputs.forEach(input => {
+    input.addEventListener("keydown", e => {
+      if (e.key !== "Enter") return;
+
+      const query = input.value.trim();
+      if (!query) return;
+
+      // redireciona para gaming com query
+      window.location.href = `gaming.html?q=${encodeURIComponent(query)}`;
+    });
+  });
+
+  const modal = document.getElementById("videoModal");
 const frame = document.getElementById("videoFrame");
 const youtubeLink = document.getElementById("youtubeLink");
 const closeBtn = document.querySelector(".video-close");
