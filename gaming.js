@@ -39,58 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .replace(/\s+/g, "");
   }
 
-  /* ===========================
-     SEARCH GAMING (TÍTULO + CANAL)
-  ============================ */
-  const input = document.querySelector(".global-search");
-  const cards = document.querySelectorAll(".gaming-card");
-  const noResults = document.getElementById("noResults");
-
-  function filterCards(query) {
-    const normalizedQuery = normalizeText(query);
-    let visibleCount = 0;
-
-    cards.forEach(card => {
-      const title =
-        card.querySelector("h3")?.textContent || "";
-      let channel =
-        card.querySelector(".info span")?.textContent || "";
-
-      channel = channel.replace(/^by\s+/i, "");
-
-      const searchableText =
-        normalizeText(title + " " + channel);
-
-      const match = searchableText.includes(normalizedQuery);
-
-      card.style.display = match ? "" : "none";
-      if (match) visibleCount++;
-    });
-
-    if (visibleCount === 0 && normalizedQuery !== "") {
-      noResults.style.display = "block";
-      noResults.textContent = `😕 Nenhum vídeo encontrado para "${query}"`;
-    } else {
-      noResults.style.display = "none";
-    }
-  }
-
-  if (input) {
-    input.addEventListener("input", () => {
-      filterCards(input.value);
-    });
-  }
-
-  /* ===========================
-     QUERY vinda da HOME (?q=)
-  ============================ */
-  const params = new URLSearchParams(window.location.search);
-  const q = params.get("q");
-
-  if (q && input) {
-    input.value = q;
-    filterCards(q);
-  }
+  
 
 /* ===========================
    MOBILE SIDEBAR (GAMING)
