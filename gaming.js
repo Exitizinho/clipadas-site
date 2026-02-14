@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===========================
      THUMBNAILS YOUTUBE
   ============================ */
-  document.querySelectorAll("[data-id]").forEach(card => {
+  document.querySelectorAll("[data-video]").forEach(card => {
     const url = card.dataset.video;
     let videoId = null;
 
