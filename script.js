@@ -97,12 +97,11 @@ startAutoplay();
 
 
 // ===============================
-// HOME SEARCH → REDIRECT PARA GAMING
+// Modal
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
 
-
-  const modal = document.getElementById("videoModal");
+const modal = document.getElementById("videoModal");
 const frame = document.getElementById("videoFrame");
 const youtubeLink = document.getElementById("youtubeLink");
 const closeBtn = document.querySelector(".video-close");
