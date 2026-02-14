@@ -94,9 +94,27 @@ createDots();
 updateCarousel();
 startAutoplay();
 
+const modal = document.getElementById("videoModal");
+const frame = document.getElementById("videoFrame");
+const youtubeLink = document.getElementById("youtubeLink");
+const closeBtn = document.querySelector(".video-close");
 
+const videoCards = document.querySelectorAll(".video-card");
 
+videoCards.forEach(card => {
+  card.addEventListener("click", function (e) {
+    e.preventDefault();
 
+    const videoId = this.dataset.video; // já é só o ID
+
+    const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+    frame.src = embedUrl;
+    youtubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+
+    modal.classList.add("open"); 
+  });
+});
 
 // fechar botão
 closeBtn.addEventListener("click", closeModal);
