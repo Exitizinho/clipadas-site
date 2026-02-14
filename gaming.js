@@ -142,7 +142,7 @@ document.querySelectorAll("[data-video]").forEach(card => {
     e.preventDefault(); // 🚫 impede ir ao YouTube
     e.stopPropagation();
 
-    const url = card.dataset.video;
+    const url = card.dataset.id;
     const videoId = url.split("v=")[1];
 
     frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
