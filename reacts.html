@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="gaming.css">
 </head>
 
-<body class="gaming-page">
+<body class="react-page">
 <div class="layout">
 
   <!-- SIDEBAR -->
@@ -18,7 +18,7 @@
       <a href="index.html">🏠 Home</a>
       <a class="active" href="gaming.html">🎮 Gaming</a>
       <a href="rage.html">🔥 Rage</a>
-      <a href="#">😂 Reacts</a>
+      <a class="active" href="react.html">😂 Reacts</a>
       <a href="#">🎙 Podcasts</a>
       <a href="#">🎬 TopClipadas</a>
     </nav>
@@ -28,7 +28,7 @@
   <main class="main">
 
     <!-- HEADER / SEARCH -->
-    <header class="gaming-search">
+    <header class="reach-search">
       <button class="mobile-menu-btn" aria-label="Menu">☰</button>
       <div class="actions">
         <div class="search-box">
@@ -41,7 +41,7 @@
     </header>
 
     <!-- FEATURED / HERO -->
-    <section class="gaming-hero">
+    <section class="react-hero">
       <a
         href="https://www.youtube.com/watch?v=3vP_Zjz9HBw"
         target="_blank"
@@ -61,7 +61,7 @@
     </section>
 
     <!-- CONTENT -->
-    <section class="gaming-page">
+    <section class="react-page">
 
       <header class="section-header">
         <h3 class="section-title">🎮 Últimos vídeos</h3>
@@ -78,7 +78,7 @@
   😕 Nenhum vídeo encontrado
 </p>
         <!-- CARD -->
-      <div id="gamingContainer" class="gaming-grid"></div>
+      <div id="reactContainer" class="react-grid"></div>
 
 
     <!-- MODAL VIDEO -->
@@ -101,10 +101,10 @@
   </main>
 </div>
 
-<script src="gaming.js"></script>
+<script src="react.js"></script>
 <script src="videos.js"></script>
 <script>
-  loadVideos("gaming", "gamingContainer");
+  loadVideos("react", "reactContainer");
 </script>
 </body>
 </html>
