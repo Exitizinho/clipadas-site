@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===========================
      THUMBNAILS YOUTUBE
   ============================ */
-  document.querySelectorAll("[data-video]").forEach(card => {
-    const url = card.dataset.video;
+  document.querySelectorAll("[data-id]").forEach(card => {
+    const url = card.dataset.id;
     let videoId = null;
 
     if (url.includes("youtu.be/")) {
