@@ -1,1 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Gaming | Clipadas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="gaming.css">
+</head>
 
+<body class="gaming-page">
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <nav class="side-nav">
+      <img src="assets/logo.png" class="logo" alt="Clipadas" />
+      <a href="index.html">🏠 Home</a>
+      <a class="active" href="gaming.html">🎮 Gaming</a>
+      <a href="rage.html">🔥 Rage</a>
+      <a href="#">😂 Reacts</a>
+      <a href="#">🎙 Podcasts</a>
+      <a href="#">🎬 TopClipadas</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HEADER / SEARCH -->
+    <header class="gaming-search">
+      <button class="mobile-menu-btn" aria-label="Menu">☰</button>
+      <div class="actions">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="global-search" placeholder="Search clips, creators..." />
+        </div>
+        <span>✉️</span>
+        <span>👤</span>
+      </div>
+    </header>
+
+    <!-- FEATURED / HERO -->
+    <section class="gaming-hero">
+      <a
+        href="https://www.youtube.com/watch?v=3vP_Zjz9HBw"
+        target="_blank"
+        class="hero-card video-card"
+        data-id="3vP_Zjz9HBw"
+      >
+        <img class="hero-bg" alt="Video thumbnail">
+        <div class="hero-overlay">
+          <span class="badge">🔥 Destaque</span>
+          <h2>GTA 5 Online - O DAIZER PRECISOU DE MIM PARA MEGA ASSALTO</h2>
+          <p>RicFazeres</p>
+          <div class="hero-actions">
+            <span class="hero-play">▶ Ver vídeo</span>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="gaming-page">
+
+      <header class="section-header">
+        <h3 class="section-title">🎮 Últimos vídeos</h3>
+        <!-- espaço futuro para filtros -->
+        <!-- <div class="filters">Mais recentes | Populares</div> -->
+      </header>
+      <p id="noResults" style="
+  display:none;
+  margin:40px 0;
+  font-size:18px;
+  color:#bdb2ff;
+  text-align:center;
+">
+  😕 Nenhum vídeo encontrado
+</p>
+        <!-- CARD -->
+      <div id="gamingContainer" class="gaming-grid"></div>
+
+
+    <!-- MODAL VIDEO -->
+<div id="videoModal" class="video-modal">
+  <div class="video-box">
+    <button class="video-close">✕</button>
+
+    <iframe
+      id="videoFrame"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+
+    <a id="youtubeLink" target="_blank" class="youtube-btn">
+      ▶ Ver no YouTube
+    </a>
+  </div>
+</div>
+
+  </main>
+</div>
+
+<script src="gaming.js"></script>
+<script src="videos.js"></script>
+<script>
+  loadVideos("gaming", "gamingContainer");
+</script>
+</body>
+</html>
