@@ -136,21 +136,21 @@ const frame = document.getElementById("videoFrame");
 const closeBtn = document.querySelector(".video-close");
 const youtubeBtn = document.getElementById("youtubeLink");
 
-/* TODOS os cards + hero */
-document.querySelectorAll("[data-video]").forEach(card => {
-  card.addEventListener("click", e => {
-    e.preventDefault(); // 🚫 impede ir ao YouTube
-    e.stopPropagation();
+/* ABRIR MODAL (funciona com vídeos dinâmicos) */
+document.addEventListener("click", function (e) {
 
-    const url = card.dataset.id;
-    const videoId = url.split("v=")[1];
+  const card = e.target.closest(".video-card");
+  if (!card) return;
 
-    frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-    youtubeBtn.href = url;
+  e.preventDefault();
 
-    modal.classList.add("open");
-    document.body.style.overflow = "hidden";
-  });
+  const videoId = card.dataset.id;
+
+  frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  youtubeBtn.href = `https://www.youtube.com/watch?v=${videoId}`;
+
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
 });
 
 /* FECHAR MODAL */
