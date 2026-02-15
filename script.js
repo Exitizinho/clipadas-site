@@ -55,13 +55,7 @@ function stopAutoplay() {
 
 // ---------------- VIDEOS ----------------
 function stopAllVideos() {
-  slides.forEach(slide => {
-    const iframe = slide.querySelector("iframe");
-    iframe.contentWindow.postMessage(
-      '{"event":"command","func":"pauseVideo","args":""}',
-      "*"
-    );
-  });
+  
 }
 
 // ⚠️ DETETAR PLAY REAL (mouse em cima do iframe)
