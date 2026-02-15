@@ -228,9 +228,30 @@ function loadHome() {
         </div>
       `).join("");
 
-    });
+// CLICK NOS ÚLTIMOS VIDEOS
+document.querySelectorAll("#latestVideos .video-card")
+.forEach(card => {
 
-}
+  card.addEventListener("click", () => {
+
+    const videoId = card.dataset.video;
+
+    const modal = document.getElementById("videoModal");
+    const frame = document.getElementById("videoFrame");
+    const youtubeLink = document.getElementById("youtubeLink");
+
+    frame.src =
+      `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+    youtubeLink.href =
+      `https://www.youtube.com/watch?v=${videoId}`;
+
+    modal.classList.add("open");
+
+  });
+
+});
+
 
 
 
