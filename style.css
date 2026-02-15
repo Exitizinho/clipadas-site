@@ -320,21 +320,35 @@ body {
    VIDEO CARD PREMIUM
 =========================== */
 
+/* ===========================
+   VIDEO CARD — PREMIUM FINAL
+=========================== */
+
 .video-card {
   position: relative;
-  border-radius: 18px;
+  border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
-  background: #140c24;
+  background: #0f0a1f;
 
   transition:
-    transform .3s cubic-bezier(.16,1,.3,1),
-    box-shadow .3s cubic-bezier(.16,1,.3,1);
+    transform .35s cubic-bezier(.16,1,.3,1),
+    box-shadow .35s cubic-bezier(.16,1,.3,1);
 
   box-shadow:
-    0 10px 30px rgba(0,0,0,.4);
+    0 8px 25px rgba(0,0,0,.45);
 
   isolation: isolate;
+}
+
+/* elevação premium */
+.video-card:hover {
+  transform: translateY(-10px) scale(1.025);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.85),
+    0 0 0 1px rgba(255,255,255,.06),
+    0 0 40px rgba(124,58,237,.35);
 }
 
 /* ===========================
@@ -348,15 +362,17 @@ body {
 
 .video-card .thumb img {
   width: 100%;
-  height: auto;
   display: block;
 
-  transition: transform .5s cubic-bezier(.16,1,.3,1);
+  transition:
+    transform .6s cubic-bezier(.16,1,.3,1),
+    filter .4s ease;
 }
 
-/* zoom suave */
-.video-card:hover .thumb img {
+/* zoom cinematic */
+.video-card:hover img {
   transform: scale(1.08);
+  filter: brightness(.8);
 }
 
 /* overlay cinematic */
@@ -367,21 +383,21 @@ body {
 
   background: linear-gradient(
     to top,
-    rgba(0,0,0,.75) 0%,
-    rgba(0,0,0,.4) 40%,
+    rgba(0,0,0,.9) 0%,
+    rgba(0,0,0,.5) 40%,
     rgba(0,0,0,0) 70%
   );
 
-  opacity: .6;
-  transition: opacity .3s ease;
+  opacity: .7;
+  transition: opacity .4s ease;
 }
 
 .video-card:hover .thumb::after {
-  opacity: .9;
+  opacity: .95;
 }
 
 /* ===========================
-   PLAY BUTTON PREMIUM
+   PLAY BUTTON — PREMIUM
 =========================== */
 
 .video-card .play {
@@ -389,44 +405,41 @@ body {
   top: 50%;
   left: 50%;
 
-  transform: translate(-50%, -50%) scale(.85);
+  transform: translate(-50%, -50%) scale(.7);
 
-  width: 64px;
-  height: 64px;
+  width: 70px;
+  height: 70px;
 
   border-radius: 50%;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(124,58,237,.95),
-      rgba(91,33,182,.95)
-    );
+  background: linear-gradient(
+    135deg,
+    rgba(139,92,246,.95),
+    rgba(91,33,182,.95)
+  );
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 26px;
+  font-size: 28px;
   color: white;
-
-  box-shadow:
-    0 0 25px rgba(124,58,237,.6),
-    inset 0 0 10px rgba(255,255,255,.2);
 
   opacity: 0;
 
-  transition: all .3s cubic-bezier(.16,1,.3,1);
+  box-shadow:
+    0 0 30px rgba(124,58,237,.6);
+
+  transition: all .35s cubic-bezier(.16,1,.3,1);
 }
 
-/* aparece no hover */
 .video-card:hover .play {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
 
 /* ===========================
-   INFO (TITLE + CHANNEL)
+   INFO OVERLAY
 =========================== */
 
 .video-card .info {
@@ -435,27 +448,21 @@ body {
   left: 0;
   width: 100%;
 
-  padding: 14px 16px 16px;
-
-  background: linear-gradient(
-    to top,
-    rgba(10,5,20,.98) 0%,
-    rgba(10,5,20,.85) 50%,
-    rgba(10,5,20,0) 100%
-  );
+  padding: 16px;
 
   z-index: 2;
 
+  transform: translateY(6px);
   transition: transform .3s ease;
 }
 
 .video-card:hover .info {
-  transform: translateY(-2px);
+  transform: translateY(0);
 }
 
 /* título */
 .video-card .info h3 {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   color: white;
 
@@ -467,24 +474,8 @@ body {
 /* canal */
 .video-card .info span {
   font-size: 13px;
-  color: #bdbdbd;
+  color: rgba(255,255,255,.7);
 }
-
-/* ===========================
-   HOVER PREMIUM EFFECT
-=========================== */
-
-.video-card:hover {
-  transform: translateY(-8px);
-
-  box-shadow:
-    0 25px 60px rgba(0,0,0,.7),
-    0 0 0 1px rgba(255,255,255,.06),
-    0 0 35px rgba(124,58,237,.35);
-}
-
-
-
 
 
 .categories-grid {
