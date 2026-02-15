@@ -5,41 +5,47 @@
     "channel": "RicFazeres",
     "page": "gaming",
     "date": "2026-02-13"
+    "featured": false
   },
 {
     "id": "oz8zRwth3Ko",
     "title": "PRIMEIRA HORA DO NOVO JOGO HYTALE!",
     "channel": "Clips do Tiagovski",
     "page": "gaming",
-    "date": "2026-02-14"
+    "date": "2026-02-14",
+    "featured": false
   },
 {
     "id": "6McOPj5-jRY",
     "title": "UMA RONDA QUASE ACABOU COM O JOGO…",
     "channel": "Runah",
     "page": "gaming",
-    "date": "2026-02-14"
+    "date": "2026-02-14",
+     "featured": false
   },
  {
     "id": "Ln-iL9k9fEA",
     "title": "NÃO PAGUEI AS CONTAS DA LUZ 😦",
     "channel": "Clips do Alexandre Santos",
     "page": "gaming",
-    "date": "2026-02-14"
+    "date": "2026-02-14",
+    "featured": false
   },
  {
     "id": "7mBs4oLCkuo",
     "title": "EXPERIMENTEI O NOVO PUBG: BLINDSPOT",
     "channel": "Tji Gaming",
     "page": "gaming",
-    "date": "2026-02-14"
+    "date": "2026-02-14",
+     "featured": false
   },
  {
     "id": "-l1uQfw62b0",
     "title": "CRIME SIMULATOR #2 A FOMOS PRESOS PELA POLICIA...",
     "channel": "Clips do Tiagovski",
     "page": "gaming",
-    "date": "2026-02-14"
+    "date": "2026-02-14",
+    "featured": false
   },
  {
     "id": "ymwtawaxXXE",
@@ -47,13 +53,15 @@
     "channel": "RicFazeres",
     "page": "gaming",
     "date": "2026-02-14"
+    "featured": false,
   },
  {
     "id": "_qhs6O6G3Yg",
     "title": "PARTIMOS A LOHSE TODA! (DIVINITY OS 2)",
     "channel": "Tji Gaming",
     "page": "gaming",
-    "date": "2026-02-14"
+    "date": "2026-02-14",
+    "featured": false
   },
 
   {
@@ -61,7 +69,8 @@
     "title": "AS MAIORES PÉROLAS DO OLX PORTUGAL",
     "channel": "Clips do Wuant",
     "page": "react",
-    "date": "2026-02-14"
+    "date": "2026-02-14",
+     "featured": false
   },
 
   {
@@ -69,7 +78,8 @@
     "title": "A FUGA MAIS CURTA DE SEMPRE! | RIC REAGE",
     "channel": "Clips do RicFazeres",
     "page": "react",
-    "date": "2026-02-14"
+    "date": "2026-02-14",
+     "featured": false
   },
 
    {
@@ -77,7 +87,8 @@
     "title": "JAMIEDRAKE REAGE A INFLUENCER EXPÕE NUMEIRO?! WINDOH ESCLARECE OS SEUS NEGÓCIOS!",
     "channel": "Clips do JamieDrake",
     "page": "react",
-    "date": "2026-02-14"
+    "date": "2026-02-14",
+    "featured": false
   },
 
   {
@@ -85,7 +96,8 @@
     "title": "WINDOH REAGE AOS MAIORES RAGES DA TWITCH PORTUGAL!",
     "channel": "Mais do Windoh",
     "page": "react",
-    "date": "2026-02-14"
+    "date": "2026-02-14",
+    "featured": false
   },
 
   {
@@ -93,7 +105,8 @@
     "title": "REAGINDO A MEU VÍDEO ANTIGO DO MEU PERCUSO TODO NO YOUTUBE",
     "channel": "Clips do Alexandre Santos",
     "page": "react",
-    "date": "2026-02-14"
+    "date": "2026-02-14",
+    "featured": false
   },
 
   {
@@ -101,7 +114,8 @@
     "title": "WINDOH REAGE À EQUIPA DE FUTEBOL MAIS MALUCA DE PORTUGAL!",
     "channel": "Mais do Windoh",
     "page": "react",
-    "date": "2026-02-14"
+    "date": "2026-02-14",
+    "featured": false
   },
 
   {
@@ -109,7 +123,8 @@
     "title": "Por Dentro dos Servidores Ilegais de Droga do Discord...",
     "channel": "Clips do Wuant",
     "page": "react",
-    "date": "2026-02-14"
+    "date": "2026-02-14",
+    "featured": false
   },
 
   {
@@ -117,7 +132,8 @@
     "title": "WINDOH REAGE A MOMENTOS 0 0001% NO CS! 😱",
     "channel": "Mais do Windoh",
     "page": "react",
-    "date": "2026-02-14"
+    "date": "2026-02-14",
+    "featured": false
   }
   
 ]
