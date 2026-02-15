@@ -57,7 +57,11 @@ function loadHomeVideos() {
         </div>
       `).join("");
 
-      document.querySelectorAll(".video-slide").forEach(slide => {
+
+      // thumbnails
+      const slides = document.querySelectorAll(".video-slide");
+
+      slides.forEach(slide => {
 
         const id = slide.dataset.id;
         const img = slide.querySelector("img");
@@ -91,80 +95,82 @@ function loadHomeVideos() {
         </div>
       `).join("");
 
+
+      // =========================
+      // CAROUSEL (AGORA NO SÍTIO CERTO)
+      // =========================
+
+      const track = document.getElementById("videoTrack");
+      const dotsContainer = document.getElementById("carouselDots");
+
+      let index = 0;
+      let autoplayInterval;
+
+
+      // DOTS
+      dotsContainer.innerHTML = "";
+
+      slides.forEach((_, i) => {
+
+        const dot = document.createElement("span");
+
+        dot.onclick = () => {
+          index = i;
+          updateCarousel();
+        };
+
+        dotsContainer.appendChild(dot);
+
+      });
+
+
+      function updateCarousel() {
+
+        track.style.transform = `translateX(-${index * 100}%)`;
+
+        const dots = dotsContainer.querySelectorAll("span");
+
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
+
+      }
+
+
+      // BOTÕES
+      document.querySelector(".video-btn.right").onclick = () => {
+        index = (index + 1) % slides.length;
+        updateCarousel();
+      };
+
+      document.querySelector(".video-btn.left").onclick = () => {
+        index = (index - 1 + slides.length) % slides.length;
+        updateCarousel();
+      };
+
+
+      // AUTOPLAY
+      function startAutoplay() {
+
+        clearInterval(autoplayInterval);
+
+        autoplayInterval = setInterval(() => {
+
+          index = (index + 1) % slides.length;
+
+          updateCarousel();
+
+        }, 4000);
+
+      }
+
+
+      updateCarousel();
+      startAutoplay();
+
     });
 
-  // recriar variáveis do carousel
-const track = document.getElementById("videoTrack");
-const slides = document.querySelectorAll(".video-slide");
-const dotsContainer = document.getElementById("carouselDots");
-
-let index = 0;
-let autoplayInterval = null;
-let autoplayEnabled = true;
-
-
-// DOTS
-dotsContainer.innerHTML = "";
-
-slides.forEach((_, i) => {
-
-  const dot = document.createElement("span");
-
-  dot.addEventListener("click", () => {
-    index = i;
-    updateCarousel();
-  });
-
-  dotsContainer.appendChild(dot);
-
-});
-
-
-// UPDATE
-function updateCarousel() {
-
-  track.style.transform = `translateX(-${index * 100}%)`;
-
-  const dots = dotsContainer.querySelectorAll("span");
-
-  dots.forEach((dot, i) => {
-    dot.classList.toggle("active", i === index);
-  });
-
 }
 
-
-// BOTÕES
-document.querySelector(".video-btn.right").onclick = () => {
-  index = (index + 1) % slides.length;
-  updateCarousel();
-};
-
-document.querySelector(".video-btn.left").onclick = () => {
-  index = (index - 1 + slides.length) % slides.length;
-  updateCarousel();
-};
-
-
-// AUTOPLAY
-function startAutoplay() {
-
-  clearInterval(autoplayInterval);
-
-  autoplayInterval = setInterval(() => {
-
-    index = (index + 1) % slides.length;
-
-    updateCarousel();
-
-  }, 4000);
-
-}
-
-startAutoplay();
-updateCarousel();
-
-
-}
 
 
