@@ -130,7 +130,10 @@ body {
   transition: all .25s ease;
 }
 
-
+.video-slide:hover .hero-play-center {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: linear-gradient(135deg,#7c3aed,#facc15);
+}
 
 
 .hero-card {
@@ -213,33 +216,28 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .video-window {
-  width: 100%;
-  margin: auto;
+  width: 70%;
   overflow: hidden;
-  position: relative;
-  border-radius: 18px;
+  margin: auto;
 }
 
 .video-track {
   display: flex;
-  width: 100%;
   transition: transform 0.5s ease;
 }
 
 .video-slide {
-  flex: 0 0 100%;
-  width: 100%;
-  max-width: 100%;
-  position: relative;
+  min-width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: 18px;
   overflow: hidden;
   background: black;
   box-shadow: 0 20px 60px rgba(0,0,0,.6);
+  position: relative;
 }
 
 .video-slide iframe {
