@@ -33,3 +33,205 @@ function loadVideos(pageName, containerId) {
     });
 }
 
+function loadVideos(pageName, containerId) {
+
+  fetch("videos.json")
+    .then(res => res.json())
+    .then(videos => {
+
+      const filtered = videos.filter(video =>
+        video.page === pageName
+      );
+
+      const container = document.getElementById(containerId);
+
+      if (filtered.length === 0) {
+        container.innerHTML = "<p>Sem vídeos ainda 😅</p>";
+        return;
+      }
+
+      filtered.forEach(video => {
+        container.innerHTML += `
+          <a href="#" class="video-card" data-id="${video.id}">
+            <div class="thumb">
+              <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg">
+              <span class="play">▶</span>
+            </div>
+            <div class="info">
+              <h3>${video.title}</h3>
+              <span>${video.channel}</span>
+            </div>
+          </a>
+        `;
+      });
+
+    });
+}
+
+function loadHome() {
+
+  fetch("videos.json")
+    .then(res => res.json())
+    .then(videos => {
+
+      // ====================
+      // HERO
+      // ====================
+
+      const heroTrack = document.getElementById("videoTrack");
+
+      const featured = videos.filter(v => v.featured);
+
+      if (featured.length === 0) {
+        heroTrack.innerHTML = "<p>Sem vídeos em destaque</p>";
+        return;
+      }
+
+      heroTrack.innerHTML = featured.map(video => `
+        <div class="video-slide" data-id="${video.id}">
+          <img class="hero-thumb"
+               src="https://img.youtube.com/vi/${video.id}/maxresdefault.jpg">
+          <div class="hero-overlay">
+            <div class="hero-play hero-play-center">▶</div>
+            <div class="hero-info">
+              <h2>${video.title}</h2>
+              <span>${video.channel}</span>
+            </div>
+          </div>
+        </div>
+      `).join("");
+
+
+      // ====================
+      // CAROUSEL
+      // ====================
+
+      const slides = document.querySelectorAll(".video-slide");
+      const track = document.getElementById("videoTrack");
+      const dotsContainer = document.getElementById("carouselDots");
+
+      let index = 0;
+      let interval;
+
+      function updateCarousel() {
+
+        track.style.transform =
+          `translateX(-${index * 100}%)`;
+
+        dotsContainer
+          .querySelectorAll("span")
+          .forEach((dot, i) => {
+            dot.classList.toggle("active", i === index);
+          });
+
+      }
+
+      function startAutoplay() {
+
+        clearInterval(interval);
+
+        interval = setInterval(() => {
+
+          index = (index + 1) % slides.length;
+
+          updateCarousel();
+
+        }, 4000);
+
+      }
+
+
+      // DOTS
+      dotsContainer.innerHTML = "";
+
+      slides.forEach((slide, i) => {
+
+        const dot = document.createElement("span");
+
+        dot.onclick = () => {
+
+          index = i;
+          updateCarousel();
+
+        };
+
+        dotsContainer.appendChild(dot);
+
+
+        // CLICK HERO → abrir modal
+        slide.onclick = () => {
+
+          const videoId = slide.dataset.id;
+
+          const modal = document.getElementById("videoModal");
+          const frame = document.getElementById("videoFrame");
+          const youtubeLink = document.getElementById("youtubeLink");
+
+          frame.src =
+            `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+          youtubeLink.href =
+            `https://www.youtube.com/watch?v=${videoId}`;
+
+          modal.classList.add("open");
+
+        };
+
+      });
+
+
+      // BOTÕES
+      document.querySelector(".video-btn.right").onclick = () => {
+
+        index = (index + 1) % slides.length;
+
+        updateCarousel();
+
+      };
+
+      document.querySelector(".video-btn.left").onclick = () => {
+
+        index = (index - 1 + slides.length) % slides.length;
+
+        updateCarousel();
+
+      };
+
+
+      startAutoplay();
+
+      updateCarousel();
+
+
+      // ====================
+      // ÚLTIMOS VIDEOS
+      // ====================
+
+      const latestContainer =
+        document.getElementById("latestVideos");
+
+      const latest = videos
+        .sort((a,b) =>
+          new Date(b.date) - new Date(a.date))
+        .slice(0, 6);
+
+      latestContainer.innerHTML = latest.map(video => `
+        <div class="video-card" data-video="${video.id}">
+          <div class="thumb">
+            <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg">
+            <span class="play">▶</span>
+          </div>
+          <div class="info">
+            <h3>${video.title}</h3>
+            <span>${video.channel}</span>
+          </div>
+        </div>
+      `).join("");
+
+    });
+
+}
+
+
+
+
