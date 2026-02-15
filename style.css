@@ -316,78 +316,92 @@ body {
   gap: 20px;
 }
 
+/* ===========================
+   VIDEO CARD PREMIUM
+=========================== */
+
 .video-card {
   position: relative;
   border-radius: 18px;
   overflow: hidden;
-  background: #140c24;
-  transition: transform .25s ease, box-shadow .25s ease;
   cursor: pointer;
+  background: #140c24;
+
+  transition:
+    transform .3s cubic-bezier(.16,1,.3,1),
+    box-shadow .3s cubic-bezier(.16,1,.3,1);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.4);
+
   isolation: isolate;
 }
 
-/* HOVER PREMIUM */
-.video-card:hover {
-  transform: translateY(-8px) scale(1.025);
+/* ===========================
+   THUMBNAIL
+=========================== */
 
-  box-shadow:
-    0 20px 50px rgba(0,0,0,.7),
-    0 0 0 1px rgba(255,255,255,.06),
-    0 0 25px rgba(124,58,237,.35);
-}
-
-
-/* THUMB container */
 .video-card .thumb {
   position: relative;
   overflow: hidden;
 }
 
-/* IMAGEM */
-.video-card img {
+.video-card .thumb img {
   width: 100%;
+  height: auto;
   display: block;
-  transition: transform .4s ease;
+
+  transition: transform .5s cubic-bezier(.16,1,.3,1);
 }
 
-.video-card:hover img {
-  transform: scale(1.1);
+/* zoom suave */
+.video-card:hover .thumb img {
+  transform: scale(1.08);
 }
 
-/* OVERLAY ESCURO */
+/* overlay cinematic */
 .video-card .thumb::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,.6), transparent);
-  opacity: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.75) 0%,
+    rgba(0,0,0,.4) 40%,
+    rgba(0,0,0,0) 70%
+  );
+
+  opacity: .6;
   transition: opacity .3s ease;
 }
 
 .video-card:hover .thumb::after {
-  opacity: 1;
+  opacity: .9;
 }
 
-.video-card .thumb {
-  position: relative;
-  border-radius: 18px;
-  overflow: hidden;
-}
+/* ===========================
+   PLAY BUTTON PREMIUM
+=========================== */
 
-/* BOTÃO PLAY */
 .video-card .play {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(.8);
+
+  transform: translate(-50%, -50%) scale(.85);
 
   width: 64px;
   height: 64px;
 
   border-radius: 50%;
-  background: rgba(15,10,30,.7);
 
-  backdrop-filter: blur(10px);
+  background:
+    radial-gradient(
+      circle,
+      rgba(124,58,237,.95),
+      rgba(91,33,182,.95)
+    );
 
   display: flex;
   align-items: center;
@@ -396,42 +410,79 @@ body {
   font-size: 26px;
   color: white;
 
+  box-shadow:
+    0 0 25px rgba(124,58,237,.6),
+    inset 0 0 10px rgba(255,255,255,.2);
+
   opacity: 0;
 
-  transition: all .25s cubic-bezier(.16,1,.3,1);
+  transition: all .3s cubic-bezier(.16,1,.3,1);
 }
 
+/* aparece no hover */
 .video-card:hover .play {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
 
+/* ===========================
+   INFO (TITLE + CHANNEL)
+=========================== */
 
 .video-card .info {
   position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
+  width: 100%;
 
-  padding: 18px 16px 14px;
+  padding: 14px 16px 16px;
 
   background: linear-gradient(
     to top,
-    rgba(10,5,20,.95),
-    rgba(10,5,20,.7),
-    transparent
+    rgba(10,5,20,.98) 0%,
+    rgba(10,5,20,.85) 50%,
+    rgba(10,5,20,0) 100%
   );
 
-  transform: translateY(10px);
-  opacity: .9;
+  z-index: 2;
 
-  transition: all .3s ease;
+  transition: transform .3s ease;
 }
 
 .video-card:hover .info {
-  transform: translateY(0);
-  opacity: 1;
+  transform: translateY(-2px);
 }
+
+/* título */
+.video-card .info h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+
+  margin: 0 0 4px 0;
+
+  line-height: 1.3;
+}
+
+/* canal */
+.video-card .info span {
+  font-size: 13px;
+  color: #bdbdbd;
+}
+
+/* ===========================
+   HOVER PREMIUM EFFECT
+=========================== */
+
+.video-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.7),
+    0 0 0 1px rgba(255,255,255,.06),
+    0 0 35px rgba(124,58,237,.35);
+}
+
 
 
 
