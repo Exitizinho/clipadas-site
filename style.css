@@ -218,8 +218,9 @@ body {
 
 .video-window {
   width: 70%;
-  overflow: hidden;
   margin: auto;
+  overflow: hidden;
+  position: relative;
 }
 
 .video-track {
@@ -229,14 +230,15 @@ body {
 }
 
 .video-slide {
-  min-width: 100%;
   flex: 0 0 100%;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
   aspect-ratio: 16 / 9;
   border-radius: 18px;
   overflow: hidden;
   background: black;
   box-shadow: 0 20px 60px rgba(0,0,0,.6);
-  position: relative;
 }
 
 .video-slide iframe {
