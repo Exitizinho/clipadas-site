@@ -66,10 +66,11 @@ slides.forEach(slide => {
   });
 
   slide.addEventListener("mouseleave", () => {
-    if (autoplayEnabled) startAutoplay();
+    startAutoplay();
   });
 
 });
+
 
 // ---------------- BOTÕES ----------------
 nextBtn.addEventListener("click", () => {
