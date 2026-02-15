@@ -135,5 +135,26 @@ function closeModal() {
   frame.src = "";
 }
 
+  slides.forEach(slide => {
+
+  slide.addEventListener("click", () => {
+
+    const videoId = slide.dataset.id;
+
+    const modal = document.getElementById("videoModal");
+    const frame = document.getElementById("videoFrame");
+
+    frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+    modal.classList.add("open");
+
+    autoplayEnabled = false;
+    stopAutoplay();
+
+  });
+
+});
+
+
 });
 
