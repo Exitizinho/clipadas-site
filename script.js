@@ -135,16 +135,15 @@ function closeModal() {
   frame.src = "";
 }
 
-  slides.forEach(slide => {
+ slides.forEach(slide => {
 
   slide.addEventListener("click", () => {
 
     const videoId = slide.dataset.id;
 
-    const modal = document.getElementById("videoModal");
-    const frame = document.getElementById("videoFrame");
-
     frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+    youtubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
 
     modal.classList.add("open");
 
@@ -154,6 +153,24 @@ function closeModal() {
   });
 
 });
+
+
+  // thumbnails hero em qualidade máxima com fallback
+slides.forEach(slide => {
+
+  const id = slide.dataset.id;
+  const img = slide.querySelector("img");
+
+  if (!img) return;
+
+  img.src = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+
+  img.onerror = () => {
+    img.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+  };
+
+});
+
 
 
 });
