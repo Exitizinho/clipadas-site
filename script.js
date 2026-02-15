@@ -212,6 +212,31 @@ slides.forEach(slide => {
         </div>
       `).join("");
 
+      // atualizar slides depois de criar
+const slides = document.querySelectorAll(".video-slide");
+
+// tornar clicável
+slides.forEach(slide => {
+  slide.addEventListener("click", () => {
+    const videoId = slide.dataset.id;
+    frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    youtubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+    modal.classList.add("open");
+
+    autoplayEnabled = false;
+    stopAutoplay();
+  });
+});
+
+// recriar dots
+createDots();
+
+// reiniciar carousel
+index = 0;
+updateCarousel();
+startAutoplay();
+
+
       // thumbnails hero
       document.querySelectorAll(".video-slide").forEach(slide => {
 
