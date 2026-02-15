@@ -323,6 +323,7 @@ body {
   background: #140c24;
   transition: transform .25s ease, box-shadow .25s ease;
   cursor: pointer;
+  isolation: isolate;
 }
 
 /* HOVER PREMIUM */
