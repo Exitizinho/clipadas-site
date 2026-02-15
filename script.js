@@ -180,19 +180,14 @@ slides.forEach(slide => {
 });
 
  document.addEventListener("DOMContentLoaded", () => {
-
   const modal = document.getElementById("videoModal");
   const frame = document.getElementById("videoFrame");
   const youtubeLink = document.getElementById("youtubeLink");
-
   fetch("videos.json")
     .then(res => res.json())
     .then(videos => {
-
       const heroTrack = document.getElementById("videoTrack");
-
       const featuredVideos = videos.filter(v => v.featured);
-
       heroTrack.innerHTML = featuredVideos.map(video => `
         <div class="video-slide" data-id="${video.id}">
           <img class="hero-thumb">
@@ -205,54 +200,26 @@ slides.forEach(slide => {
           </div>
         </div>
       `).join("");
-
-
-      // MUITO IMPORTANTE: voltar a selecionar slides depois de criar
-      slides = document.querySelectorAll(".video-slide");
-
-
-      // thumbnails + click + hover
+      const slides = document.querySelectorAll(".video-slide");
+      // thumbnails
       slides.forEach(slide => {
-
         const id = slide.dataset.id;
         const img = slide.querySelector("img");
-
         img.src = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
-
         img.onerror = () => {
           img.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
         };
-
-        slide.addEventListener("click", () => {
-
-          frame.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
-
-          youtubeLink.href = `https://www.youtube.com/watch?v=${id}`;
-
-          modal.classList.add("open");
-
-          autoplayEnabled = false;
-          stopAutoplay();
-
-        });
-
-        slide.addEventListener("mouseenter", stopAutoplay);
-
-        slide.addEventListener("mouseleave", () => {
-          if (autoplayEnabled) startAutoplay();
-        });
-
       });
-
-
-      // recriar dots e reiniciar carousel
-      createDots();
-      index = 0;
-      updateCarousel();
-      startAutoplay();
-
+      // CLICK
+      slides.forEach(slide => {
+        slide.addEventListener("click", () => {
+          const videoId = slide.dataset.id;
+          frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+          youtubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+          modal.classList.add("open");
+        });
+      });
     });
-
 });
 
 
