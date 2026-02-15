@@ -130,10 +130,7 @@ body {
   transition: all .25s ease;
 }
 
-.video-slide:hover .hero-play-center {
-  transform: translate(-50%, -50%) scale(1.1);
-  background: linear-gradient(135deg,#7c3aed,#facc15);
-}
+
 
 
 .hero-card {
@@ -227,11 +224,13 @@ body {
 
 .video-track {
   display: flex;
+  width: 100%;
   transition: transform 0.5s ease;
 }
 
 .video-slide {
   min-width: 100%;
+  flex: 0 0 100%;
   aspect-ratio: 16 / 9;
   border-radius: 18px;
   overflow: hidden;
