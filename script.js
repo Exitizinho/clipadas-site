@@ -200,7 +200,8 @@ slides.forEach(slide => {
           </div>
         </div>
       `).join("");
-      const slides = document.querySelectorAll(".video-slide");
+     
+      slides = document.querySelectorAll(".video-slide");
       // thumbnails
       slides.forEach(slide => {
         const id = slide.dataset.id;
