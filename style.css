@@ -213,14 +213,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 16px;
 }
 
 .video-window {
-  width: 70%;
+  width: 100%;
   margin: auto;
   overflow: hidden;
   position: relative;
+  border-radius: 18px;
 }
 
 .video-track {
