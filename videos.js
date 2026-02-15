@@ -252,7 +252,7 @@ document.querySelectorAll("#latestVideos .video-card")
 
 });
 
-
-
+    });
+} 
 
 
