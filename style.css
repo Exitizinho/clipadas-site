@@ -410,8 +410,9 @@ body {
   margin-bottom: 6px;
 }
 
-.video-card span {
+.video-card .info span {
   font-size: 13px;
+  color: #bdbdbd;
 }
 
 /* ========================= */
