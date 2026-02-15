@@ -72,6 +72,28 @@ function loadHomeVideos() {
           img.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
         };
 
+        // CLICK NOS SLIDES (ABRIR MODAL)
+slides.forEach(slide => {
+
+  slide.addEventListener("click", () => {
+
+    const videoId = slide.dataset.id;
+
+    const modal = document.getElementById("videoModal");
+    const frame = document.getElementById("videoFrame");
+    const youtubeLink = document.getElementById("youtubeLink");
+
+    frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+    youtubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+
+    modal.classList.add("open");
+
+  });
+
+});
+
+
       });
 
 
