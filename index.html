@@ -37,35 +37,96 @@
 
     <!-- HERO CAROUSEL -->
     <section class="home-video-carousel">
-      <button class="video-btn left"><span>❮</span></button>
-      <div class="video-window">
-        <div class="video-track" id="videoTrack">
 
-          <div class="video-slide">
-            <iframe src="https://www.youtube.com/embed/AY4Eu-YMToA?enablejsapi=1"
-              allow="autoplay; encrypted-media"
-              allowfullscreen>
-            </iframe>
-          </div>
+  <!-- BOTÃO ESQUERDA -->
+  <button class="video-btn left">
+    <span>❮</span>
+  </button>
 
-          <div class="video-slide">
-            <iframe src="https://www.youtube.com/embed/HpKU_NJvnpk?enablejsapi=1"
-              allow="autoplay; encrypted-media"
-              allowfullscreen>
-            </iframe>
-          </div>
+  <!-- WINDOW -->
+  <div class="video-window">
 
-          <div class="video-slide">
-            <iframe src="https://www.youtube.com/embed/LIyUG21mhLs?enablejsapi=1"
-              allow="autoplay; encrypted-media"
-              allowfullscreen>
-            </iframe>
+    <div class="video-track" id="videoTrack">
+
+      <!-- VIDEO 1 -->
+      <div class="video-slide" data-id="AY4Eu-YMToA">
+
+        <img
+          src="https://img.youtube.com/vi/AY4Eu-YMToA/maxresdefault.jpg"
+          class="hero-thumb"
+          alt="Video thumbnail"
+        >
+
+        <div class="hero-overlay">
+
+          <div class="hero-play">▶</div>
+
+          <div class="hero-info">
+            <h2>Título do vídeo 1</h2>
+            <span>Nome do canal</span>
           </div>
 
         </div>
+
       </div>
-      <button class="video-btn right"><span>❯</span></button>
-    </section>
+
+      <!-- VIDEO 2 -->
+      <div class="video-slide" data-id="HpKU_NJvnpk">
+
+        <img
+          src="https://img.youtube.com/vi/HpKU_NJvnpk/maxresdefault.jpg"
+          class="hero-thumb"
+          alt="Video thumbnail"
+        >
+
+        <div class="hero-overlay">
+
+          <div class="hero-play">▶</div>
+
+          <div class="hero-info">
+            <h2>Day in the Life of a Senior Software Engineer</h2>
+            <span>Canal exemplo</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- VIDEO 3 -->
+      <div class="video-slide" data-id="LIyUG21mhLs">
+
+        <img
+          src="https://img.youtube.com/vi/LIyUG21mhLs/maxresdefault.jpg"
+          class="hero-thumb"
+          alt="Video thumbnail"
+        >
+
+        <div class="hero-overlay">
+
+          <div class="hero-play">▶</div>
+
+          <div class="hero-info">
+            <h2>Título do vídeo 3</h2>
+            <span>Canal exemplo</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- BOTÃO DIREITA -->
+  <button class="video-btn right">
+    <span>❯</span>
+  </button>
+
+</section>
+
+<!-- DOTS -->
+<div class="carousel-dots" id="carouselDots"></div>
 
     <div class="carousel-dots" id="carouselDots"></div>
 
