@@ -60,10 +60,15 @@ function stopAllVideos() {
 
 // ⚠️ DETETAR PLAY REAL (mouse em cima do iframe)
 slides.forEach(slide => {
+
   slide.addEventListener("mouseenter", () => {
-    autoplayEnabled = false;
     stopAutoplay();
   });
+
+  slide.addEventListener("mouseleave", () => {
+    if (autoplayEnabled) startAutoplay();
+  });
+
 });
 
 // ---------------- BOTÕES ----------------
