@@ -139,6 +139,8 @@ document.addEventListener("keydown", function (e) {
 function closeModal() {
   modal.classList.remove("open");
   frame.src = "";
+  autoplayEnabled = true;
+  startAutoplay(); 
 }
 
  slides.forEach(slide => {
