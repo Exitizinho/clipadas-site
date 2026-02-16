@@ -662,17 +662,15 @@ body {
 
 @media (max-width: 768px) {
 
-  body.home-page .sidebar-header {
+  body.home-page .logo {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
 }
 
-  body.home-page .sidebar-header img {
-  display: block;
+body.home-page .logo img {
   margin: 0 auto;
 }
+ 
 
   /* layout só na HOME */
   body.home-page .layout {
