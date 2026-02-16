@@ -131,7 +131,7 @@ body {
 }
 
 .video-slide:hover .hero-play-center {
-  transform: translate(-50%, -50%) scale(1.1);
+  transform: translate(-50%, -50%) scale(1.15);
   background: linear-gradient(135deg,#7c3aed,#facc15);
 }
 
@@ -238,6 +238,11 @@ body {
   background: black;
   box-shadow: 0 20px 60px rgba(0,0,0,.6);
   position: relative;
+  cursor: pointer;
+}
+
+.video-slide .hero-play {
+  cursor: pointer;
 }
 
 .video-slide iframe {
@@ -358,6 +363,7 @@ body {
   overflow: hidden;
   background: black;
   box-shadow: 0 15px 40px rgba(0,0,0,.6);
+  cursor: pointer;
 }
 
 .video-card iframe {
@@ -432,10 +438,12 @@ body {
   background: rgba(0,0,0,0.35);
   opacity: 0;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .video-card:hover .play {
   opacity: 1;
+  transform: scale(1.15);
 }
 
 .video-card .info {
