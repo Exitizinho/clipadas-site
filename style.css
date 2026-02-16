@@ -123,9 +123,6 @@ body {
   align-items: center;
   justify-content: center;
 
-  font-size: 36px;
-  color: white;
-
   background: rgba(0,0,0,.55);
   backdrop-filter: blur(12px);
 
@@ -136,6 +133,19 @@ body {
   transition: all .25s ease;
 }
 
+/* ÍCONE PLAY */
+.hero-play-center span {
+
+  font-size: 36px;
+  color: white;
+
+  display: block;
+
+  transform: translateX(3px); /* ← correção perfeita de centramento */
+
+}
+
+/* HOVER */
 .video-slide:hover .hero-play-center {
 
   transform: translate(-50%, -50%) scale(1.15);
@@ -147,6 +157,7 @@ body {
   );
 
 }
+
 
 
 
