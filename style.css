@@ -237,7 +237,8 @@ body {
 
 .video-window {
   width: 100%;
-  max-width: 950px;
+  max-width: 780px; /* ← tamanho ideal */
+  margin: 0 auto;
   overflow: hidden;
   border-radius: 22px;
   position: relative;
