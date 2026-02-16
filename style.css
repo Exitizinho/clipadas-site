@@ -662,16 +662,6 @@ body {
 
 @media (max-width: 768px) {
 
-  body.home-page .logo {
-  display: flex;
-  justify-content: center;
-}
-
-body.home-page .logo img {
-  margin: 0 auto;
-}
- 
-
   /* layout só na HOME */
   body.home-page .layout {
     flex-direction: column;
