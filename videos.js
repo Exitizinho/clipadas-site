@@ -253,6 +253,56 @@ document.querySelectorAll("#latestVideos .video-card")
 
 });
 
+      // ====================
+// TRENDING VIDEOS
+// ====================
+
+const trendingContainer =
+  document.getElementById("trendingVideos");
+
+const trending = videos
+  .filter(v => v.trending)
+  .slice(0, 6);
+
+trendingContainer.innerHTML = trending.map(video => `
+  <div class="video-card" data-video="${video.id}">
+    <div class="thumb">
+      <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg">
+      <span class="play">▶</span>
+    </div>
+    <div class="info">
+      <h3>${video.title}</h3>
+      <span>${video.channel}</span>
+    </div>
+  </div>
+`).join("");
+
+
+// CLICK TRENDING
+document.querySelectorAll("#trendingVideos .video-card")
+.forEach(card => {
+
+  card.addEventListener("click", () => {
+
+    const videoId = card.dataset.video;
+
+    const modal = document.getElementById("videoModal");
+    const frame = document.getElementById("videoFrame");
+    const youtubeLink = document.getElementById("youtubeLink");
+
+    frame.src =
+      `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+    youtubeLink.href =
+      `https://www.youtube.com/watch?v=${videoId}`;
+
+    modal.classList.add("open");
+
+  });
+
+});
+
+
     });
 } 
 
