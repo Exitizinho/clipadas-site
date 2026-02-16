@@ -211,6 +211,7 @@ function loadHome() {
         document.getElementById("latestVideos");
 
       const latest = videos
+        .filter(v => !v.featured)
         .sort((a,b) =>
           new Date(b.date) - new Date(a.date))
         .slice(0, 6);
