@@ -5,7 +5,8 @@
     "channel": "RicFazeres",
     "page": "gaming",
     "date": "2026-02-13",
-    "featured": false
+    "featured": false,
+    "trending": false
   },
 {
     "id": "DnlY-hU0dZM",
@@ -13,7 +14,8 @@
     "channel": "Clips do Tiagovski",
     "page": "gaming",
     "date": "2026-02-16",
-    "featured": false
+    "featured": false,
+    "trending": false
   },
 {
     "id": "6McOPj5-jRY",
@@ -21,7 +23,8 @@
     "channel": "Runah",
     "page": "gaming",
     "date": "2026-02-14",
-    "featured": false
+    "featured": false,
+    "trending": false
   },
  {
     "id": "Ln-iL9k9fEA",
@@ -29,7 +32,8 @@
     "channel": "Clips do Alexandre Santos",
     "page": "gaming",
     "date": "2026-02-14",
-    "featured": false
+    "featured": false,
+    "trending": false
   },
  {
     "id": "7mBs4oLCkuo",
@@ -37,7 +41,8 @@
     "channel": "Tji Gaming",
     "page": "gaming",
     "date": "2026-02-14",
-    "featured": false
+    "featured": false,
+    "trending": false
   },
  {
     "id": "-l1uQfw62b0",
@@ -45,7 +50,8 @@
     "channel": "Clips do Tiagovski",
     "page": "gaming",
     "date": "2026-02-14",
-    "featured": false
+    "featured": false,
+    "trending": false
   },
  {
     "id": "ymwtawaxXXE",
@@ -53,7 +59,8 @@
     "channel": "RicFazeres",
     "page": "gaming",
     "date": "2026-02-14",
-    "featured": false
+    "featured": false,
+    "trending": false
   },
  {
     "id": "_qhs6O6G3Yg",
@@ -61,7 +68,8 @@
     "channel": "Tji Gaming",
     "page": "gaming",
     "date": "2026-02-14",
-    "featured": false
+    "featured": false,
+    "trending": false
   },
 
   {
@@ -70,7 +78,8 @@
     "channel": "Clips do Wuant",
     "page": "react",
     "date": "2026-02-14",
-    "featured": false
+    "featured": false,
+    "trending": false
   },
 
   {
@@ -79,7 +88,8 @@
     "channel": "Clips do RicFazeres",
     "page": "react",
     "date": "2026-02-14",
-    "featured": false
+    "featured": false,
+    "trending": false
   },
 
    {
@@ -88,7 +98,8 @@
     "channel": "Clips do JamieDrake",
     "page": "react",
     "date": "2026-02-14",
-     "featured": false
+    "featured": false,
+    "trending": false
   },
 
   {
@@ -97,7 +108,8 @@
     "channel": "Mais do Windoh",
     "page": "react",
     "date": "2026-02-14",
-    "featured": false
+    "featured": false,
+    "trending": false
   },
 
   {
@@ -106,7 +118,8 @@
     "channel": "Clips do Alexandre Santos",
     "page": "react",
     "date": "2026-02-14",
-    "featured": false
+    "featured": false,
+    "trending": false
   },
 
   {
@@ -115,7 +128,8 @@
     "channel": "Mais do Windoh",
     "page": "react",
     "date": "2026-02-14",
-    "featured": false
+    "featured": false,
+    "trending": false
   },
 
   {
@@ -124,7 +138,8 @@
     "channel": "Clips do Wuant",
     "page": "react",
     "date": "2026-02-14",
-    "featured": false
+    "featured": false,
+    "trending": false
   },
 
   {
@@ -133,7 +148,8 @@
     "channel": "Mais do Windoh",
     "page": "react",
     "date": "2026-02-14",
-    "featured": false
+    "featured": false,
+    "trending": false
   },
 
   {
@@ -142,7 +158,8 @@
   "channel": ".",
   "page": "home",
   "date": "2026-02-15",
-  "featured": true
+  "featured": true,
+  "trending": false
 },
 
   {
@@ -151,7 +168,8 @@
   "channel": ".",
   "page": "home",
   "date": "2026-02-15",
-  "featured": true
+  "featured": true,
+  "trending": false
 },
 
    {
@@ -160,7 +178,8 @@
   "channel": ".",
   "page": "home",
   "date": "2026-02-15",
-  "featured": true
+  "featured": true,
+  "trending": false
 }
 
   
