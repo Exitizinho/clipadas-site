@@ -671,13 +671,17 @@ body {
   body.home-page .sidebar {
     position: relative;
     width: 100%;
+    display: flex;
     padding: 14px 12px;
+    justify-content: center;
     background: linear-gradient(180deg, #140b25, #0b0713);
     overflow: hidden;
-    display: flex;
     flex-direction: column;
-    align-items: center;
   }
+
+  body.home-page .sidebar .logo img {
+  display: block;
+}
 
   body.home-page .sidebar img {
   display: block;
