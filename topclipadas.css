@@ -126,10 +126,12 @@
   color: #bdbdbd;
 }
 
-/* BOTÃO MOBILE – escondido por defeito (desktop) */
-body.gaming-page .mobile-menu-btn {
-  display: none;
-}
+@media (max-width: 768px) {
+
+  /* esconder botão no desktop */
+  .mobile-menu-btn {
+    display: none;
+  }
 
 /* RESPONSIVE */
 
