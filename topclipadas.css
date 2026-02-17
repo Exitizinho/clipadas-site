@@ -59,11 +59,11 @@
 
 /* FORÇAR SHORTS VERTICAL */
 .topclipadas-page .video-card.short-card .thumb {
+
+  height: auto !important;
   aspect-ratio: 9 / 16 !important;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 14px;
+
+  display: block !important;
 
 }
 
@@ -72,16 +72,10 @@
 }
 
 
-.topclipadas-page .video-card.short-card .thumb img {
+.topclipadas-page .video-card.short-card {
 
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
+  display: block;
+  width: 240px;
 
 }
 
