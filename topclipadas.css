@@ -1,0 +1,141 @@
+/* ========================= */
+/* TOPCLIPADAS PAGE */
+/* ========================= */
+
+.topclipadas-page .main {
+  padding: 24px 36px;
+}
+
+/* HEADER */
+
+.topclipadas-header {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.topclipadas-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* TABS */
+
+.subcategory-tabs {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.subcategory-tab {
+  padding: 8px 16px;
+  background: #1f1830;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: .2s;
+}
+
+.subcategory-tab:hover {
+  background: #2a1f45;
+}
+
+.subcategory-tab.active {
+  background: linear-gradient(135deg,#7c3aed,#facc15);
+  color: black;
+  font-weight: 600;
+}
+
+/* GRID */
+
+.topclipadas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* CARD */
+
+.video-card {
+  background: #120b22;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(168,85,247,.35);
+}
+
+/* THUMB */
+
+.thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: black;
+  overflow: hidden;
+}
+
+.thumb img,
+.thumb iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+}
+
+/* IMPORTANTE PARA TWITCH */
+.thumb iframe {
+  pointer-events: none;
+}
+
+/* PLAY ICON */
+
+.thumb .play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  background: rgba(0,0,0,.35);
+  opacity: 0;
+  transition: .25s;
+}
+
+.video-card:hover .play {
+  opacity: 1;
+}
+
+/* INFO */
+
+.info {
+  padding: 14px;
+}
+
+.info h3 {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.info span {
+  font-size: 13px;
+  color: #bdbdbd;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+  .topclipadas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .topclipadas-grid {
+    grid-template-columns: 1fr;
+  }
+}
