@@ -23,25 +23,28 @@ function loadTopClipadas(subcategory) {
 
       }
 
-      container.innerHTML = filtered.map(video => `
-        <div class="video-card"
-             data-id="${video.id}">
+     container.innerHTML = filtered.map(video => {
 
-          <div class="thumb">
-            <img src="${
-              video.platform === 'twitch'
-              ? `https://clips-media-assets2.twitch.tv/${video.id}-preview-480x272.jpg`
-              : `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}">
-            <span class="play">▶</span>
-          </div>
+  const thumb =
+    video.platform === "twitch"
+      ? `https://clips-media-assets2.twitch.tv/${video.id}-preview-480x272.jpg`
+      : `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
 
-          <div class="info">
-            <h3>${video.title}</h3>
-            <span>${video.channel}</span>
-          </div>
+  return `
+    <div class="video-card" data-id="${video.id}">
+      <div class="thumb">
+        <img src="${thumb}">
+        <span class="play">▶</span>
+      </div>
+      <div class="info">
+        <h3>${video.title}</h3>
+        <span>${video.channel}</span>
+      </div>
+    </div>
+  `;
 
-        </div>
-      `).join("");
+}).join("");
+
 
 
       // modal click
