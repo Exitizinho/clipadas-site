@@ -202,6 +202,48 @@ function loadHome() {
 
       };
 
+      // ====================
+// SWIPE HERO (IPHONE + ANDROID)
+// ====================
+
+const videoWindow = document.querySelector(".video-window");
+
+let startX = 0;
+let endX = 0;
+
+videoWindow.addEventListener("touchstart", (e) => {
+
+  startX = e.changedTouches[0].clientX;
+
+}, { passive: true });
+
+videoWindow.addEventListener("touchend", (e) => {
+
+  endX = e.changedTouches[0].clientX;
+
+  const diff = startX - endX;
+
+  if (Math.abs(diff) > 50) {
+
+    if (diff > 0) {
+
+      // swipe esquerda
+      index = (index + 1) % slides.length;
+
+    } else {
+
+      // swipe direita
+      index = (index - 1 + slides.length) % slides.length;
+
+    }
+
+    updateCarousel();
+
+  }
+
+}, { passive: true });
+
+
 
       startAutoplay();
 
