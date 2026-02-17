@@ -54,19 +54,35 @@
   justify-self: center;
 }
 
+/* FORÇAR SHORTS VERTICAL */
 .topclipadas-page .video-card.short-card .thumb {
- aspect-ratio: 9 / 16 !important;
+
   height: auto !important;
+  aspect-ratio: auto !important;
+  position: relative;
+
 }
 
-/* garantir que imagem ocupa corretamente */
+/* criar o vertical usando padding trick */
+.topclipadas-page .video-card.short-card .thumb::before {
+
+  content: "";
+  display: block;
+  padding-top: 177.77%; /* 9:16 */
+
+}
+
 .topclipadas-page .video-card.short-card .thumb img {
+
+  position: absolute;
+  top: 0;
+  left: 0;
 
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 
-}
 
 
 
