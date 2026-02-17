@@ -126,6 +126,11 @@
   color: #bdbdbd;
 }
 
+/* ============================= */
+/* TOP CLIPADAS – MOBILE ONLY */
+/* ============================= */
+@media (max-width: 768px) {
+  
 /* BOTÃO ☰ */
   body.topclipadas-page .mobile-menu-btn {
     display: block;
