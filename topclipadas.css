@@ -41,8 +41,9 @@
 
 .topclipadas-page .videos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, 240px);
   gap: 22px;
+  justify-content: start;
 }
 
 /* ========================= */
@@ -51,7 +52,7 @@
 
 .topclipadas-page .video-card.short-card {
 
-  max-width: 240px;
+  width: 240px;
   width: 100%;
   justify-self: center;
 
@@ -59,11 +60,9 @@
 
 /* FORÇAR SHORTS VERTICAL */
 .topclipadas-page .video-card.short-card .thumb {
-
+  aspect-ratio: 9 / 16;
   position: relative;
   width: 100%;
-  padding-top: 177.77%; /* 9:16 ratio */
-
   height: 0 !important;
   overflow: hidden;
   border-radius: 14px;
