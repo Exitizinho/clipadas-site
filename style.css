@@ -253,6 +253,14 @@ body {
   overflow: hidden;
   border-radius: 22px;
   position: relative;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: grab;
+}
+
+.video-window:active {
+  cursor: grabbing;
 }
 
 
