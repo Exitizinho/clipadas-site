@@ -516,7 +516,7 @@ body {
 
 .video-card .thumb {
   position: relative;
-  height: 180px;
+  height: auto;
 }
 
 .video-card img {
