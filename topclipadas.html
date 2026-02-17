@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>TopClipadas | Clipadas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="topclipadas.css">
+</head>
+
+<body class="topclipadas-page">
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <nav class="side-nav">
+      <img src="assets/logo.png" class="logo" alt="Clipadas" />
+      <a href="index.html">🏠 Home</a>
+      <a href="gaming.html">🎮 Gaming</a>
+      <a href="rage.html">🔥 Rage</a>
+      <a href="react.html">😂 React</a>
+      <a href="#">🎙 Podcasts</a>
+      <a class="active" href="topclipadas.html">🎬 TopClipadas</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HEADER / SEARCH -->
+    <header class="topclipadas-search">
+      <button class="mobile-menu-btn" aria-label="Menu">☰</button>
+      <div class="actions">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="global-search" placeholder="Search clips, creators..." />
+        </div>
+        <span>✉️</span>
+        <span>👤</span>
+      </div>
+    </header>
+
+    <!-- FEATURED / HERO -->
+    <section class="topclipadas-hero">
+      <a
+        href="https://www.youtube.com/watch?v=3vP_Zjz9HBw"
+        target="_blank"
+        class="hero-card video-card"
+        data-id="3vP_Zjz9HBw"
+      >
+        <img class="hero-bg" alt="Video thumbnail">
+        <div class="hero-overlay">
+          <span class="badge">🔥 Destaque</span>
+          <h2>GTA 5 Online - O DAIZER PRECISOU DE MIM PARA MEGA ASSALTO</h2>
+          <p>RicFazeres</p>
+          <div class="hero-actions">
+            <span class="hero-play">▶ Ver vídeo</span>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- CONTENT -->
+   
+
+    <!-- MODAL VIDEO -->
+<div id="videoModal" class="video-modal">
+  <div class="video-box">
+    <button class="video-close">✕</button>
+
+    <iframe
+      id="videoFrame"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+
+    <a id="youtubeLink" target="_blank" class="youtube-btn">
+      ▶ Ver no YouTube
+    </a>
+  </div>
+</div>
+
+  </main>
+</div>
+
+<script src="topclipadas.js"></script>
+<script src="videos.js"></script>
+<script>
+  loadVideos("topclipadas", "topclipadasContainer");
+</script>
+</body>
+</html>
+
