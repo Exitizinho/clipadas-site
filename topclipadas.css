@@ -84,6 +84,11 @@
   aspect-ratio: 9 / 16;
 }
 
+.thumb.vertical img {
+  object-fit: cover;
+  object-position: center;
+}
+
 .thumb img,
 .thumb iframe {
   width: 100%;
