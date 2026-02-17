@@ -55,8 +55,20 @@
 }
 
 .topclipadas-page .video-card.short-card .thumb {
-  aspect-ratio: 9 / 16;
+ aspect-ratio: 9 / 16 !important;
+  height: auto !important;
 }
+
+/* garantir que imagem ocupa corretamente */
+.topclipadas-page .video-card.short-card .thumb img {
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+
 
 /* ========================= */
 /* TWITCH (HORIZONTAL) */
@@ -67,7 +79,8 @@
 }
 
 .topclipadas-page .video-card.twitch-card .thumb {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;
 }
 
 /* ========================= */
