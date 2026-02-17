@@ -92,7 +92,12 @@ function loadHome() {
           <img class="hero-thumb"
                src="https://img.youtube.com/vi/${video.id}/maxresdefault.jpg">
           <div class="hero-overlay">
-            <div class="hero-play hero-play-center">▶</div>
+            <div class="hero-play hero-play-center">
+            <svg viewBox="0 0 24 24">
+          <path fill="white" d="M8 5v14l11-7z"/>
+        </svg>
+      </div>
+            
             <div class="hero-info">
               <h2>${video.title}</h2>
               <span>${video.channel}</span>
