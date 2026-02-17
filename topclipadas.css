@@ -59,12 +59,16 @@
 
 /* FORÇAR SHORTS VERTICAL */
 .topclipadas-page .video-card.short-card .thumb {
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 9 / 16 !important;
   position: relative;
   width: 100%;
   overflow: hidden;
   border-radius: 14px;
 
+}
+
+.topclipadas-page .video-card .thumb {
+  height: auto !important;
 }
 
 
@@ -96,6 +100,8 @@
   aspect-ratio: 16 / 9 !important;
   height: auto !important;
 }
+
+
 
 /* ========================= */
 /* THUMB */
