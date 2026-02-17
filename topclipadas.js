@@ -130,3 +130,15 @@ document.querySelectorAll(".subcategory-tab")
 // init
 loadTopClipadas("shorts");
 
+document.querySelector(".video-close").onclick = () => {
+
+  const modal = document.getElementById("videoModal");
+  const frame = document.getElementById("videoFrame");
+
+  modal.classList.remove("open");
+
+  frame.src = "";
+
+};
+
+
