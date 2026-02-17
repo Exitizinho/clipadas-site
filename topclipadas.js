@@ -141,4 +141,40 @@ document.querySelector(".video-close").onclick = () => {
 
 };
 
+// fechar ao clicar fora do video-box
+document.getElementById("videoModal").addEventListener("click", (e) => {
+
+  const modal = document.getElementById("videoModal");
+  const frame = document.getElementById("videoFrame");
+
+  // se clicou no fundo (fora da caixa)
+  if (e.target === modal) {
+
+    modal.classList.remove("open");
+    frame.src = "";
+
+  }
+
+});
+
+
+// fechar com tecla ESC
+document.addEventListener("keydown", (e) => {
+
+  if (e.key === "Escape") {
+
+    const modal = document.getElementById("videoModal");
+    const frame = document.getElementById("videoFrame");
+
+    if (modal.classList.contains("open")) {
+
+      modal.classList.remove("open");
+      frame.src = "";
+
+    }
+
+  }
+
+});
+
 
