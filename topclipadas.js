@@ -26,9 +26,9 @@ function loadTopClipadas(subcategory) {
      container.innerHTML = filtered.map(video => {
 
   const thumb =
-    video.platform === "twitch"
-      ? `https://clips-media-assets2.twitch.tv/${video.id}-preview-480x272.jpg`
-      : `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
+  video.thumbnail
+    ? video.thumbnail
+    : `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
 
   return `
    <div class="video-card"
