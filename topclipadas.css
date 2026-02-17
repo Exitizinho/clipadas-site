@@ -63,20 +63,11 @@
   aspect-ratio: 9 / 16;
   position: relative;
   width: 100%;
-  height: 0 !important;
   overflow: hidden;
   border-radius: 14px;
 
 }
 
-/* criar o vertical usando padding trick */
-.topclipadas-page .video-card.short-card .thumb::before {
-
-  content: "";
-  display: block;
-  padding-top: 177.77%; /* 9:16 */
-
-}
 
 .topclipadas-page .video-card.short-card .thumb img {
 
