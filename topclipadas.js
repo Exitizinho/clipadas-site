@@ -25,18 +25,25 @@ function loadTopClipadas(subcategory) {
 
      container.innerHTML = filtered.map(video => {
 
-  const thumb =
-  video.thumbnail
-    ? video.thumbnail
-    : `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
+  const media =
+    video.platform === "twitch"
+      ? `
+        <iframe
+          src="https://clips.twitch.tv/embed?clip=${video.id}&parent=${location.hostname}"
+          allowfullscreen>
+        </iframe>
+      `
+      : `
+        <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg">
+        <span class="play">▶</span>
+      `;
 
   return `
-   <div class="video-card"
-     data-id="${video.id}"
-     data-platform="${video.platform}">
+    <div class="video-card"
+      data-id="${video.id}"
+      data-platform="${video.platform}">
       <div class="thumb">
-        <img src="${thumb}">
-        <span class="play">▶</span>
+        ${media}
       </div>
       <div class="info">
         <h3>${video.title}</h3>
@@ -46,6 +53,7 @@ function loadTopClipadas(subcategory) {
   `;
 
 }).join("");
+
 
 
 
