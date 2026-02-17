@@ -18,12 +18,6 @@
   font-weight: 700;
 }
 
-/* GRID ESPECÍFICO PARA SHORTS */
-.topclipadas-page .videos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 22px;
-}
 
 
 
@@ -188,6 +182,14 @@
   width: 180px;
   max-width: 180px;
   justify-self: center;
+}
+
+/* GRID ESPECÍFICO PARA SHORTS */
+.topclipadas-page .videos-grid {
+ display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 180px));
+  gap: 22px;
+  justify-content: center;
 }
 
 
