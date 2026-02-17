@@ -89,6 +89,42 @@ prevBtn.addEventListener("click", () => {
   updateCarousel();
 });
 
+// ---------------- SWIPE MOBILE ----------------
+let touchStartX = 0;
+let touchEndX = 0;
+const swipeThreshold = 50;
+
+track.addEventListener("touchstart", e => {
+  touchStartX = e.touches[0].clientX;
+}, { passive: true });
+
+track.addEventListener("touchmove", e => {
+  touchEndX = e.touches[0].clientX;
+}, { passive: true });
+
+track.addEventListener("touchend", () => {
+
+  const diff = touchStartX - touchEndX;
+
+  if (Math.abs(diff) > swipeThreshold) {
+
+    autoplayEnabled = false;
+    stopAutoplay();
+    stopAllVideos();
+
+    if (diff > 0) {
+      // swipe esquerda → próximo
+      index = (index + 1) % slides.length;
+    } else {
+      // swipe direita → anterior
+      index = (index - 1 + slides.length) % slides.length;
+    }
+
+    updateCarousel();
+  }
+
+});
+
 // ---------------- INIT ----------------
 createDots();
 updateCarousel();
