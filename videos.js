@@ -10,28 +10,64 @@ function loadVideos(pageName, containerId) {
 
       const container = document.getElementById(containerId);
 
+      if (!container) {
+        console.error("Container não encontrado:", containerId);
+        return;
+      }
+
       if (filtered.length === 0) {
         container.innerHTML = "<p>Sem vídeos ainda 😅</p>";
         return;
       }
 
-      filtered.forEach(video => {
-        container.innerHTML += `
-          <a href="#" class="video-card" data-id="${video.id}">
-            <div class="thumb">
-              <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg">
-              <span class="play">▶</span>
-            </div>
-            <div class="info">
-              <h3>${video.title}</h3>
-              <span>${video.channel}</span>
-            </div>
-          </a>
-        `;
+      // CRIAR HTML DE UMA VEZ (IMPORTANTE)
+      container.innerHTML = filtered.map(video => `
+        <a href="#" class="video-card" data-id="${video.id}">
+          <div class="thumb">
+            <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg">
+            <span class="play">▶</span>
+          </div>
+          <div class="info">
+            <h3>${video.title}</h3>
+            <span>${video.channel}</span>
+          </div>
+        </a>
+      `).join("");
+
+      // ADICIONAR CLICK HANDLER
+      container.querySelectorAll(".video-card").forEach(card => {
+
+        card.addEventListener("click", function(e) {
+
+          e.preventDefault();
+
+          const videoId = this.dataset.id;
+
+          const modal = document.getElementById("videoModal");
+          const frame = document.getElementById("videoFrame");
+          const youtubeLink = document.getElementById("youtubeLink");
+
+          if (!modal || !frame || !youtubeLink) {
+            console.error("Modal não encontrado");
+            return;
+          }
+
+          frame.src =
+            `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+          youtubeLink.href =
+            `https://www.youtube.com/watch?v=${videoId}`;
+
+          modal.classList.add("open");
+
+        });
+
       });
 
     });
+
 }
+
 
 function loadHome() {
 
