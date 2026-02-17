@@ -42,9 +42,9 @@ function loadTopClipadas(subcategory) {
     <div class="video-card"
       data-id="${video.id}"
       data-platform="${video.platform}">
-      <div class="thumb">
-        ${media}
-      </div>
+     <div class="thumb ${video.platform === 'youtube' ? 'vertical' : ''}">
+  ${media}
+</div>
       <div class="info">
         <h3>${video.title}</h3>
         <span>${video.channel}</span>
