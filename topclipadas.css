@@ -26,12 +26,15 @@
 }
 
 .topclipadas-page .video-card.short-card {
-  max-width: 240px;
+  width: 220px;
+  max-width: 220px;
   justify-self: center;
 }
 
 .topclipadas-page .video-card.short-card .thumb {
   aspect-ratio: 9 / 16;
+  width: 100%;
+  height: auto;
 }
 
 /* TWITCH → normal horizontal */
