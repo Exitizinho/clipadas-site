@@ -34,7 +34,7 @@ function loadTopClipadas(subcategory) {
         </iframe>
       `
       : `
-        <img src="https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg">
+        <img src="https://i.ytimg.com/vi/${video.id}/hqdefault.jpg">
         <span class="play">▶</span>
       `;
 
