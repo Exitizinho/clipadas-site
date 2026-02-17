@@ -18,6 +18,11 @@
   font-weight: 700;
 }
 
+.topclipadas-page .video-card .thumb.vertical {
+  height: auto !important;
+  aspect-ratio: 9 / 16 !important;
+}
+
 /* TABS */
 
 .subcategory-tabs {
