@@ -90,21 +90,34 @@ prevBtn.addEventListener("click", () => {
 });
 
 // ---------------- SWIPE MOBILE ----------------
+const videoWindow = document.querySelector(".video-window");
+
 let touchStartX = 0;
-let touchEndX = 0;
+let touchCurrentX = 0;
+let isSwiping = false;
+
 const swipeThreshold = 50;
 
-track.addEventListener("touchstart", e => {
+videoWindow.addEventListener("touchstart", e => {
+
   touchStartX = e.touches[0].clientX;
+  isSwiping = true;
+
 }, { passive: true });
 
-track.addEventListener("touchmove", e => {
-  touchEndX = e.touches[0].clientX;
+videoWindow.addEventListener("touchmove", e => {
+
+  if (!isSwiping) return;
+
+  touchCurrentX = e.touches[0].clientX;
+
 }, { passive: true });
 
-track.addEventListener("touchend", () => {
+videoWindow.addEventListener("touchend", () => {
 
-  const diff = touchStartX - touchEndX;
+  if (!isSwiping) return;
+
+  const diff = touchStartX - touchCurrentX;
 
   if (Math.abs(diff) > swipeThreshold) {
 
@@ -113,17 +126,25 @@ track.addEventListener("touchend", () => {
     stopAllVideos();
 
     if (diff > 0) {
-      // swipe esquerda → próximo
+
+      // swipe esquerda
       index = (index + 1) % slides.length;
+
     } else {
-      // swipe direita → anterior
+
+      // swipe direita
       index = (index - 1 + slides.length) % slides.length;
+
     }
 
     updateCarousel();
+
   }
 
+  isSwiping = false;
+
 });
+
 
 // ---------------- INIT ----------------
 createDots();
