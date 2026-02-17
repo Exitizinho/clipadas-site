@@ -21,9 +21,26 @@
 /* GRID ESPECÍFICO PARA SHORTS */
 .topclipadas-page .videos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 22px;
-  justify-items: center;
+}
+
+.topclipadas-page .video-card.short-card {
+  max-width: 240px;
+  justify-self: center;
+}
+
+.topclipadas-page .video-card.short-card .thumb {
+  aspect-ratio: 9 / 16;
+}
+
+/* TWITCH → normal horizontal */
+.topclipadas-page .video-card.twitch-card {
+  max-width: 420px;
+}
+
+.topclipadas-page .video-card.twitch-card .thumb {
+  aspect-ratio: 16 / 9;
 }
 
 /* CARD MAIS ESTREITO */
@@ -42,6 +59,8 @@
   height: auto !important;
   aspect-ratio: 9 / 16 !important;
 }
+
+
 
 /* TABS */
 
