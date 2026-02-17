@@ -157,6 +157,7 @@ function loadHome() {
 
           index = i;
           updateCarousel();
+          startAutoplay();
 
         };
 
@@ -191,6 +192,7 @@ function loadHome() {
         index = (index + 1) % slides.length;
 
         updateCarousel();
+        startAutoplay();
 
       };
 
@@ -199,6 +201,7 @@ function loadHome() {
         index = (index - 1 + slides.length) % slides.length;
 
         updateCarousel();
+        startAutoplay();
 
       };
 
@@ -238,6 +241,7 @@ videoWindow.addEventListener("touchend", (e) => {
     }
 
     updateCarousel();
+    startAutoplay();
 
   }
 
