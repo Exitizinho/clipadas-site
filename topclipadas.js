@@ -31,7 +31,9 @@ function loadTopClipadas(subcategory) {
       : `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
 
   return `
-    <div class="video-card" data-id="${video.id}">
+   <div class="video-card"
+     data-id="${video.id}"
+     data-platform="${video.platform}">
       <div class="thumb">
         <img src="${thumb}">
         <span class="play">▶</span>
@@ -53,24 +55,37 @@ function loadTopClipadas(subcategory) {
 
           card.onclick = () => {
 
-            const id = card.dataset.id;
+           const id = card.dataset.id;
+const platform = card.dataset.platform;
 
-            const modal =
-              document.getElementById("videoModal");
+const modal =
+  document.getElementById("videoModal");
 
-            const frame =
-              document.getElementById("videoFrame");
+const frame =
+  document.getElementById("videoFrame");
 
-            const youtubeLink =
-              document.getElementById("youtubeLink");
+const youtubeLink =
+  document.getElementById("youtubeLink");
 
-            frame.src =
-              `https://www.youtube.com/embed/${id}?autoplay=1`;
+if (platform === "twitch") {
 
-            youtubeLink.href =
-              `https://www.youtube.com/watch?v=${id}`;
+  frame.src =
+    `https://clips.twitch.tv/embed?clip=${id}&parent=${location.hostname}`;
 
-            modal.classList.add("open");
+  youtubeLink.href =
+    `https://www.twitch.tv/clip/${id}`;
+
+} else {
+
+  frame.src =
+    `https://www.youtube.com/embed/${id}?autoplay=1`;
+
+  youtubeLink.href =
+    `https://www.youtube.com/watch?v=${id}`;
+
+}
+
+modal.classList.add("open");
 
           };
 
