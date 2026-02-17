@@ -6,14 +6,69 @@
   padding: 24px 36px;
 }
 
-/* ========================= */
-/* SUBCATEGORY TABS */
-/* ========================= */
+/* HEADER */
+
+.topclipadas-header {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.topclipadas-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* GRID ESPECÍFICO PARA SHORTS */
+.topclipadas-page .videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.topclipadas-page .video-card.short-card {
+  max-width: 240px;
+  justify-self: center;
+}
+
+.topclipadas-page .video-card.short-card .thumb {
+  aspect-ratio: 9 / 16;
+}
+
+/* TWITCH → normal horizontal */
+.topclipadas-page .video-card.twitch-card {
+  max-width: 420px;
+}
+
+.topclipadas-page .video-card.twitch-card .thumb {
+  aspect-ratio: 16 / 9;
+}
+
+/* CARD MAIS ESTREITO */
+.topclipadas-page .video-card {
+  max-width: 240px;
+  width: 100%;
+}
+
+/* THUMB SHORTS */
+.topclipadas-page .thumb.vertical {
+  aspect-ratio: 9 / 16;
+  height: auto !important;
+}
+
+.topclipadas-page .video-card .thumb.vertical {
+  height: auto !important;
+  aspect-ratio: 9 / 16 !important;
+}
+
+
+
+/* TABS */
 
 .subcategory-tabs {
   display: flex;
   gap: 12px;
-  margin: 10px 0 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .subcategory-tab {
@@ -35,98 +90,65 @@
   font-weight: 600;
 }
 
-/* ========================= */
 /* GRID */
-/* ========================= */
 
-.topclipadas-page .videos-grid {
+.topclipadas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 240px);
+  grid-template-columns: repeat(3, 1fr);
   gap: 22px;
-  justify-content: start;
 }
 
-/* ========================= */
-/* SHORTS (VERTICAL) */
-/* ========================= */
+/* CARD */
 
-.topclipadas-page .video-card.short-card {
-
-  width: 240px;
-  justify-self: start;
-
+.video-card {
+  background: #120b22;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: .25s;
 }
 
-/* FORÇAR SHORTS VERTICAL */
-.topclipadas-page .video-card.short-card .thumb {
-
-  height: auto !important;
-  aspect-ratio: 9 / 16 !important;
-
-  display: block !important;
-
+.video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(168,85,247,.35);
 }
 
-.topclipadas-page .video-card .thumb {
-  height: auto !important;
-}
-
-
-.topclipadas-page .video-card.short-card {
-
-  display: block;
-  width: 240px;
-
-}
-
-
-
-
-/* ========================= */
-/* TWITCH (HORIZONTAL) */
-/* ========================= */
-
-.topclipadas-page .video-card.twitch-card {
-  max-width: 420px;
-}
-
-.topclipadas-page .video-card.twitch-card .thumb {
-  aspect-ratio: 16 / 9 !important;
-  height: auto !important;
-}
-
-
-
-/* ========================= */
 /* THUMB */
-/* ========================= */
 
-.topclipadas-page .thumb {
+.thumb {
   position: relative;
   width: 100%;
+  aspect-ratio: 16 / 9;
   background: black;
   overflow: hidden;
   border-radius: 14px;
 }
 
-.topclipadas-page .thumb img,
-.topclipadas-page .thumb iframe {
+.thumb.vertical {
+  aspect-ratio: 9 / 16;
+}
+
+.thumb.vertical img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.thumb img,
+.thumb iframe {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border: 0;
 }
 
-/* Twitch preview não clicável */
-.topclipadas-page .thumb iframe {
+/* IMPORTANTE PARA TWITCH */
+.thumb iframe {
   pointer-events: none;
 }
 
-/* ========================= */
 /* PLAY ICON */
-/* ========================= */
 
-.topclipadas-page .play {
+.thumb .play {
   position: absolute;
   inset: 0;
   display: flex;
@@ -138,44 +160,37 @@
   transition: .25s;
 }
 
-.topclipadas-page .video-card:hover .play {
+.video-card:hover .play {
   opacity: 1;
 }
 
-/* ========================= */
 /* INFO */
-/* ========================= */
 
-.topclipadas-page .info {
+.info {
   padding: 14px;
 }
 
-.topclipadas-page .info h3 {
+.info h3 {
   font-size: 15px;
   margin-bottom: 6px;
 }
 
-.topclipadas-page .info span {
+.info span {
   font-size: 13px;
   color: #bdbdbd;
 }
 
-/* ========================= */
+
 /* RESPONSIVE */
-/* ========================= */
 
-@media (max-width: 600px) {
-
-  .topclipadas-page .videos-grid {
+@media (max-width: 992px) {
+  .topclipadas-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
 }
 
-@media (max-width: 480px) {
-
-  .topclipadas-page .videos-grid {
+@media (max-width: 600px) {
+  .topclipadas-grid {
     grid-template-columns: 1fr;
   }
-
 }
