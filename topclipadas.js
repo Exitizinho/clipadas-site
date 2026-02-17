@@ -28,7 +28,10 @@ function loadTopClipadas(subcategory) {
              data-id="${video.id}">
 
           <div class="thumb">
-            <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg">
+            <img src="${
+              video.platform === 'twitch'
+              ? `https://clips-media-assets2.twitch.tv/${video.id}-preview-480x272.jpg`
+              : `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}">
             <span class="play">▶</span>
           </div>
 
