@@ -89,61 +89,89 @@ prevBtn.addEventListener("click", () => {
   updateCarousel();
 });
 
-// ---------------- SWIPE MOBILE ----------------
+// ---------------- SWIPE UNIVERSAL ----------------
+
 const videoWindow = document.querySelector(".video-window");
 
-let touchStartX = 0;
-let touchCurrentX = 0;
-let isSwiping = false;
+let startX = 0;
+let currentX = 0;
+let isDragging = false;
 
 const swipeThreshold = 50;
 
-videoWindow.addEventListener("touchstart", e => {
 
-  touchStartX = e.touches[0].clientX;
-  isSwiping = true;
+// POINTER DOWN (Android, iPhone moderno, Desktop)
+videoWindow.addEventListener("pointerdown", (e) => {
+
+  startX = e.clientX;
+  isDragging = true;
+
+});
+
+
+// POINTER UP
+videoWindow.addEventListener("pointerup", (e) => {
+
+  if (!isDragging) return;
+
+  currentX = e.clientX;
+
+  handleSwipe();
+
+  isDragging = false;
+
+});
+
+
+// TOUCH FALLBACK (iPhone compatibilidade total)
+videoWindow.addEventListener("touchstart", (e) => {
+
+  startX = e.changedTouches[0].clientX;
+  isDragging = true;
 
 }, { passive: true });
 
-videoWindow.addEventListener("touchmove", e => {
 
-  if (!isSwiping) return;
+videoWindow.addEventListener("touchend", (e) => {
 
-  touchCurrentX = e.touches[0].clientX;
+  if (!isDragging) return;
+
+  currentX = e.changedTouches[0].clientX;
+
+  handleSwipe();
+
+  isDragging = false;
 
 }, { passive: true });
 
-videoWindow.addEventListener("touchend", () => {
 
-  if (!isSwiping) return;
+// FUNÇÃO CENTRAL
+function handleSwipe() {
 
-  const diff = touchStartX - touchCurrentX;
+  const diff = startX - currentX;
 
-  if (Math.abs(diff) > swipeThreshold) {
+  if (Math.abs(diff) < swipeThreshold) return;
 
-    autoplayEnabled = false;
-    stopAutoplay();
-    stopAllVideos();
+  autoplayEnabled = false;
+  stopAutoplay();
+  stopAllVideos();
 
-    if (diff > 0) {
+  if (diff > 0) {
 
-      // swipe esquerda
-      index = (index + 1) % slides.length;
+    // swipe esquerda
+    index = (index + 1) % slides.length;
 
-    } else {
+  } else {
 
-      // swipe direita
-      index = (index - 1 + slides.length) % slides.length;
-
-    }
-
-    updateCarousel();
+    // swipe direita
+    index = (index - 1 + slides.length) % slides.length;
 
   }
 
-  isSwiping = false;
+  updateCarousel();
 
-});
+}
+
 
 
 // ---------------- INIT ----------------
