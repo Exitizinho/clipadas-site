@@ -26,15 +26,16 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
+  margin: 10px 0 15px 0; /* 👈 controla o espaço vertical */
 }
 
 .topclipadas-banner img {
   width: 100%;
-  max-width: 900px; /* controla o tamanho máximo */
+  max-width: 900px;
   height: auto;
   display: block;
 }
+
 
 
 
