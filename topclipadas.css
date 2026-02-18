@@ -158,6 +158,9 @@
   width: 260px !important;
 }
 
+.topclipadas-page .video-card .thumb {
+  height: auto !important;
+}
 
 
 /* RESPONSIVE */
