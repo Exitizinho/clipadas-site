@@ -137,6 +137,22 @@
   color: #bdbdbd;
 }
 
+/* GRID SHORTS */
+.topclipadas-grid.shorts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  gap: 28px;
+  justify-content: start;
+}
+
+/* GRID TWITCH */
+.topclipadas-grid.twitch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 28px;
+}
+
+
 
 /* RESPONSIVE */
 
