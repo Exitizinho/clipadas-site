@@ -184,9 +184,8 @@
 /* GRID ESPECÍFICO PARA SHORTS */
 .topclipadas-page .topclipadas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 240px);
+  grid-template-columns: repeat(auto-fill, minmax(240px, auto));
   gap: 28px;
-  justify-content: start;
 }
 
 /* RESPONSIVE */
