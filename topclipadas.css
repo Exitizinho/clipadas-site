@@ -24,7 +24,9 @@
 
 /* TWITCH → normal horizontal */
 .topclipadas-page .video-card.twitch-card {
-  max-width: 420px;
+ grid-column: span 2;
+  width: 100%;
+  max-width: 500px;
 }
 
 .topclipadas-page .video-card.twitch-card .thumb {
