@@ -152,6 +152,12 @@
   gap: 28px;
 }
 
+/* SOBRESCREVER limite global dos cards */
+.topclipadas-page .video-card.short-card {
+  max-width: 260px !important;
+  width: 260px !important;
+}
+
 
 
 /* RESPONSIVE */
