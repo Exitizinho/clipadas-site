@@ -43,7 +43,7 @@
 
 .subcategory-tab.active {
   background: linear-gradient(135deg,#7c3aed,#facc15);
-  color: white;
+  color: linear-gradient(135deg,#7c3aed,#facc15);
   font-weight: 600;
 }
 
