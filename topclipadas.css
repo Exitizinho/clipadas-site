@@ -35,6 +35,7 @@
   cursor: pointer;
   font-size: 14px;
   transition: .2s;
+  color: white;
 }
 
 .subcategory-tab:hover {
