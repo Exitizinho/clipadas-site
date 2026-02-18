@@ -19,37 +19,6 @@
 }
 
 
-
-
-
-/* TWITCH → normal horizontal */
-.topclipadas-page .video-card.twitch-card {
- grid-column: span 2;
-  width: 100%;
-  max-width: 500px;
-}
-
-.topclipadas-page .video-card.twitch-card .thumb {
-  aspect-ratio: 16 / 9;
-}
-
-/* THUMB SHORTS */
-.topclipadas-page .thumb.vertical {
-  aspect-ratio: 9 / 16;
-  height: auto !important;
-}
-
-.topclipadas-page .video-card .thumb.vertical {
-  height: auto !important;
-  aspect-ratio: 9 / 16 !important;
-}
-
-.topclipadas-page .video-card .thumb {
-  height: auto !important;
-}
-
-
-
 /* TABS */
 
 .subcategory-tabs {
@@ -168,27 +137,6 @@
   color: #bdbdbd;
 }
 
-.topclipadas-page .video-card.short-card .thumb {
-  height: auto !important;
-  aspect-ratio: 9 / 16 !important;
-}
-
-.topclipadas-page .video-card.short-card .thumb img {
-  position: relative;
-}
-
-.topclipadas-page .video-card.short-card {
-  width: 240px;
-  max-width: 240px;
-  justify-self: center;
-}
-
-/* GRID ESPECÍFICO PARA SHORTS */
-.topclipadas-page .topclipadas-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, auto));
-  gap: 28px;
-}
 
 /* RESPONSIVE */
 
