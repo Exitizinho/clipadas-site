@@ -162,14 +162,13 @@
   height: auto !important;
 }
 
-.topclipadas-page .info h3 {
-  color: #ffffff;
+.topclipadas-page .video-card .info h3 {
+  color: #ffffff !important;
 }
 
-.topclipadas-page .info span {
-  color: #d1d1d1;
-
-  }
+.topclipadas-page .video-card .info span {
+  color: #d1d5db !important;
+}
 
 
 
