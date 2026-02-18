@@ -31,11 +31,6 @@
   aspect-ratio: 16 / 9;
 }
 
-/* CARD MAIS ESTREITO */
-.topclipadas-page .video-card {
-  width: 100%;
-}
-
 /* THUMB SHORTS */
 .topclipadas-page .thumb.vertical {
   aspect-ratio: 9 / 16;
@@ -188,10 +183,10 @@
 
 /* GRID ESPECÍFICO PARA SHORTS */
 .topclipadas-page .videos-grid {
- display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 180px));
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 180px);
   gap: 22px;
-  justify-content: center;
+  justify-content: start;
 }
 
 /* RESPONSIVE */
