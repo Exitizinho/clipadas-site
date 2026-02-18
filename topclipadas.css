@@ -28,7 +28,6 @@
   justify-content: center;
   margin: 10px 0 15px 0; /* 👈 controla o espaço vertical */
   margin-bottom: 10px;
-  background: red;
 }
 
 .topclipadas-banner img {
@@ -193,25 +192,6 @@
 .topclipadas-page .video-card .info span {
   color: #d1d5db !important;
 }
-
-/* REMOVE ESPAÇO EXTRA ACIMA DO BANNER */
-
-.topclipadas-content {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-  background: blue;
-}
-
-.section-header {
-  margin-top: 0 !important;
-}
-
-.section-header h2 {
-  margin-top: 0 !important;
-}
-
-
-
 
 /* RESPONSIVE */
 
