@@ -2,6 +2,11 @@ let currentSubcategory = "shorts";
 
 function loadTopClipadas(subcategory) {
 
+  const container = document.getElementById("topclipadasContainer");
+
+container.classList.remove("shorts-grid", "twitch-grid");
+container.classList.add(subcategory === "shorts" ? "shorts-grid" : "twitch-grid");
+
   fetch("videos.json")
     .then(res => res.json())
     .then(videos => {
@@ -10,9 +15,6 @@ function loadTopClipadas(subcategory) {
         video.page === "topclipadas" &&
         video.subcategory === subcategory
       );
-
-      const container =
-        document.getElementById("topclipadasContainer");
 
       if (filtered.length === 0) {
 
