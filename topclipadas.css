@@ -26,15 +26,21 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 10px 0 15px 0; /* 👈 controla o espaço vertical */
-  margin-bottom: 10px;
+  margin: 0;              /* remove espaços */
+  padding: 0;
 }
 
 .topclipadas-banner img {
   width: 100%;
-  max-width: 900px;
+  max-width: 900px;       /* controla o tamanho máximo */
   height: auto;
   display: block;
+}
+
+/* remover espaço extra da section */
+.topclipadas-content {
+  margin-top: 10px;
+  padding-top: 0;
 }
 
 
