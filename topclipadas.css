@@ -176,16 +176,16 @@
 }
 
 .topclipadas-page .video-card.short-card {
-  width: 180px;
-  max-width: 180px;
+  width: 240px;
+  max-width: 240px;
   justify-self: center;
 }
 
 /* GRID ESPECÍFICO PARA SHORTS */
 .topclipadas-page .topclipadas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 180px);
-  gap: 22px;
+  grid-template-columns: repeat(auto-fill, 240px);
+  gap: 28px;
   justify-content: start;
 }
 
