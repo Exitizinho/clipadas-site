@@ -193,6 +193,22 @@
   color: #d1d5db !important;
 }
 
+/* REMOVE ESPAÇO EXTRA ACIMA DO BANNER */
+
+.topclipadas-content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.section-header {
+  margin-top: 0 !important;
+}
+
+.section-header h2 {
+  margin-top: 0 !important;
+}
+
+
 
 
 /* RESPONSIVE */
