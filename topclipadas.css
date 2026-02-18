@@ -28,6 +28,7 @@
   justify-content: center;
   margin: 10px 0 15px 0; /* 👈 controla o espaço vertical */
   margin-bottom: 10px;
+  background: red;
 }
 
 .topclipadas-banner img {
@@ -198,6 +199,7 @@
 .topclipadas-content {
   margin-top: 0 !important;
   padding-top: 0 !important;
+  background: blue;
 }
 
 .section-header {
