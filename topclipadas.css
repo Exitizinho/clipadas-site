@@ -171,24 +171,20 @@
 /* BANNER TOPCLIPADAS */
 /* ========================= */
 
-.topclipadas-page .layout {
-  min-height: auto; /* remove altura forçada de 100vh só nesta página */
-}
-
 .topclipadas-banner {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 10px 0 20px 0;
+  margin: 20px 0 30px 0;
 }
 
 .topclipadas-banner img {
   width: 100%;
-  max-width: 850px;   /* controla largura */
-  height: auto;
-  max-height: 180px;  /* controla altura */
-  object-fit: contain;
+  max-width: 1100px;  /* mais largo */
+  height: auto;       /* deixa altura proporcional */
+  display: block;
 }
+
 
 
 /* RESPONSIVE */
