@@ -271,9 +271,6 @@
   .info span {
     font-size: 12px;
   }
-}
-
-
 
 /* BOTÃO ☰ */
   body.topclipadas-page .mobile-menu-btn {
@@ -294,3 +291,5 @@
   .topclipadas-page .video-card.short-card .thumb {
     max-height: 500px;
   }
+
+}
