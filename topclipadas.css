@@ -163,6 +163,9 @@
   height: auto !important;
 }
 
+.topclipadas-page .layout {
+  min-height: auto;
+}
 
 /* RESPONSIVE */
 
