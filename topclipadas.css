@@ -292,5 +292,5 @@
 
  /* Shorts menos altos no mobile */
   .topclipadas-page .video-card.short-card .thumb {
-    aspect-ratio: 9 / 14; /* era 9/16 */
+    max-height: 500px;
   }
