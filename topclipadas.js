@@ -180,3 +180,37 @@ document.addEventListener("keydown", (e) => {
 });
 
 
+/* ===========================
+   MOBILE SIDEBAR (TOPCLIPADAS)
+=========================== */
+const menuBtn = document.querySelector(".mobile-menu-btn");
+const sidebar = document.querySelector(".sidebar");
+
+if (menuBtn && sidebar) {
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    document.body.classList.toggle("sidebar-open");
+    sidebar.classList.toggle("open");
+  });
+
+  // clicar fora fecha
+  document.addEventListener("click", (e) => {
+    if (
+      document.body.classList.contains("sidebar-open") &&
+      !sidebar.contains(e.target) &&
+      !menuBtn.contains(e.target)
+    ) {
+      document.body.classList.remove("sidebar-open");
+      sidebar.classList.remove("open");
+    }
+  });
+
+  // clicar num link fecha
+  sidebar.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      document.body.classList.remove("sidebar-open");
+      sidebar.classList.remove("open");
+    });
+  });
+}
+
