@@ -212,3 +212,63 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ========================= */
+/* MOBILE TOPCLIPADAS */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  /* MAIN padding menor */
+  .topclipadas-page .main {
+    padding: 16px;
+  }
+
+  /* BANNER menor no mobile */
+  .topclipadas-banner img {
+    max-width: 100%;
+  }
+
+  /* TABS centradas */
+  .subcategory-tabs {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .subcategory-tab {
+    font-size: 13px;
+    padding: 6px 14px;
+  }
+
+  /* GRID sempre 1 coluna */
+  .topclipadas-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  /* Shorts ocupam largura toda */
+  .topclipadas-page .video-card.short-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Twitch também largura total */
+  .topclipadas-page .video-card.twitch-card {
+    max-width: 100%;
+  }
+
+  /* Ajustar thumbs */
+  .thumb {
+    border-radius: 14px;
+  }
+
+  /* Info mais confortável */
+  .info h3 {
+    font-size: 14px;
+  }
+
+  .info span {
+    font-size: 12px;
+  }
+}
