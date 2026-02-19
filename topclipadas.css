@@ -3,8 +3,8 @@
 /* ========================= */
 
 .topclipadas-page .main {
-  padding: 10px 36px 24px 36px;
-
+  padding: 24px 36px;
+}
 
 /* HEADER */
 
@@ -17,34 +17,6 @@
   font-size: 28px;
   font-weight: 700;
 }
-
-/* ========================= */
-/* BANNER TOPCLIPADAS */
-/* ========================= */
-
-.topclipadas-banner {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 0;              /* remove espaços */
-  padding: 0;
-}
-
-.topclipadas-banner img {
-  width: 100%;
-  max-width: 900px;       /* controla o tamanho máximo */
-  height: auto;
-  display: block;
-}
-
-/* remover espaço extra da section */
-.topclipadas-content {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-
-
 
 
 /* TABS */
@@ -63,7 +35,6 @@
   cursor: pointer;
   font-size: 14px;
   transition: .2s;
-  color: white;
 }
 
 .subcategory-tab:hover {
@@ -72,7 +43,7 @@
 
 .subcategory-tab.active {
   background: linear-gradient(135deg,#7c3aed,#facc15);
-  color: white;
+  color: black;
   font-weight: 600;
 }
 
@@ -191,13 +162,6 @@
   height: auto !important;
 }
 
-.topclipadas-page .video-card .info h3 {
-  color: #ffffff !important;
-}
-
-.topclipadas-page .video-card .info span {
-  color: #d1d5db !important;
-}
 
 /* RESPONSIVE */
 
