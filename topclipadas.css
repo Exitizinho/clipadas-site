@@ -308,7 +308,7 @@
   }
 
  /* Shorts menos altos no mobile */
- /*.topclipadas-page .thumb.vertical {
+ .topclipadas-page .thumb.vertical {
     aspect-ratio: 9 / 9 !important;
-  }*/
+  }
 }
