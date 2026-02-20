@@ -180,7 +180,7 @@ document.addEventListener("keydown", (e) => {
   });
 
 /* ===========================
-   MOBILE SIDEBAR (GAMING)
+   MOBILE SIDEBAR (TOPCLIPADAS)
 =========================== */
 const menuBtn = document.querySelector(".mobile-menu-btn");
 const sidebar = document.querySelector(".sidebar");
