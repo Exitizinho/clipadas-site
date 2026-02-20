@@ -308,7 +308,7 @@
   }
 
  /* Shorts menos altos no mobile */
-  .topclipadas-page .video-card.short-card .thumb {
-    max-height: 500px;
-  }
+.topclipadas-page .video-card.short-card .thumb {
+  aspect-ratio: 9 / 14;
+}
 }
