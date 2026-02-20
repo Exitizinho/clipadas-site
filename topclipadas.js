@@ -182,7 +182,6 @@ document.addEventListener("keydown", (e) => {
 /* ===========================
    MOBILE SIDEBAR (TOPCLIPADAS)
 =========================== */
-document.addEventListener("DOMContentLoaded", () => {
 
   const menuBtn = document.querySelector(".mobile-menu-btn");
   const sidebar = document.querySelector(".sidebar");
