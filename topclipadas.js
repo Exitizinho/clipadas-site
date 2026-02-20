@@ -177,8 +177,6 @@ document.addEventListener("keydown", (e) => {
 
   }
 
-});
-
 /* ===========================
    MOBILE SIDEBAR (GAMING)
 =========================== */
@@ -213,5 +211,6 @@ if (menuBtn && sidebar) {
   });
 }
 
+  });
 
 
