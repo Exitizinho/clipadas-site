@@ -293,7 +293,7 @@
   }
 
   /* sidebar aberta */
-  body.topclipadas-page .sidebar-open .sidebar {
+  body.topclipadas-page.sidebar-open .sidebar {
     transform: translateX(0);
   }
 
