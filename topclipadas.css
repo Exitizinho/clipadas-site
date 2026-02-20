@@ -196,6 +196,11 @@
   transform: scale(1.02);
 }
 
+/* esconder botão no desktop */
+  .mobile-menu-btn {
+    display: none;
+  }
+
 
 
 
@@ -300,11 +305,6 @@
     color: white;
     font-size: 26px;
     cursor: pointer;
-  }
-
-  /* esconder botão no desktop */
-  .mobile-menu-btn {
-    display: none;
   }
 
  /* Shorts menos altos no mobile */
