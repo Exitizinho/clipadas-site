@@ -523,11 +523,6 @@ body.gaming-page .mobile-menu-btn {
     cursor: pointer;
   }
 
-  /* esconder botão no desktop */
-  .mobile-menu-btn {
-    display: none;
-  }
-
   /* OVERLAY */
   body.gaming-page::after {
     content: "";
