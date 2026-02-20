@@ -272,6 +272,26 @@
     font-size: 12px;
   }
 
+   /* SIDEBAR OFF-CANVAS */
+  body.topclipadas-page .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 260px;
+    background: linear-gradient(180deg, #1a0f2e, #0b0713);
+    padding: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.35s ease;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  /* sidebar aberta */
+  body.topclipadas-page.sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+
 /* BOTÃO ☰ */
   body.topclipadas-page .mobile-menu-btn {
     display: block;
