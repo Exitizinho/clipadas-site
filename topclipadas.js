@@ -268,29 +268,28 @@ document.querySelector(".modal-up").onclick = () => {
 
 let scrollLocked = false;
 
-document.addEventListener("wheel", (e) => {
+const modal = document.getElementById("videoModal");
 
-  const modal = document.getElementById("videoModal");
+modal.addEventListener("wheel", (e) => {
 
-  // Só funciona se modal estiver aberto
+  // só funciona se modal estiver aberto
   if (!modal.classList.contains("open")) return;
 
-  // evita spam de scroll
+  // impede scroll da página por trás
+  e.preventDefault();
+
   if (scrollLocked) return;
 
   scrollLocked = true;
 
   if (e.deltaY > 0) {
-    // scroll down
-    changeVideo(1);
+    changeVideo(1);   // scroll down
   } else {
-    // scroll up
-    changeVideo(-1);
+    changeVideo(-1);  // scroll up
   }
 
-  // pequeno delay para não trocar 10 vídeos de uma vez
   setTimeout(() => {
     scrollLocked = false;
-  }, 500);
+  }, 600);
 
-});
+}, { passive: false });
