@@ -83,7 +83,7 @@ if (platform === "twitch") {
     `https://clips.twitch.tv/embed?clip=${id}&parent=${location.hostname}`;
 
   youtubeLink.href =
-    `https://www.twitch.tv/clip/${id}`;
+  `https://clips.twitch.tv/${id}`;
 
 } else {
 
