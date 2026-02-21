@@ -203,28 +203,43 @@
 
 .modal-nav {
   position: absolute;
-  right: -60px;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 18px;
 }
 
 .modal-nav button {
-  background: rgba(0,0,0,.6);
-  border: none;
-  color: white;
-  font-size: 22px;
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(20,10,40,0.75);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: 20px;
   cursor: pointer;
-  transition: .2s;
+  transition: all .25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Hover premium */
 .modal-nav button:hover {
-  background: #7c3aed;
+  transform: translateY(-4px);
+  background: linear-gradient(135deg,#7c3aed,#facc15);
+  color: black;
+  box-shadow:
+    0 10px 25px rgba(124,58,237,.4),
+    0 0 20px rgba(250,204,21,.4);
+}
+
+/* Click effect */
+.modal-nav button:active {
+  transform: scale(0.92);
 }
 
 
