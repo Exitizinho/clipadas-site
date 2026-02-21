@@ -204,6 +204,9 @@ document.getElementById("videoModal").addEventListener("click", (e) => {
 // fechar com tecla ESC
 document.addEventListener("keydown", (e) => {
 
+  if (e.key === "ArrowDown") changeVideo(1);
+if (e.key === "ArrowUp") changeVideo(-1);
+
   if (e.key === "Escape") {
 
     const modal = document.getElementById("videoModal");
