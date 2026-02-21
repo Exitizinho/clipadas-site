@@ -201,6 +201,31 @@
     display: none;
   }
 
+.modal-nav {
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal-nav button {
+  background: rgba(0,0,0,.6);
+  border: none;
+  color: white;
+  font-size: 22px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.modal-nav button:hover {
+  background: #7c3aed;
+}
 
 
 
