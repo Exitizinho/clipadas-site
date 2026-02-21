@@ -255,3 +255,11 @@ if (menuBtn && sidebar) {
   });
 }
 
+document.querySelector(".modal-down").onclick = () => {
+  changeVideo(1);
+};
+
+document.querySelector(".modal-up").onclick = () => {
+  changeVideo(-1);
+};
+
