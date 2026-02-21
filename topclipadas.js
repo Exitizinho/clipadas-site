@@ -266,3 +266,31 @@ document.querySelector(".modal-up").onclick = () => {
   changeVideo(-1);
 };
 
+let scrollLocked = false;
+
+document.addEventListener("wheel", (e) => {
+
+  const modal = document.getElementById("videoModal");
+
+  // Só funciona se modal estiver aberto
+  if (!modal.classList.contains("open")) return;
+
+  // evita spam de scroll
+  if (scrollLocked) return;
+
+  scrollLocked = true;
+
+  if (e.deltaY > 0) {
+    // scroll down
+    changeVideo(1);
+  } else {
+    // scroll up
+    changeVideo(-1);
+  }
+
+  // pequeno delay para não trocar 10 vídeos de uma vez
+  setTimeout(() => {
+    scrollLocked = false;
+  }, 500);
+
+});
