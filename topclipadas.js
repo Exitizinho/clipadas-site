@@ -1,5 +1,8 @@
 let currentSubcategory = "shorts";
 
+let currentVideos = [];
+let currentIndex = 0;
+
 function loadTopClipadas(subcategory) {
 
   const container = document.getElementById("topclipadasContainer");
@@ -11,10 +14,12 @@ container.classList.add(subcategory === "shorts" ? "shorts-grid" : "twitch-grid"
     .then(res => res.json())
     .then(videos => {
 
-      const filtered = videos.filter(video =>
-        video.page === "topclipadas" &&
-        video.subcategory === subcategory
-      );
+      currentVideos = videos.filter(video =>
+  video.page === "topclipadas" &&
+  video.subcategory === subcategory
+);
+
+const filtered = currentVideos;
 
       if (filtered.length === 0) {
 
@@ -67,6 +72,7 @@ ${media}
 
            const id = card.dataset.id;
 const platform = card.dataset.platform;
+            currentIndex = currentVideos.findIndex(v => v.id === id);
 
 const modal =
   document.getElementById("videoModal");
@@ -103,6 +109,41 @@ modal.classList.add("open");
 
     });
 
+}
+
+function changeVideo(direction) {
+
+  currentIndex += direction;
+
+  if (currentIndex < 0) {
+    currentIndex = currentVideos.length - 1;
+  }
+
+  if (currentIndex >= currentVideos.length) {
+    currentIndex = 0;
+  }
+
+  const video = currentVideos[currentIndex];
+
+  const frame = document.getElementById("videoFrame");
+  const youtubeLink = document.getElementById("youtubeLink");
+
+  if (video.platform === "twitch") {
+
+    frame.src =
+      `https://clips.twitch.tv/embed?clip=${video.id}&parent=${location.hostname}`;
+
+    youtubeLink.href =
+      `https://clips.twitch.tv/${video.id}`;
+
+  } else {
+
+    frame.src =
+      `https://www.youtube.com/embed/${video.id}?autoplay=1`;
+
+    youtubeLink.href =
+      `https://www.youtube.com/watch?v=${video.id}`;
+  }
 }
 
 
