@@ -144,6 +144,8 @@ function changeVideo(direction) {
     youtubeLink.href =
       `https://www.youtube.com/watch?v=${video.id}`;
   }
+
+  frame.style.pointerEvents = "none";
 }
 
 
@@ -293,3 +295,9 @@ modal.addEventListener("wheel", (e) => {
   }, 600);
 
 }, { passive: false });
+
+const frame = document.getElementById("videoFrame");
+
+frame.addEventListener("click", () => {
+  frame.style.pointerEvents = "auto";
+});
