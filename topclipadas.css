@@ -242,6 +242,9 @@
   transform: scale(0.92);
 }
 
+#videoFrame {
+  pointer-events: none;
+}
 
 
 /* RESPONSIVE */
