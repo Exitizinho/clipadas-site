@@ -204,7 +204,9 @@ document.getElementById("videoModal").addEventListener("click", (e) => {
 // fechar com tecla ESC
 document.addEventListener("keydown", (e) => {
 
-  if (e.key === "ArrowDown") changeVideo(1);
+  if (!modal.classList.contains("open")) return;
+
+if (e.key === "ArrowDown") changeVideo(1);
 if (e.key === "ArrowUp") changeVideo(-1);
 
   if (e.key === "Escape") {
@@ -265,4 +267,37 @@ document.querySelector(".modal-down").onclick = () => {
 document.querySelector(".modal-up").onclick = () => {
   changeVideo(-1);
 };
+
+let scrollLocked = false;
+const modal = document.getElementById("videoModal");
+const frame = document.getElementById("videoFrame");
+
+modal.addEventListener("wheel", (e) => {
+
+  if (!modal.classList.contains("open")) return;
+
+  e.preventDefault();
+
+  if (scrollLocked) return;
+
+  scrollLocked = true;
+
+  // 👇 DESATIVA clique durante scroll
+  frame.style.pointerEvents = "none";
+
+  if (e.deltaY > 0) {
+    changeVideo(1);
+  } else {
+    changeVideo(-1);
+  }
+
+  setTimeout(() => {
+    scrollLocked = false;
+
+    // 👇 REATIVA clique depois da troca
+    frame.style.pointerEvents = "auto";
+
+  }, 600);
+
+}, { passive: false });
 
