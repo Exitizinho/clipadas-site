@@ -96,9 +96,6 @@ ${media}
       `https://www.youtube.com/watch?v=${id}`;
   }
 
-  // ativa camada de scroll
-  document.querySelector(".scroll-catcher").style.pointerEvents = "auto";
-
   modal.classList.add("open");
 
 };
