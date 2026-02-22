@@ -68,44 +68,40 @@ ${media}
       container.querySelectorAll(".video-card")
         .forEach(card => {
 
-          card.onclick = () => {
+         card.onclick = () => {
 
-           const id = card.dataset.id;
-const platform = card.dataset.platform;
-            currentIndex = currentVideos.findIndex(v => v.id === id);
+  const id = card.dataset.id;
+  const platform = card.dataset.platform;
 
-const modal =
-  document.getElementById("videoModal");
+  currentIndex = currentVideos.findIndex(v => v.id === id);
 
-const frame =
-  document.getElementById("videoFrame");
+  const modal = document.getElementById("videoModal");
+  const frame = document.getElementById("videoFrame");
+  const youtubeLink = document.getElementById("youtubeLink");
 
-const youtubeLink =
-  document.getElementById("youtubeLink");
+  if (platform === "twitch") {
 
-if (platform === "twitch") {
+    frame.src =
+      `https://clips.twitch.tv/embed?clip=${id}&parent=${location.hostname}`;
 
-  frame.src =
-    `https://clips.twitch.tv/embed?clip=${id}&parent=${location.hostname}`;
+    youtubeLink.href =
+      `https://clips.twitch.tv/${id}`;
 
-  youtubeLink.href =
-  `https://clips.twitch.tv/${id}`;
+  } else {
 
-} else {
+    frame.src =
+      `https://www.youtube.com/embed/${id}?autoplay=1`;
 
-  frame.src =
-    `https://www.youtube.com/embed/${id}?autoplay=1`;
+    youtubeLink.href =
+      `https://www.youtube.com/watch?v=${id}`;
+  }
 
-  youtubeLink.href =
-    `https://www.youtube.com/watch?v=${id}`;
+  // ativa camada de scroll
+  document.querySelector(".scroll-catcher").style.pointerEvents = "auto";
 
-}
-              document.querySelector(".scroll-catcher").style.pointerEvents = "auto";
-}
+  modal.classList.add("open");
 
-modal.classList.add("open");
-
-          };
+};
 
         });
 
@@ -268,24 +264,7 @@ document.querySelector(".modal-up").onclick = () => {
   changeVideo(-1);
 };
 
-  const modal = document.getElementById("videoModal");
-  if (!modal.classList.contains("open")) return;
-
-  if (scrollLocked) return;
-
-  scrollLocked = true;
-
-  if (e.deltaY > 0) {
-    changeVideo(1);
-  } else {
-    changeVideo(-1);
-  }
-
-  setTimeout(() => {
-    scrollLocked = false;
-  }, 600);
-
-});
+  
 
 const scrollLayer = document.querySelector(".scroll-catcher");
 
