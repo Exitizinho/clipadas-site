@@ -289,3 +289,27 @@ window.addEventListener("wheel", (e) => {
 
 });
 
+const scrollLayer = document.querySelector(".scroll-catcher");
+
+let scrollLocked = false;
+
+scrollLayer.addEventListener("wheel", (e) => {
+
+  if (!document.getElementById("videoModal").classList.contains("open")) return;
+
+  if (scrollLocked) return;
+
+  scrollLocked = true;
+
+  if (e.deltaY > 0) {
+    changeVideo(1);
+  } else {
+    changeVideo(-1);
+  }
+
+  setTimeout(() => {
+    scrollLocked = false;
+  }, 600);
+
+});
+
