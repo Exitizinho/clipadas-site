@@ -270,8 +270,7 @@ let scrollLocked = false;
 window.addEventListener("wheel", (e) => {
 
   const modal = document.getElementById("videoModal");
-
-  if (!modal.classList.contains("open")) return;
+  if (!modal || !modal.classList.contains("open")) return;
 
   if (scrollLocked) return;
 
@@ -287,6 +286,5 @@ window.addEventListener("wheel", (e) => {
     scrollLocked = false;
   }, 600);
 
-}, { passive: true });
-  
+});
 
