@@ -269,21 +269,20 @@ document.querySelector(".modal-up").onclick = () => {
 };
 
 let scrollLocked = false;
-const modal = document.getElementById("videoModal");
-const frame = document.getElementById("videoFrame");
 
-modal.addEventListener("wheel", (e) => {
+document.addEventListener("wheel", (e) => {
 
+  const modal = document.getElementById("videoModal");
+
+  // só funciona se modal estiver aberto
   if (!modal.classList.contains("open")) return;
 
+  // impede scroll da página
   e.preventDefault();
 
   if (scrollLocked) return;
 
   scrollLocked = true;
-
-  // 👇 DESATIVA clique durante scroll
-  frame.style.pointerEvents = "none";
 
   if (e.deltaY > 0) {
     changeVideo(1);
@@ -293,11 +292,6 @@ modal.addEventListener("wheel", (e) => {
 
   setTimeout(() => {
     scrollLocked = false;
-
-    // 👇 REATIVA clique depois da troca
-    frame.style.pointerEvents = "auto";
-
   }, 600);
 
 }, { passive: false });
-
