@@ -287,7 +287,7 @@ window.addEventListener("wheel", (e) => {
     scrollLocked = false;
   }, 600);
 
-});
+
 
 const scrollLayer = document.querySelector(".scroll-catcher");
 
@@ -312,4 +312,6 @@ scrollLayer.addEventListener("wheel", (e) => {
   }, 600);
 
 });
+
+  });
 
