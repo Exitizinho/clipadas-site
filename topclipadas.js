@@ -100,6 +100,8 @@ if (platform === "twitch") {
     `https://www.youtube.com/watch?v=${id}`;
 
 }
+              document.querySelector(".scroll-catcher").style.pointerEvents = "auto";
+}
 
 modal.classList.add("open");
 
@@ -266,9 +268,30 @@ document.querySelector(".modal-up").onclick = () => {
   changeVideo(-1);
 };
 
+  const modal = document.getElementById("videoModal");
+  if (!modal.classList.contains("open")) return;
+
+  if (scrollLocked) return;
+
+  scrollLocked = true;
+
+  if (e.deltaY > 0) {
+    changeVideo(1);
+  } else {
+    changeVideo(-1);
+  }
+
+  setTimeout(() => {
+    scrollLocked = false;
+  }, 600);
+
+});
+
+const scrollLayer = document.querySelector(".scroll-catcher");
+
 let scrollLocked = false;
 
-window.addEventListener("wheel", (e) => {
+scrollLayer.addEventListener("wheel", (e) => {
 
   const modal = document.getElementById("videoModal");
   if (!modal.classList.contains("open")) return;
@@ -287,31 +310,9 @@ window.addEventListener("wheel", (e) => {
     scrollLocked = false;
   }, 600);
 
-
-
-const scrollLayer = document.querySelector(".scroll-catcher");
-
-let scrollLocked = false;
-
-scrollLayer.addEventListener("wheel", (e) => {
-
-  if (!document.getElementById("videoModal").classList.contains("open")) return;
-
-  if (scrollLocked) return;
-
-  scrollLocked = true;
-
-  if (e.deltaY > 0) {
-    changeVideo(1);
-  } else {
-    changeVideo(-1);
-  }
-
-  setTimeout(() => {
-    scrollLocked = false;
-  }, 600);
-
 });
 
-  });
+scrollLayer.addEventListener("click", () => {
+  scrollLayer.style.pointerEvents = "none";
+});
 
