@@ -266,3 +266,26 @@ document.querySelector(".modal-up").onclick = () => {
   changeVideo(-1);
 };
 
+let scrollLocked = false;
+
+window.addEventListener("wheel", (e) => {
+
+  const modal = document.getElementById("videoModal");
+  if (!modal.classList.contains("open")) return;
+
+  if (scrollLocked) return;
+
+  scrollLocked = true;
+
+  if (e.deltaY > 0) {
+    changeVideo(1);
+  } else {
+    changeVideo(-1);
+  }
+
+  setTimeout(() => {
+    scrollLocked = false;
+  }, 600);
+
+});
+
