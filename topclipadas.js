@@ -91,6 +91,7 @@ if (platform === "twitch") {
   youtubeLink.href =
   `https://clips.twitch.tv/${id}`;
 
+  
 } else {
 
   frame.src =
@@ -98,6 +99,8 @@ if (platform === "twitch") {
 
   youtubeLink.href =
     `https://www.youtube.com/watch?v=${id}`;
+
+  frame.style.pointerEvents = "none";
 
 }
 
@@ -145,7 +148,7 @@ function changeVideo(direction) {
       `https://www.youtube.com/watch?v=${video.id}`;
   }
 
-  frame.style.pointerEvents = "none";
+  
 }
 
 
@@ -296,8 +299,3 @@ modal.addEventListener("wheel", (e) => {
 
 }, { passive: false });
 
-const frame = document.getElementById("videoFrame");
-
-frame.addEventListener("click", () => {
-  frame.style.pointerEvents = "auto";
-});
