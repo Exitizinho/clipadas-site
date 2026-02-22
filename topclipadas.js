@@ -65,36 +65,43 @@ ${media}
 
 
       // modal click
-      card.onclick = () => {
+      container.querySelectorAll(".video-card")
+        .forEach(card => {
 
-  const id = card.dataset.id;
-  const platform = card.dataset.platform;
+          card.onclick = () => {
 
-  currentIndex = currentVideos.findIndex(v => v.id === id);
+           const id = card.dataset.id;
+const platform = card.dataset.platform;
+            currentIndex = currentVideos.findIndex(v => v.id === id);
 
-  const modal = document.getElementById("videoModal");
-  const frame = document.getElementById("videoFrame");
-  const youtubeLink = document.getElementById("youtubeLink");
+const modal =
+  document.getElementById("videoModal");
 
-  if (platform === "twitch") {
+const frame =
+  document.getElementById("videoFrame");
 
-    frame.src =
-      `https://clips.twitch.tv/embed?clip=${id}&parent=${location.hostname}`;
+const youtubeLink =
+  document.getElementById("youtubeLink");
 
-    youtubeLink.href =
-      `https://clips.twitch.tv/${id}`;
+if (platform === "twitch") {
 
-  } else {
+  frame.src =
+    `https://clips.twitch.tv/embed?clip=${id}&parent=${location.hostname}`;
 
-    frame.src =
-      `https://www.youtube.com/embed/${id}?autoplay=1`;
+  youtubeLink.href =
+  `https://clips.twitch.tv/${id}`;
 
-    youtubeLink.href =
-      `https://www.youtube.com/watch?v=${id}`;
-  }
+} else {
 
-  modal.classList.add("open");
-  document.body.classList.add("modal-open");
+  frame.src =
+    `https://www.youtube.com/embed/${id}?autoplay=1`;
+
+  youtubeLink.href =
+    `https://www.youtube.com/watch?v=${id}`;
+
+}
+
+modal.classList.add("open");
 
           };
 
@@ -172,8 +179,6 @@ document.querySelector(".video-close").onclick = () => {
   const frame = document.getElementById("videoFrame");
 
   modal.classList.remove("open");
-  document.body.classList.remove("modal-open");
-  frame.src = "";
 
   frame.src = "";
 
@@ -199,19 +204,25 @@ document.getElementById("videoModal").addEventListener("click", (e) => {
 // fechar com tecla ESC
 document.addEventListener("keydown", (e) => {
 
-  const modal = document.getElementById("videoModal");
-  if (!modal.classList.contains("open")) return;
-
   if (e.key === "ArrowDown") changeVideo(1);
-  if (e.key === "ArrowUp") changeVideo(-1);
+if (e.key === "ArrowUp") changeVideo(-1);
 
   if (e.key === "Escape") {
-    modal.classList.remove("open");
-    document.body.classList.remove("modal-open");
-  document.getElementById("videoFrame").src = "";
-}
 
-});
+    const modal = document.getElementById("videoModal");
+    const frame = document.getElementById("videoFrame");
+
+    if (modal.classList.contains("open")) {
+
+      modal.classList.remove("open");
+      frame.src = "";
+
+    }
+
+  }
+
+  });
+
 /* ===========================
    MOBILE SIDEBAR (TOPCLIPADAS)
 =========================== */
@@ -255,25 +266,3 @@ document.querySelector(".modal-up").onclick = () => {
   changeVideo(-1);
 };
 
-let scrollLocked = false;
-
-window.addEventListener("wheel", (e) => {
-
-  const modal = document.getElementById("videoModal");
-  if (!modal.classList.contains("open")) return;
-
-  if (scrollLocked) return;
-
-  scrollLocked = true;
-
-  if (e.deltaY > 0) {
-    changeVideo(1);
-  } else {
-    changeVideo(-1);
-  }
-
-  setTimeout(() => {
-    scrollLocked = false;
-  }, 600);
-
-}, { passive: true });
