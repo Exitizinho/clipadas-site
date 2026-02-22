@@ -91,7 +91,6 @@ if (platform === "twitch") {
   youtubeLink.href =
   `https://clips.twitch.tv/${id}`;
 
-  
 } else {
 
   frame.src =
@@ -99,8 +98,6 @@ if (platform === "twitch") {
 
   youtubeLink.href =
     `https://www.youtube.com/watch?v=${id}`;
-
-  frame.style.pointerEvents = "none";
 
 }
 
@@ -147,8 +144,6 @@ function changeVideo(direction) {
     youtubeLink.href =
       `https://www.youtube.com/watch?v=${video.id}`;
   }
-
-  
 }
 
 
@@ -270,32 +265,4 @@ document.querySelector(".modal-down").onclick = () => {
 document.querySelector(".modal-up").onclick = () => {
   changeVideo(-1);
 };
-
-let scrollLocked = false;
-
-const modal = document.getElementById("videoModal");
-
-modal.addEventListener("wheel", (e) => {
-
-  // só funciona se modal estiver aberto
-  if (!modal.classList.contains("open")) return;
-
-  // impede scroll da página por trás
-  e.preventDefault();
-
-  if (scrollLocked) return;
-
-  scrollLocked = true;
-
-  if (e.deltaY > 0) {
-    changeVideo(1);   // scroll down
-  } else {
-    changeVideo(-1);  // scroll up
-  }
-
-  setTimeout(() => {
-    scrollLocked = false;
-  }, 600);
-
-}, { passive: false });
 
