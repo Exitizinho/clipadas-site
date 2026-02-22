@@ -242,6 +242,12 @@
   transform: scale(0.92);
 }
 
+.scroll-catcher {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+
 
 /* RESPONSIVE */
 
