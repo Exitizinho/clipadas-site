@@ -68,37 +68,42 @@ ${media}
       container.querySelectorAll(".video-card")
         .forEach(card => {
 
-         card.onclick = () => {
+          card.onclick = () => {
 
-  const id = card.dataset.id;
-  const platform = card.dataset.platform;
+           const id = card.dataset.id;
+const platform = card.dataset.platform;
+            currentIndex = currentVideos.findIndex(v => v.id === id);
 
-  currentIndex = currentVideos.findIndex(v => v.id === id);
+const modal =
+  document.getElementById("videoModal");
 
-  const modal = document.getElementById("videoModal");
-  const frame = document.getElementById("videoFrame");
-  const youtubeLink = document.getElementById("youtubeLink");
+const frame =
+  document.getElementById("videoFrame");
 
-  if (platform === "twitch") {
+const youtubeLink =
+  document.getElementById("youtubeLink");
 
-    frame.src =
-      `https://clips.twitch.tv/embed?clip=${id}&parent=${location.hostname}`;
+if (platform === "twitch") {
 
-    youtubeLink.href =
-      `https://clips.twitch.tv/${id}`;
+  frame.src =
+    `https://clips.twitch.tv/embed?clip=${id}&parent=${location.hostname}`;
 
-  } else {
+  youtubeLink.href =
+  `https://clips.twitch.tv/${id}`;
 
-    frame.src =
-      `https://www.youtube.com/embed/${id}?autoplay=1`;
+} else {
 
-    youtubeLink.href =
-      `https://www.youtube.com/watch?v=${id}`;
-  }
+  frame.src =
+    `https://www.youtube.com/embed/${id}?autoplay=1`;
 
-  modal.classList.add("open");
+  youtubeLink.href =
+    `https://www.youtube.com/watch?v=${id}`;
 
-};
+}
+
+modal.classList.add("open");
+
+          };
 
         });
 
@@ -260,28 +265,4 @@ document.querySelector(".modal-down").onclick = () => {
 document.querySelector(".modal-up").onclick = () => {
   changeVideo(-1);
 };
-
-
-let scrollLocked = false;
-
-window.addEventListener("wheel", (e) => {
-
-  const modal = document.getElementById("videoModal");
-  if (!modal || !modal.classList.contains("open")) return;
-
-  if (scrollLocked) return;
-
-  scrollLocked = true;
-
-  if (e.deltaY > 0) {
-    changeVideo(1);
-  } else {
-    changeVideo(-1);
-  }
-
-  setTimeout(() => {
-    scrollLocked = false;
-  }, 600);
-
-});
 
