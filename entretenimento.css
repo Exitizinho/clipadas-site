@@ -1,1 +1,542 @@
+/* ============================= */
+/* ENTRETENIMENTO PAGE  */
+/* ============================= */
 
+/* ========================= */
+/* HERO – VIDEO DESTACADO */
+/* ========================= */
+
+.entretenimento-hero {
+  margin-bottom: 90px;
+}
+
+.entretenimento-search::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 30px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(168,85,247,.6),
+    transparent
+  );
+}
+
+
+/* CARD PRINCIPAL */
+.hero-card {
+  position: relative;
+  display: block;
+  height: 440px;
+  border-radius: 32px;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow:
+    0 45px 140px rgba(168,85,247,.45),
+    inset 0 0 0 1px rgba(255,255,255,.06);
+  transition: transform .35s ease;
+}
+
+/* GLOW ANIMADO */
+.hero-card::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(
+    120deg,
+    #7c3aed,
+    #facc15,
+    #7c3aed
+  );
+  filter: blur(30px);
+  opacity: .45;
+  z-index: -1;
+  animation: glowMove 6s linear infinite;
+}
+
+@keyframes glowMove {
+  0%   { transform: translateX(-25%); }
+  50%  { transform: translateX(25%); }
+  100% { transform: translateX(-25%); }
+}
+
+.hero-card:hover {
+  transform: scale(1.02);
+}
+
+/* BACKGROUND */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform .6s ease;
+}
+
+.hero-card:hover .hero-bg {
+  transform: scale(1.12);
+}
+
+
+/* OVERLAY CINEMATOGRÁFICO */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8,4,18,.97) 0%,
+      rgba(8,4,18,.88) 35%,
+      rgba(8,4,18,.55) 60%,
+      rgba(8,4,18,.25) 80%,
+      transparent 100%
+    );
+  padding: 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 14px;
+  color: white;
+}
+
+/* TITULO */
+.hero-overlay h2 {
+  font-size: 36px;
+  max-width: 600px;
+  line-height: 1.1;
+  text-shadow: 0 10px 40px rgba(0,0,0,.85);
+}
+
+/* CANAL */
+.hero-overlay p {
+  font-size: 14px;
+  color: #d6d2ff;
+  opacity: .9;
+}
+
+/* BADGE */
+.badge {
+  background: linear-gradient(135deg, #facc15, #7c3aed);
+  color: #1a102b;
+  font-weight: 900;
+  font-size: 12px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  width: fit-content;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  box-shadow: 0 0 30px rgba(250,204,21,.7);
+}
+
+/* AÇÃO */
+.hero-actions {
+  margin-top: 20px;
+}
+
+/* BOTÃO PLAY */
+.hero-play {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #7c3aed, #facc15);
+  color: black;
+  padding: 15px 30px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: .4px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(250,204,21,.7); }
+  70%  { box-shadow: 0 0 0 22px rgba(250,204,21,0); }
+  100% { box-shadow: 0 0 0 0 rgba(250,204,21,0); }
+}
+
+/* ========================= */
+/* SEÇÃO */
+/* ========================= */
+
+.section-title {
+  font-size: 22px;
+  margin-bottom: 26px;
+  letter-spacing: .7px;
+}
+
+/* ========================= */
+/* GRID */
+/* ========================= */
+
+.no-results {
+  margin-top: 40px;
+  text-align: center;
+  color: #cfc3ff;
+  font-size: 15px;
+}
+
+.no-results span {
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+
+.entretenimento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* ========================= */
+/* CARD VIDEO */
+/* ========================= */
+
+.entretenimento-card {
+  background: linear-gradient(135deg, #1c1233, #120b22);
+  border-radius: 20px;
+  overflow: hidden;
+  color: white;
+  text-decoration: none;
+  transition: .35s;
+  position: relative;
+}
+
+/* BORDA SUAVE */
+.entretenimento-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(168,85,247,.18);
+}
+
+.entretenimento-card:hover {
+  transform: translateY(-12px) scale(1.04);
+  box-shadow:
+    0 28px 65px rgba(0,0,0,.75),
+    0 0 45px rgba(168,85,247,.55);
+}
+
+/* ========================= */
+/* THUMB */
+/* ========================= */
+
+.thumb {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .45s ease;
+}
+
+.entretenimento-card:hover .thumb img {
+  transform: scale(1.1);
+}
+
+/* PLAY */
+.thumb .play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  color: white;
+  background: radial-gradient(
+    circle,
+    rgba(168,85,247,.6),
+    rgba(0,0,0,.65)
+  );
+  opacity: 0;
+  transition: .35s;
+}
+
+.entretenimento-card:hover .play {
+  opacity: 1;
+}
+
+/* ========================= */
+/* INFO */
+/* ========================= */
+
+.info {
+  padding: 16px;
+}
+
+.info h3 {
+  font-size: 15px;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.info span {
+  font-size: 13px;
+  color: #bdb2ff;
+}
+
+/* BOTÃO MOBILE – escondido por defeito (desktop) */
+body.entretenimento-page .mobile-menu-btn {
+  display: none;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 1100px) {
+  .gaming-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .gaming-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    height: 360px;
+  }
+
+  .hero-overlay {
+    padding: 28px;
+  }
+
+  .hero-overlay h2 {
+    font-size: 24px;
+  }
+}
+
+/* ========================= */
+/* VIDEO MODAL – PREMIUM */
+/* ========================= */
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(168,85,247,.35),
+      rgba(0,0,0,.9) 60%
+    );
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+  z-index: 3000;
+}
+
+/* MODAL ABERTO */
+.video-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ========================= */
+/* CAIXA DO VÍDEO */
+/* ========================= */
+
+.video-box {
+  position: relative;
+  width: min(92vw, 960px);
+  aspect-ratio: 16 / 9;
+  background: #05030a;
+  border-radius: 26px;
+  overflow: visible;
+
+  transform: scale(.9) translateY(40px);
+  transition: transform .45s cubic-bezier(.16,1,.3,1);
+
+  box-shadow:
+    0 50px 140px rgba(0,0,0,.95),
+    0 0 90px rgba(168,85,247,.45),
+    inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+/* animação entrada */
+.video-modal.open .video-box {
+  transform: scale(1) translateY(0);
+}
+
+/* ========================= */
+/* GLOW ANIMADO */
+/* ========================= */
+
+.video-box::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(
+    120deg,
+    #7c3aed,
+    #facc15,
+    #7c3aed
+  );
+  filter: blur(40px);
+  opacity: .35;
+  z-index: -1;
+  animation: modalGlow 6s linear infinite;
+}
+
+@keyframes modalGlow {
+  0% { transform: translateX(-30%); }
+  50% { transform: translateX(30%); }
+  100% { transform: translateX(-30%); }
+}
+
+/* ========================= */
+/* IFRAME */
+/* ========================= */
+
+.video-box iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: black;
+}
+
+/* ========================= */
+/* BOTÃO FECHAR */
+/* ========================= */
+
+.video-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+
+  background: rgba(0,0,0,.65);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+
+  z-index: 10;
+  backdrop-filter: blur(6px);
+  transition: .3s;
+}
+
+.video-close:hover {
+  background: linear-gradient(135deg, #7c3aed, #facc15);
+  color: black;
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* ========================= */
+/* BOTÃO  */
+/* ========================= */
+
+.youtube-btn {
+  position: absolute;
+  left: 50%;
+  top: 100%; 
+  transform: translate(-50%, 22px); /* baixa aqui */
+  padding: 14px 30px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7c3aed, #facc15);
+  color: black;
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: .4px;
+  text-decoration: none;
+  box-shadow: 0 15px 40px rgba(0,0,0,.4);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.youtube-btn:hover {
+  transform: translateX(-50%) translateY(-4px) scale(1.05);
+  box-shadow: 0 25px 60px rgba(0,0,0,.6);
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+@media (max-width: 600px) {
+  .video-box {
+    width: 94vw;
+    border-radius: 18px;
+  }
+  .youtube-btn {
+    font-size: 13px;
+    padding: 12px 22px;
+  }
+}
+
+
+/* ============================= */
+/* GAMING – MOBILE ONLY */
+/* ============================= */
+@media (max-width: 768px) {
+
+  /* layout base */
+  body.entretenimento-page .layout {
+    flex-direction: row; /* impede layout da HOME */
+  }
+
+  /* SIDEBAR OFF-CANVAS */
+  body.entretenimento-page .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 260px;
+    background: linear-gradient(180deg, #1a0f2e, #0b0713);
+    padding: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.35s ease;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  /* sidebar aberta */
+  body.entretenimento-page.sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+
+  /* CONTEÚDO */
+  body.entretenimento-page .main {
+    padding: 16px;
+  }
+
+  /* BOTÃO ☰ */
+  body.entretenimento-page .mobile-menu-btn {
+    display: block;
+    background: none;
+    border: 0;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+  }
+
+  /* OVERLAY */
+  body.entretenimento-page::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 900;
+  }
+
+  body.entretenimento-page.sidebar-open::after {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
