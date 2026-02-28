@@ -721,7 +721,7 @@ body {
 }
 
 .legal-page .main {
- padding-top: 0;   /* reduz espaço no topo */
+ padding-top: 24px;   /* reduz espaço no topo */
 }
 
 .legal-container {
