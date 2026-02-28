@@ -721,7 +721,11 @@ body {
 }
 
 .legal-page .main {
-  padding-top: 40px;
+  padding-top: 20px;   /* reduz espaço no topo */
+}
+
+.legal-container {
+  margin-top: 20px;    /* aproxima do topo */
 }
 
 .legal-page h1 {
@@ -739,11 +743,6 @@ body {
   line-height: 1.6;
   color: #ccc;
   margin-bottom: 15px;
-}
-
-.legal-container {
-  max-width: 800px;
-  margin: 60px auto;
 }
 
 .legal-container h1 {
