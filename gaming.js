@@ -120,5 +120,64 @@ document.addEventListener("keydown", e => {
 
 });
 
+async function loadVideos(page, containerId) {
+
+  const container = document.getElementById(containerId);
+
+  const { data, error } = await supabase
+    .from("videos")
+    .select("*")
+    .eq("page", page)
+    .order("date", { ascending: false })
+    .limit(8);
+
+  if (error) {
+    console.error(error);
+    container.innerHTML = "<p>Erro ao carregar vídeos</p>";
+    return;
+  }
+
+  const videos = data;
+
+  if (!videos.length) {
+    container.innerHTML = "<p>Sem vídeos</p>";
+    return;
+  }
+
+ container.innerHTML = videos.map(video => `
+  <div class="video-card" data-id="${video.video_id}">
+      <img src="https://i.ytimg.com/vi/${video.video_id}/maxresdefault.jpg">
+      <div class="info">
+        <h3>${video.title}</h3>
+        <span>${video.channel}</span>
+      </div>
+    </div>
+  `).join("");
+  
+   /* ===========================
+     THUMBNAILS YOUTUBE
+  ============================ */
+  container.querySelectorAll("[data-id]").forEach(card => {
+
+  const videoId = card.dataset.id;
+  if (!videoId) return;
+
+  const img = card.querySelector("img");
+  if (!img) return;
+
+  const maxRes = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+  const hqRes  = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
+  const testImg = new Image();
+  testImg.src = maxRes;
+
+  testImg.onload = () => img.src = maxRes;
+  testImg.onerror = () => img.src = hqRes;
+
+  img.loading = "lazy";
+  img.decoding = "async";
+});
+}
+
 
 
