@@ -720,6 +720,10 @@ body {
   padding: 60px 20px;
 }
 
+.legal-page .main {
+  padding-top: 40px;
+}
+
 .legal-page h1 {
   font-size: 28px;
   margin-bottom: 25px;
