@@ -713,6 +713,35 @@ body {
   color: #666;
 }
 
+.legal-page {
+  background: linear-gradient(180deg,#1a0f2e,#0b0713);
+  color: white;
+  min-height: 100vh;
+  padding: 60px 20px;
+}
+
+.legal-page h1 {
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.legal-page h2 {
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.legal-page p {
+  max-width: 800px;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 /* ========================= */
 /* BOTÃO YOUTUBE */
 /* ========================= */
