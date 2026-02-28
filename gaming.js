@@ -100,7 +100,7 @@ async function loadVideos(page, containerId) {
 
   const container = document.getElementById(containerId);
 
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from("videos")
     .select("*")
     .eq("page", page)
