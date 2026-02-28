@@ -114,9 +114,21 @@
 © 2026 Clipadas. Todos os direitos reservados.
 </p>
   </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const supabase = window.supabase.createClient(
+    "tjuoffrvparnbjqdkbbd",
+    "sb_publishable__mJcSyoWJ8XzxN_0vOysAQ_Kru4kzjO"
+  );
+</script>
 
 <script src="gaming.js"></script>
-<script src="videos.js"></script>
+
+<script>
+  loadVideos("gaming", "gamingContainer");
+</script>
+<script src="gaming.js"></script>
 <script>
   loadVideos("gaming", "gamingContainer");
 </script>
