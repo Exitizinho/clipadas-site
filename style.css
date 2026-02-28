@@ -717,7 +717,7 @@ body {
   background: linear-gradient(180deg,#1a0f2e,#0b0713);
   color: white;
   min-height: 100vh;
-  padding: 60px 20px;
+  padding: 0 20px;  /* remove o espaço vertical */
 }
 
 .legal-page .main {
@@ -725,8 +725,8 @@ body {
 }
 
 .legal-container {
-  margin-top: 0;    /* aproxima do topo */
   max-width: 800px;
+  margin: 0 auto;   /* centra horizontalmente */
 }
 
 .legal-page h1 {
