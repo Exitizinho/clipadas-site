@@ -721,11 +721,11 @@ body {
 }
 
 .legal-page .main {
-  padding-top: 20px;   /* reduz espaço no topo */
+ padding-top: 0;   /* reduz espaço no topo */
 }
 
 .legal-container {
-  margin-top: 20px;    /* aproxima do topo */
+  margin-top: 10px;    /* aproxima do topo */
   max-width: 800px;
   margin: 60px auto;
 }
