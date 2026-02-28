@@ -742,6 +742,23 @@ body {
   margin: 60px auto;
 }
 
+.legal-container h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 35px;
+}
+
+.legal-container h2 {
+  margin-top: 35px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.legal-container p {
+  color: #cfcfe8;
+  line-height: 1.7;
+}
+
 /* ========================= */
 /* BOTÃO YOUTUBE */
 /* ========================= */
