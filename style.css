@@ -725,7 +725,7 @@ body {
 }
 
 .legal-container {
-  margin-top: 10px;    /* aproxima do topo */
+  margin-top: 0;    /* aproxima do topo */
   max-width: 800px;
   margin: 60px auto;
 }
