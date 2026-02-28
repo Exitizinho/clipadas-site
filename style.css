@@ -726,6 +726,8 @@ body {
 
 .legal-container {
   margin-top: 20px;    /* aproxima do topo */
+  max-width: 800px;
+  margin: 60px auto;
 }
 
 .legal-page h1 {
