@@ -1,38 +1,37 @@
-function loadVideos(pageName, containerId) {
+async function loadVideos(page, containerId) {
 
-  fetch("videos.json")
-    .then(res => res.json())
-    .then(videos => {
+  const container = document.getElementById(containerId);
 
-      const filtered = videos.filter(video =>
-        video.page === pageName
-      );
+  const { data, error } = await supabase
+    .from("videos")
+    .select("*")
+    .eq("page", page)
+    .order("date", { ascending: false })
+    .limit(8);
 
-      const container = document.getElementById(containerId);
+  if (error) {
+    console.error(error);
+    container.innerHTML = "<p>Erro ao carregar vídeos</p>";
+    return;
+  }
 
-      if (!container) {
-        console.error("Container não encontrado:", containerId);
-        return;
-      }
+  const videos = data;
 
-      if (filtered.length === 0) {
-        container.innerHTML = "<p>Sem vídeos ainda 😅</p>";
-        return;
-      }
+  if (!videos.length) {
+    container.innerHTML = "<p>Sem vídeos</p>";
+    return;
+  }
 
-      // CRIAR HTML DE UMA VEZ (IMPORTANTE)
-      container.innerHTML = filtered.map(video => `
-        <a href="#" class="video-card" data-id="${video.id}">
-          <div class="thumb">
-            <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg">
-            <span class="play">▶</span>
-          </div>
-          <div class="info">
-            <h3>${video.title}</h3>
-            <span>${video.channel}</span>
-          </div>
-        </a>
-      `).join("");
+  container.innerHTML = videos.map(video => `
+    <div class="video-card">
+      <img src="https://i.ytimg.com/vi/${video.video_id}/maxresdefault.jpg">
+      <div class="info">
+        <h3>${video.title}</h3>
+        <span>${video.channel}</span>
+      </div>
+    </div>
+  `).join("");
+}
 
       // ADICIONAR CLICK HANDLER
       container.querySelectorAll(".video-card").forEach(card => {
