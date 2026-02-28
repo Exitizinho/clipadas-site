@@ -154,29 +154,6 @@ async function loadVideos(page, containerId) {
     </div>
   `).join("");
   
-   /* ===========================
-     THUMBNAILS YOUTUBE
-  ============================ */
-  container.querySelectorAll("[data-id]").forEach(card => {
-
-  const videoId = card.dataset.id;
-  if (!videoId) return;
-
-  const img = card.querySelector("img");
-  if (!img) return;
-
-  const maxRes = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-  const hqRes  = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-
-  const testImg = new Image();
-  testImg.src = maxRes;
-
-  testImg.onload = () => img.src = maxRes;
-  testImg.onerror = () => img.src = hqRes;
-
-  img.loading = "lazy";
-  img.decoding = "async";
-});
 }
 
 
