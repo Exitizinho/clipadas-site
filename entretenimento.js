@@ -149,6 +149,10 @@ async function loadVideos(page, containerId) {
 
   const testImg = new Image();
   testImg.src = maxRes;
+    img.onerror = () => {
+  img.onerror = null;
+  img.src = hqRes;
+};
 
   testImg.onload = () => img.src = maxRes;
   testImg.onerror = () => img.src = hqRes;
