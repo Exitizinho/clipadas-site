@@ -1,5 +1,5 @@
 const track = document.getElementById("videoTrack");
-const slides = document.querySelectorAll(".video-slide");
+let slides = document.querySelectorAll(".video-slide");
 const prevBtn = document.querySelector(".video-btn.left");
 const nextBtn = document.querySelector(".video-btn.right");
 const dotsContainer = document.getElementById("carouselDots");
