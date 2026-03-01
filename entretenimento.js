@@ -143,9 +143,10 @@ async function loadVideos(page, containerId) {
 
   const img = card.querySelector("img");
   if (!img) return;
-
-  const maxRes = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+    
   const hqRes  = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+  const maxRes = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+ 
 
   const testImg = new Image();
   testImg.src = maxRes;
