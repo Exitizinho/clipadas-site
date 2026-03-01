@@ -1,5 +1,5 @@
 const track = document.getElementById("videoTrack");
-let slides = document.querySelectorAll(".video-slide");
+let slides = [];
 const prevBtn = document.querySelector(".video-btn.left");
 const nextBtn = document.querySelector(".video-btn.right");
 const dotsContainer = document.getElementById("carouselDots");
@@ -89,12 +89,6 @@ prevBtn.addEventListener("click", () => {
   updateCarousel();
 });
 
-// ---------------- INIT ----------------
-createDots();
-updateCarousel();
-startAutoplay();
-
-
 
 // ===============================
 // Modal
@@ -119,10 +113,7 @@ document.addEventListener("click", function (e) {
 
   modal.classList.add("open");
 
-})
-});
-
-// fechar botão
+  // fechar botão
 closeBtn.addEventListener("click", closeModal);
 
 // fechar clicando fora
@@ -135,32 +126,17 @@ document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") closeModal();
 });
 
+})
+});
+
+
+
 function closeModal() {
   modal.classList.remove("open");
   frame.src = "";
   autoplayEnabled = true;
   startAutoplay(); 
 }
-
- slides.forEach(slide => {
-
-  slide.addEventListener("click", () => {
-
-    const videoId = slide.dataset.id;
-
-    frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-
-    youtubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
-
-    modal.classList.add("open");
-
-    autoplayEnabled = false;
-    stopAutoplay();
-
-  });
-
-});
-
 
   // thumbnails hero em qualidade máxima com fallback
 slides.forEach(slide => {
@@ -262,6 +238,37 @@ slides.forEach(slide => {
       </div>
     </div>
   `).join("");
+}
+
+
+function initCarousel() {
+
+  if (!slides.length) return;
+
+  createDots();
+  updateCarousel();
+  startAutoplay();
+
+  slides.forEach(slide => {
+
+    slide.addEventListener("mouseenter", stopAutoplay);
+    slide.addEventListener("mouseleave", startAutoplay);
+
+    slide.addEventListener("click", () => {
+
+      const videoId = slide.dataset.id;
+
+      frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+      youtubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+
+      modal.classList.add("open");
+
+      autoplayEnabled = false;
+      stopAutoplay();
+
+    });
+
+  });
 }
 
   loadHero();
