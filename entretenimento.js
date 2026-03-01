@@ -133,33 +133,34 @@ async function loadVideos(page, containerId) {
     </div>
   `).join("");
 
-   /* ===========================
-     THUMBNAILS YOUTUBE
-  ============================ */
-  container.querySelectorAll("[data-id]").forEach(card => {
+  /* ===========================
+   THUMBNAILS YOUTUBE (STABLE)
+=========================== */
+
+container.querySelectorAll("[data-id]").forEach(card => {
 
   const videoId = card.dataset.id;
   if (!videoId) return;
 
   const img = card.querySelector("img");
   if (!img) return;
-    
-  const hqRes  = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
   const maxRes = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
- 
+  const hqRes  = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
 
-  const testImg = new Image();
-  testImg.src = maxRes;
-    img.onerror = () => {
-  img.onerror = null;
-  img.src = hqRes;
-};
-
-  testImg.onload = () => img.src = maxRes;
-  testImg.onerror = () => img.src = hqRes;
-
+  // Lazy loading
   img.loading = "lazy";
   img.decoding = "async";
+
+  // Primeiro tenta maxres
+  img.src = maxRes;
+
+  // Se maxres não existir, troca automaticamente para hq
+  img.onerror = function () {
+    this.onerror = null; // evita loop infinito
+    this.src = hqRes;
+  };
+
 });
 
   loadEntretenimentoHero();
@@ -188,7 +189,6 @@ async function loadEntretenimentoHero() {
 
   title.textContent = video.title;
   channel.textContent = video.channel;
-  thumb.src = `https://img.youtube.com/vi/${video.video_id}/hqdefault.jpg`;
   thumb.src = `https://img.youtube.com/vi/${video.video_id}/maxresdefault.jpg`;
   
 
