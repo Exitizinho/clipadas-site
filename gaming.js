@@ -177,7 +177,7 @@ async function loadGamingHero() {
   const hero = document.getElementById("gamingHero");
   const title = hero.querySelector(".hero-title");
   const channel = hero.querySelector(".hero-channel");
-  const thumb = hero.querySelector(".hero-thumb");
+  const thumb = hero.querySelector(".hero-bg");
   const button = hero.querySelector(".hero-btn");
 
   title.textContent = video.title;
