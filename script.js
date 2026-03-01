@@ -204,7 +204,7 @@ async function loadTrending() {
     .select("*")
     .eq("trending", true)
     .order("date", { ascending: false })
-    .limit(6);
+    .limit(3);
 
   if (error || !container) return;
 
@@ -233,7 +233,7 @@ async function loadLatest() {
     .eq("featured", false)
     .eq("trending", false)
     .order("date", { ascending: false })
-    .limit(8);
+    .limit(6);
 
   if (error || !container) return;
 
