@@ -188,8 +188,9 @@ async function loadEntretenimentoHero() {
 
   title.textContent = video.title;
   channel.textContent = video.channel;
-  thumb.src = `https://img.youtube.com/vi/${video.video_id}/maxresdefault.jpg`;
   thumb.src = `https://img.youtube.com/vi/${video.video_id}/hqdefault.jpg`;
+  thumb.src = `https://img.youtube.com/vi/${video.video_id}/maxresdefault.jpg`;
+  
 
   hero.dataset.id = video.video_id;
   button.dataset.id = video.video_id;
