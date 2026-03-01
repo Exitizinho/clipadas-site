@@ -230,6 +230,8 @@ async function loadLatest() {
   const { data, error } = await supabaseClient
     .from("videos")
     .select("*")
+    .eq("featured", false)
+    .eq("trending", false)
     .order("date", { ascending: false })
     .limit(8);
 
