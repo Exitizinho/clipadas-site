@@ -1,8 +1,11 @@
-const supabaseUrl = "https://tjuoffrvparnbjqdkbbd.supabase.co";
-const supabaseKey = "sb_publishable__mJcSyoWJ8XzxN_0vOysAQ_Kru4kzjO";
+if (!window.mySupabase) {
+  const supabaseUrl = "https://tjuoffrvparnbjqdkbbd.supabase.co";
+  const supabaseKey = "sb_publishable__mJcSyoWJ8XzxN_0vOysAQ_Kru4kzjO";
 
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+  window.mySupabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+}
 
+const supabase = window.mySupabase;
 // ===============================
 // VARIÁVEIS GLOBAIS
 // ===============================
