@@ -1,11 +1,7 @@
-if (!window.mySupabase) {
-  const supabaseUrl = "https://tjuoffrvparnbjqdkbbd.supabase.co";
-  const supabaseKey = "sb_publishable__mJcSyoWJ8XzxN_0vOysAQ_Kru4kzjO";
+const supabaseUrl = "https://TEU_PROJECT_ID.supabase.co";
+const supabaseKey = "TUA_PUBLIC_ANON_KEY";
 
-  window.mySupabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-}
-
-const supabase = window.mySupabase;
+const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 // ===============================
 // VARIÁVEIS GLOBAIS
 // ===============================
