@@ -105,6 +105,7 @@ async function loadVideos(page, containerId) {
     .from("videos")
     .select("*")
     .eq("page", page)
+    .eq("featured", false)
     .order("date", { ascending: false })
     .limit(8);
 
