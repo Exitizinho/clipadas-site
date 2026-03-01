@@ -60,7 +60,7 @@ const youtubeBtn = document.getElementById("youtubeLink");
 /* ABRIR MODAL (funciona com vídeos dinâmicos) */
 document.addEventListener("click", function (e) {
 
-  const card = e.target.closest(".video-card");
+  const card = e.target.closest(".video-card, .hero-card");
   if (!card) return;
 
   e.preventDefault();
@@ -154,7 +154,36 @@ async function loadVideos(page, containerId) {
   img.loading = "lazy";
   img.decoding = "async";
 });
+
+  loadGamingHero();
   
+}
+
+async function loadGamingHero() {
+
+  const { data, error } = await supabaseClient
+    .from("videos")
+    .select("*")
+    .eq("page", "gaming")
+    .eq("featured", true)
+    .order("date", { ascending: false })
+    .limit(1);
+
+  if (error || !data.length) return;
+
+  const video = data[0];
+
+  const hero = document.getElementById("gamingHero");
+  const title = hero.querySelector(".hero-title");
+  const channel = hero.querySelector(".hero-channel");
+  const thumb = hero.querySelector(".hero-thumb");
+  const button = hero.querySelector(".hero-btn");
+
+  title.textContent = video.title;
+  channel.textContent = video.channel;
+  thumb.src = `https://img.youtube.com/vi/${video.video_id}/maxresdefault.jpg`;
+
+  hero.dataset.id = video.video_id;
 }
 
 
