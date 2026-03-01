@@ -202,7 +202,7 @@ async function loadTrending() {
     .order("date", { ascending: false })
     .limit(6);
 
-  if (error) return;
+  if (error || !container) return;
 
   container.innerHTML = data.map(video => `
     <div class="video-card" data-id="${video.video_id}">
@@ -221,7 +221,7 @@ async function loadTrending() {
 // ===============================
 async function loadLatest() {
 
-  const container = document.getElementById("latestContainer");
+  const container = document.getElementById("latestvideos");
 
   const { data, error } = await supabase
     .from("videos")
@@ -229,7 +229,7 @@ async function loadLatest() {
     .order("date", { ascending: false })
     .limit(8);
 
-  if (error) return;
+  if (error || !container) return;
 
   container.innerHTML = data.map(video => `
     <div class="video-card" data-id="${video.video_id}">
