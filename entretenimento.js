@@ -1,31 +1,8 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ===========================
-     THUMBNAILS YOUTUBE
-  ============================ */
-  document.querySelectorAll("[data-id]").forEach(card => {
 
-  const videoId = card.dataset.id;
-  if (!videoId) return;
-
-  const img = card.querySelector("img");
-  if (!img) return;
-
-  const maxRes = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-  const hqRes  = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-
-  const testImg = new Image();
-  testImg.src = maxRes;
-
-  testImg.onload = () => img.src = maxRes;
-  testImg.onerror = () => img.src = hqRes;
-
-  img.loading = "lazy";
-  img.decoding = "async";
-});
-
-
+  
   /* ===========================
      FUNÇÃO NORMALIZAR TEXTO
      - remove acentos
@@ -43,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
 /* ===========================
-   MOBILE SIDEBAR (ENTRETENIMENTO)
+   MOBILE SIDEBAR (REACT)
 =========================== */
 const menuBtn = document.querySelector(".mobile-menu-btn");
 const sidebar = document.querySelector(".sidebar");
@@ -84,7 +61,7 @@ const youtubeBtn = document.getElementById("youtubeLink");
 /* ABRIR MODAL (funciona com vídeos dinâmicos) */
 document.addEventListener("click", function (e) {
 
-  const card = e.target.closest(".video-card");
+  const card = e.target.closest(".video-card, .hero-card");
   if (!card) return;
 
   e.preventDefault();
@@ -120,3 +97,94 @@ document.addEventListener("keydown", e => {
 
 
 });
+
+async function loadVideos(page, containerId) {
+
+  const container = document.getElementById(containerId);
+
+  const { data, error } = await supabaseClient
+    .from("videos")
+    .select("*")
+    .eq("page", page)
+    .eq("featured", false)
+    .order("date", { ascending: false })
+    .limit(8);
+
+  if (error) {
+    console.error(error);
+    container.innerHTML = "<p>Erro ao carregar vídeos</p>";
+    return;
+  }
+
+  const videos = data;
+
+  if (!videos.length) {
+    container.innerHTML = "<p>Sem vídeos</p>";
+    return;
+  }
+
+ container.innerHTML = videos.map(video => `
+  <div class="video-card" data-id="${video.video_id}">
+      <img src="https://i.ytimg.com/vi/${video.video_id}/maxresdefault.jpg">
+      <div class="info">
+        <h4>${video.title}</h4>
+        <span>${video.channel}</span>
+      </div>
+    </div>
+  `).join("");
+
+   /* ===========================
+     THUMBNAILS YOUTUBE
+  ============================ */
+  container.querySelectorAll("[data-id]").forEach(card => {
+
+  const videoId = card.dataset.id;
+  if (!videoId) return;
+
+  const img = card.querySelector("img");
+  if (!img) return;
+
+  const maxRes = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+  const hqRes  = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
+  const testImg = new Image();
+  testImg.src = maxRes;
+
+  testImg.onload = () => img.src = maxRes;
+  testImg.onerror = () => img.src = hqRes;
+
+  img.loading = "lazy";
+  img.decoding = "async";
+});
+
+  loadEntretenimentoHero();
+  
+}
+
+async function loadEntretenimentoHero() {
+
+  const { data, error } = await supabaseClient
+    .from("videos")
+    .select("*")
+    .eq("page", "react")
+    .eq("featured", true)
+    .order("date", { ascending: false })
+    .limit(1);
+
+  if (error || !data.length) return;
+
+  const video = data[0];
+
+  const hero = document.getElementById("entretenimentoHero");
+  const title = hero.querySelector(".hero-title");
+  const channel = hero.querySelector(".hero-channel");
+  const thumb = hero.querySelector(".hero-bg");
+  const button = hero.querySelector(".hero-btn");
+
+  title.textContent = video.title;
+  channel.textContent = video.channel;
+  thumb.src = `https://img.youtube.com/vi/${video.video_id}/maxresdefault.jpg`;
+
+  hero.dataset.id = video.video_id;
+  button.dataset.id = video.video_id;
+}
