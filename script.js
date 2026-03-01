@@ -53,24 +53,6 @@ function stopAutoplay() {
   autoplayInterval = null;
 }
 
-// ---------------- VIDEOS ----------------
-function stopAllVideos() {
-  
-}
-
-// ⚠️ DETETAR PLAY REAL (mouse em cima do iframe)
-slides.forEach(slide => {
-
-  slide.addEventListener("mouseenter", () => {
-    stopAutoplay();
-  });
-
-  slide.addEventListener("mouseleave", () => {
-    startAutoplay();
-  });
-
-});
-
 
 // ---------------- BOTÕES ----------------
 nextBtn.addEventListener("click", () => {
@@ -95,48 +77,53 @@ prevBtn.addEventListener("click", () => {
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
 
-const modal = document.getElementById("videoModal");
-const frame = document.getElementById("videoFrame");
-const youtubeLink = document.getElementById("youtubeLink");
-const closeBtn = document.querySelector(".video-close");
+  const modal = document.getElementById("videoModal");
+  const frame = document.getElementById("videoFrame");
+  const youtubeLink = document.getElementById("youtubeLink");
+  const closeBtn = document.querySelector(".video-close");
 
-document.addEventListener("click", function (e) {
+  // ABRIR MODAL (para hero + trending + latest)
+  document.addEventListener("click", function (e) {
 
-  const card = e.target.closest(".video-card");
-  if (!card) return;
+    const card = e.target.closest(".video-card, .video-slide");
+    if (!card) return;
 
-  const videoId = card.dataset.id;
-  if (!videoId) return;
+    const videoId = card.dataset.id;
+    if (!videoId) return;
 
-  frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-  youtubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+    frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    youtubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
 
-  modal.classList.add("open");
+    modal.classList.add("open");
 
-  // fechar botão
-closeBtn.addEventListener("click", closeModal);
+    autoplayEnabled = false;
+    stopAutoplay();
+  });
 
-// fechar clicando fora
-modal.addEventListener("click", function (e) {
-  if (e.target === modal) closeModal();
+  // FECHAR
+  function closeModal() {
+    modal.classList.remove("open");
+    frame.src = "";
+    autoplayEnabled = true;
+    startAutoplay();
+  }
+
+  closeBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", e => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeModal();
+  });
+
+  // 🚀 CARREGAR DADOS
+  loadHero();
+  loadTrending();
+  loadLatest();
 });
 
-// fechar ESC
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") closeModal();
-});
-
-})
-});
-
-
-
-function closeModal() {
-  modal.classList.remove("open");
-  frame.src = "";
-  autoplayEnabled = true;
-  startAutoplay(); 
-}
 
   // thumbnails hero em qualidade máxima com fallback
 slides.forEach(slide => {
@@ -270,12 +257,6 @@ function initCarousel() {
 
   });
 }
-
-  loadHero();
-loadTrending();
-loadLatest();
-
-
 
 });
 
