@@ -125,7 +125,7 @@ async function loadVideos(page, containerId) {
   <div class="video-card" data-id="${video.video_id}">
       <img src="https://i.ytimg.com/vi/${video.video_id}/maxresdefault.jpg">
       <div class="info">
-        <h3>${video.title}</h3>
+        <h4>${video.title}</h4>
         <span>${video.channel}</span>
       </div>
     </div>
