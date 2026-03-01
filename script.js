@@ -164,7 +164,7 @@ function initCarousel() {
 // ===============================
 async function loadHero() {
 
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from("videos")
     .select("*")
     .eq("featured", true)
@@ -199,7 +199,7 @@ async function loadTrending() {
 
   const container = document.getElementById("trendingvideos");
 
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from("videos")
     .select("*")
     .eq("trending", true)
@@ -227,7 +227,7 @@ async function loadLatest() {
 
   const container = document.getElementById("latestvideos");
 
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from("videos")
     .select("*")
     .order("date", { ascending: false })
