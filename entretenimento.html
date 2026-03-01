@@ -116,8 +116,17 @@
 </p>
   </footer>
 
+ <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const supabaseClient = window.supabase.createClient(
+    "https://tjuoffrvparnbjqdkbbd.supabase.co",
+    "sb_publishable__mJcSyoWJ8XzxN_0vOysAQ_Kru4kzjO"
+  );
+</script>
+
 <script src="entretenimento.js"></script>
-<script src="videos.js"></script>
+
 <script>
   loadVideos("entretenimento", "entretenimentoContainer");
 </script>
