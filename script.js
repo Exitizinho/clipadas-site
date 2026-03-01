@@ -1,3 +1,9 @@
+const supabaseUrl = "https://TEU_PROJECT_ID.supabase.co";
+const supabaseKey = "TUA_PUBLIC_ANON_KEY";
+
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+
 // ===============================
 // VARIÁVEIS GLOBAIS
 // ===============================
