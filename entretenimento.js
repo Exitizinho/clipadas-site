@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
 
 /* ===========================
-   MOBILE SIDEBAR (REACT)
+   MOBILE SIDEBAR (ENTRETENIMENTO)
 =========================== */
 const menuBtn = document.querySelector(".mobile-menu-btn");
 const sidebar = document.querySelector(".sidebar");
@@ -166,7 +166,7 @@ async function loadEntretenimentoHero() {
   const { data, error } = await supabaseClient
     .from("videos")
     .select("*")
-    .eq("page", "react")
+    .eq("page", "entretenimento")
     .eq("featured", true)
     .order("date", { ascending: false })
     .limit(1);
