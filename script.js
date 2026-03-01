@@ -106,21 +106,20 @@ const frame = document.getElementById("videoFrame");
 const youtubeLink = document.getElementById("youtubeLink");
 const closeBtn = document.querySelector(".video-close");
 
-const videoCards = document.querySelectorAll(".video-card");
+document.addEventListener("click", function (e) {
 
-videoCards.forEach(card => {
-  card.addEventListener("click", function (e) {
-    e.preventDefault();
+  const card = e.target.closest(".video-card");
+  if (!card) return;
 
-    const videoId = this.dataset.video; // já é só o ID
+  const videoId = card.dataset.id;
+  if (!videoId) return;
 
-    const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  youtubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
 
-    frame.src = embedUrl;
-    youtubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+  modal.classList.add("open");
 
-    modal.classList.add("open"); 
-  });
+})
 });
 
 // fechar botão
@@ -178,6 +177,96 @@ slides.forEach(slide => {
   };
 
 });
+
+  async function loadHero() {
+
+  const { data, error } = await supabase
+    .from("videos")
+    .select("*")
+    .eq("featured", true)
+    .order("date", { ascending: false });
+
+  if (error || !data.length) return;
+
+  const track = document.getElementById("videoTrack");
+  const dotsContainer = document.getElementById("carouselDots");
+
+  track.innerHTML = "";
+  dotsContainer.innerHTML = "";
+
+  data.forEach((video, i) => {
+
+    track.innerHTML += `
+      <div class="video-slide" data-id="${video.video_id}">
+        <img src="https://img.youtube.com/vi/${video.video_id}/maxresdefault.jpg">
+        <div class="hero-play-center"><span>▶</span></div>
+      </div>
+    `;
+
+    const dot = document.createElement("span");
+    dot.addEventListener("click", () => {
+      index = i;
+      updateCarousel();
+    });
+
+    dotsContainer.appendChild(dot);
+  });
+
+  slides = document.querySelectorAll(".video-slide");
+
+  initCarousel(); // ← inicializa depois de criar os slides
+}
+
+  async function loadTrending() {
+
+  const container = document.getElementById("trendingContainer");
+
+  const { data, error } = await supabase
+    .from("videos")
+    .select("*")
+    .eq("trending", true)
+    .order("date", { ascending: false })
+    .limit(6);
+
+  if (error) return;
+
+  container.innerHTML = data.map(video => `
+    <div class="video-card" data-id="${video.video_id}">
+      <img src="https://img.youtube.com/vi/${video.video_id}/maxresdefault.jpg">
+      <div class="info">
+        <h4>${video.title}</h4>
+        <span>${video.channel}</span>
+      </div>
+    </div>
+  `).join("");
+}
+
+  async function loadLatest() {
+
+  const container = document.getElementById("latestContainer");
+
+  const { data, error } = await supabase
+    .from("videos")
+    .select("*")
+    .order("date", { ascending: false })
+    .limit(8);
+
+  if (error) return;
+
+  container.innerHTML = data.map(video => `
+    <div class="video-card" data-id="${video.video_id}">
+      <img src="https://img.youtube.com/vi/${video.video_id}/maxresdefault.jpg">
+      <div class="info">
+        <h4>${video.title}</h4>
+        <span>${video.channel}</span>
+      </div>
+    </div>
+  `).join("");
+}
+
+  loadHero();
+loadTrending();
+loadLatest();
 
 
 
