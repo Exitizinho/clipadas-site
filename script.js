@@ -1,88 +1,52 @@
-const track = document.getElementById("videoTrack");
+// ===============================
+// VARIÁVEIS GLOBAIS
+// ===============================
+let track;
 let slides = [];
-const prevBtn = document.querySelector(".video-btn.left");
-const nextBtn = document.querySelector(".video-btn.right");
-const dotsContainer = document.getElementById("carouselDots");
+let prevBtn;
+let nextBtn;
+let dotsContainer;
+
+let modal;
+let frame;
+let youtubeLink;
 
 let index = 0;
 let autoplayInterval = null;
 let autoplayEnabled = true;
 
-// ---------------- SLIDE ----------------
-function updateCarousel() {
-  track.style.transform = `translateX(-${index * 100}%)`;
-  updateDots();
-}
-
-// ---------------- DOTS ----------------
-function createDots() {
-  dotsContainer.innerHTML = "";
-  slides.forEach((_, i) => {
-    const dot = document.createElement("span");
-    dot.addEventListener("click", () => {
-      stopAllVideos();
-      autoplayEnabled = false;
-      stopAutoplay();
-      index = i;
-      updateCarousel();
-    });
-    dotsContainer.appendChild(dot);
-  });
-}
-
-function updateDots() {
-  const dots = dotsContainer.querySelectorAll("span");
-  dots.forEach((dot, i) => {
-    dot.classList.toggle("active", i === index);
-  });
-}
-
-// ---------------- AUTOPLAY ----------------
-function startAutoplay() {
-  stopAutoplay();
-  if (!autoplayEnabled) return;
-
-  autoplayInterval = setInterval(() => {
-    index = (index + 1) % slides.length;
-    updateCarousel();
-  }, 4000);
-}
-
-function stopAutoplay() {
-  clearInterval(autoplayInterval);
-  autoplayInterval = null;
-}
-
-
-// ---------------- BOTÕES ----------------
-nextBtn.addEventListener("click", () => {
-  autoplayEnabled = false;
-  stopAutoplay();
-  stopAllVideos();
-  index = (index + 1) % slides.length;
-  updateCarousel();
-});
-
-prevBtn.addEventListener("click", () => {
-  autoplayEnabled = false;
-  stopAutoplay();
-  stopAllVideos();
-  index = (index - 1 + slides.length) % slides.length;
-  updateCarousel();
-});
-
 
 // ===============================
-// Modal
+// INICIALIZAÇÃO
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
 
-  const modal = document.getElementById("videoModal");
-  const frame = document.getElementById("videoFrame");
-  const youtubeLink = document.getElementById("youtubeLink");
-  const closeBtn = document.querySelector(".video-close");
+  // ELEMENTOS
+  track = document.getElementById("videoTrack");
+  prevBtn = document.querySelector(".video-btn.left");
+  nextBtn = document.querySelector(".video-btn.right");
+  dotsContainer = document.getElementById("carouselDots");
 
-  // ABRIR MODAL (para hero + trending + latest)
+  modal = document.getElementById("videoModal");
+  frame = document.getElementById("videoFrame");
+  youtubeLink = document.getElementById("youtubeLink");
+
+  // BOTÕES CAROUSEL
+  prevBtn.addEventListener("click", () => {
+    autoplayEnabled = false;
+    stopAutoplay();
+    index = (index - 1 + slides.length) % slides.length;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    autoplayEnabled = false;
+    stopAutoplay();
+    index = (index + 1) % slides.length;
+    updateCarousel();
+  });
+
+  // MODAL CLICK GLOBAL (hero + trending + latest)
   document.addEventListener("click", function (e) {
 
     const card = e.target.closest(".video-card, .video-slide");
@@ -100,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     stopAutoplay();
   });
 
-  // FECHAR
+  // FECHAR MODAL
   function closeModal() {
     modal.classList.remove("open");
     frame.src = "";
@@ -108,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     startAutoplay();
   }
 
-  closeBtn.addEventListener("click", closeModal);
+  document.querySelector(".video-close").addEventListener("click", closeModal);
 
   modal.addEventListener("click", e => {
     if (e.target === modal) closeModal();
@@ -125,23 +89,76 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-  // thumbnails hero em qualidade máxima com fallback
-slides.forEach(slide => {
+// ===============================
+// CAROUSEL
+// ===============================
 
-  const id = slide.dataset.id;
-  const img = slide.querySelector("img");
+function updateCarousel() {
+  if (!slides.length) return;
+  track.style.transform = `translateX(-${index * 100}%)`;
+  updateDots();
+}
 
-  if (!img) return;
+function createDots() {
+  dotsContainer.innerHTML = "";
 
-  img.src = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+  slides.forEach((_, i) => {
+    const dot = document.createElement("span");
 
-  img.onerror = () => {
-    img.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
-  };
+    dot.addEventListener("click", () => {
+      autoplayEnabled = false;
+      stopAutoplay();
+      index = i;
+      updateCarousel();
+    });
 
-});
+    dotsContainer.appendChild(dot);
+  });
+}
 
-  async function loadHero() {
+function updateDots() {
+  const dots = dotsContainer.querySelectorAll("span");
+  dots.forEach((dot, i) => {
+    dot.classList.toggle("active", i === index);
+  });
+}
+
+function startAutoplay() {
+  stopAutoplay();
+  if (!autoplayEnabled || slides.length <= 1) return;
+
+  autoplayInterval = setInterval(() => {
+    index = (index + 1) % slides.length;
+    updateCarousel();
+  }, 4000);
+}
+
+function stopAutoplay() {
+  clearInterval(autoplayInterval);
+  autoplayInterval = null;
+}
+
+function initCarousel() {
+
+  if (!slides.length) return;
+
+  createDots();
+  updateCarousel();
+  startAutoplay();
+
+  slides.forEach(slide => {
+
+    slide.addEventListener("mouseenter", stopAutoplay);
+    slide.addEventListener("mouseleave", startAutoplay);
+
+  });
+}
+
+
+// ===============================
+// HERO (FEATURED)
+// ===============================
+async function loadHero() {
 
   const { data, error } = await supabase
     .from("videos")
@@ -151,13 +168,11 @@ slides.forEach(slide => {
 
   if (error || !data.length) return;
 
-  const track = document.getElementById("videoTrack");
-  const dotsContainer = document.getElementById("carouselDots");
-
   track.innerHTML = "";
   dotsContainer.innerHTML = "";
+  index = 0;
 
-  data.forEach((video, i) => {
+  data.forEach(video => {
 
     track.innerHTML += `
       <div class="video-slide" data-id="${video.video_id}">
@@ -165,22 +180,18 @@ slides.forEach(slide => {
         <div class="hero-play-center"><span>▶</span></div>
       </div>
     `;
-
-    const dot = document.createElement("span");
-    dot.addEventListener("click", () => {
-      index = i;
-      updateCarousel();
-    });
-
-    dotsContainer.appendChild(dot);
   });
 
   slides = document.querySelectorAll(".video-slide");
 
-  initCarousel(); // ← inicializa depois de criar os slides
+  initCarousel();
 }
 
-  async function loadTrending() {
+
+// ===============================
+// TRENDING
+// ===============================
+async function loadTrending() {
 
   const container = document.getElementById("trendingContainer");
 
@@ -204,7 +215,11 @@ slides.forEach(slide => {
   `).join("");
 }
 
-  async function loadLatest() {
+
+// ===============================
+// ÚLTIMOS VÍDEOS
+// ===============================
+async function loadLatest() {
 
   const container = document.getElementById("latestContainer");
 
@@ -226,37 +241,3 @@ slides.forEach(slide => {
     </div>
   `).join("");
 }
-
-
-function initCarousel() {
-
-  if (!slides.length) return;
-
-  createDots();
-  updateCarousel();
-  startAutoplay();
-
-  slides.forEach(slide => {
-
-    slide.addEventListener("mouseenter", stopAutoplay);
-    slide.addEventListener("mouseleave", startAutoplay);
-
-    slide.addEventListener("click", () => {
-
-      const videoId = slide.dataset.id;
-
-      frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-      youtubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
-
-      modal.classList.add("open");
-
-      autoplayEnabled = false;
-      stopAutoplay();
-
-    });
-
-  });
-}
-
-});
-
