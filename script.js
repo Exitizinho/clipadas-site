@@ -167,6 +167,7 @@ async function loadHero() {
   const { data, error } = await supabaseClient
     .from("videos")
     .select("*")
+    .eq("page", "home")
     .eq("featured", true)
     .order("date", { ascending: false });
 
