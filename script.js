@@ -193,7 +193,7 @@ async function loadHero() {
 // ===============================
 async function loadTrending() {
 
-  const container = document.getElementById("trendingContainer");
+  const container = document.getElementById("trendingvideos");
 
   const { data, error } = await supabase
     .from("videos")
