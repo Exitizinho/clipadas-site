@@ -233,6 +233,7 @@ async function loadLatest() {
     .select("*")
     .eq("featured", false)
     .eq("trending", false)
+    .neq("page", "topclipadas")
     .order("date", { ascending: false })
     .limit(6);
 
