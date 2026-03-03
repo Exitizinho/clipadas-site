@@ -1,6 +1,7 @@
 let currentSubcategory = "shorts";
 let currentVideos = [];
 let currentIndex = 0;
+let scrollLock = false; // 👈 protege scroll múltiplo
 
 async function loadTopClipadas(subcategory) {
 
@@ -74,31 +75,36 @@ function activateModalClicks() {
 
       currentIndex = currentVideos.findIndex(v => v.video_id === id);
 
-      const modal = document.getElementById("videoModal");
-      const frame = document.getElementById("videoFrame");
-      const youtubeLink = document.getElementById("youtubeLink");
-
-      if (platform === "twitch") {
-
-        frame.src =
-          `https://clips.twitch.tv/embed?clip=${id}&parent=${location.hostname}`;
-
-        youtubeLink.href =
-          `https://clips.twitch.tv/${id}`;
-
-      } else {
-
-        frame.src =
-          `https://www.youtube.com/embed/${id}?autoplay=1`;
-
-        youtubeLink.href =
-          `https://www.youtube.com/watch?v=${id}`;
-      }
-
-      modal.classList.add("open");
+      openVideo(id, platform);
     };
 
   });
+}
+
+function openVideo(id, platform) {
+
+  const modal = document.getElementById("videoModal");
+  const frame = document.getElementById("videoFrame");
+  const youtubeLink = document.getElementById("youtubeLink");
+
+  if (platform === "twitch") {
+
+    frame.src =
+      `https://clips.twitch.tv/embed?clip=${id}&parent=${location.hostname}`;
+
+    youtubeLink.href =
+      `https://clips.twitch.tv/${id}`;
+
+  } else {
+
+    frame.src =
+      `https://www.youtube.com/embed/${id}?autoplay=1`;
+
+    youtubeLink.href =
+      `https://www.youtube.com/watch?v=${id}`;
+  }
+
+  modal.classList.add("open");
 }
 
 function changeVideo(direction) {
@@ -115,25 +121,7 @@ function changeVideo(direction) {
 
   const video = currentVideos[currentIndex];
 
-  const frame = document.getElementById("videoFrame");
-  const youtubeLink = document.getElementById("youtubeLink");
-
-  if (video.platform === "twitch") {
-
-    frame.src =
-      `https://clips.twitch.tv/embed?clip=${video.video_id}&parent=${location.hostname}`;
-
-    youtubeLink.href =
-      `https://clips.twitch.tv/${video.video_id}`;
-
-  } else {
-
-    frame.src =
-      `https://www.youtube.com/embed/${video.video_id}?autoplay=1`;
-
-    youtubeLink.href =
-      `https://www.youtube.com/watch?v=${video.video_id}`;
-  }
+  openVideo(video.video_id, video.platform);
 }
 
 document.querySelectorAll(".subcategory-tab").forEach(tab => {
@@ -149,34 +137,58 @@ document.querySelectorAll(".subcategory-tab").forEach(tab => {
   };
 });
 
-document.querySelector(".video-close").onclick = () => {
-  const modal = document.getElementById("videoModal");
-  const frame = document.getElementById("videoFrame");
+const modal = document.getElementById("videoModal");
 
-  modal.classList.remove("open");
-  frame.src = "";
-};
+document.querySelector(".video-close").onclick = closeModal;
 
-document.getElementById("videoModal").addEventListener("click", e => {
-  if (e.target.id === "videoModal") {
-    e.target.classList.remove("open");
-    document.getElementById("videoFrame").src = "";
-  }
+modal.addEventListener("click", e => {
+  if (e.target.id === "videoModal") closeModal();
 });
 
+function closeModal() {
+  modal.classList.remove("open");
+  document.getElementById("videoFrame").src = "";
+}
+
+/* ===========================
+   TECLADO
+=========================== */
+
 document.addEventListener("keydown", e => {
+
+  if (!modal.classList.contains("open")) return;
 
   if (e.key === "ArrowDown") changeVideo(1);
   if (e.key === "ArrowUp") changeVideo(-1);
 
-  if (e.key === "Escape") {
-    const modal = document.getElementById("videoModal");
-    if (modal.classList.contains("open")) {
-      modal.classList.remove("open");
-      document.getElementById("videoFrame").src = "";
-    }
-  }
+  if (e.key === "Escape") closeModal();
 });
+
+/* ===========================
+   SCROLL DO RATO (NOVO)
+=========================== */
+
+modal.addEventListener("wheel", e => {
+
+  if (!modal.classList.contains("open")) return;
+  if (scrollLock) return;
+
+  e.preventDefault();
+
+  scrollLock = true;
+
+  if (e.deltaY > 0) {
+    changeVideo(1);
+  } else {
+    changeVideo(-1);
+  }
+
+  setTimeout(() => {
+    scrollLock = false;
+  }, 500);
+
+}, { passive: false });
+
 
 // INIT
 loadTopClipadas("shorts");
