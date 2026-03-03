@@ -1,7 +1,7 @@
 let currentSubcategory = "shorts";
 let currentVideos = [];
 let currentIndex = 0;
-let scrollLock = false; // 👈 protege scroll múltiplo
+let scrollLock = false;
 
 async function loadTopClipadas(subcategory) {
 
@@ -56,7 +56,6 @@ async function loadTopClipadas(subcategory) {
         </div>
       </div>
     `;
-
   }).join("");
 
   activateModalClicks();
@@ -77,7 +76,6 @@ function activateModalClicks() {
 
       openVideo(id, platform);
     };
-
   });
 }
 
@@ -88,18 +86,13 @@ function openVideo(id, platform) {
   const youtubeLink = document.getElementById("youtubeLink");
 
   if (platform === "twitch") {
-
     frame.src =
       `https://clips.twitch.tv/embed?clip=${id}&parent=${location.hostname}`;
-
     youtubeLink.href =
       `https://clips.twitch.tv/${id}`;
-
   } else {
-
     frame.src =
       `https://www.youtube.com/embed/${id}?autoplay=1`;
-
     youtubeLink.href =
       `https://www.youtube.com/watch?v=${id}`;
   }
@@ -120,9 +113,20 @@ function changeVideo(direction) {
   }
 
   const video = currentVideos[currentIndex];
-
   openVideo(video.video_id, video.platform);
 }
+
+function closeModal() {
+  const modal = document.getElementById("videoModal");
+  const frame = document.getElementById("videoFrame");
+
+  modal.classList.remove("open");
+  frame.src = "";
+}
+
+/* ===========================
+   TABS
+=========================== */
 
 document.querySelectorAll(".subcategory-tab").forEach(tab => {
 
@@ -137,6 +141,10 @@ document.querySelectorAll(".subcategory-tab").forEach(tab => {
   };
 });
 
+/* ===========================
+   MODAL CONTROLOS
+=========================== */
+
 const modal = document.getElementById("videoModal");
 
 document.querySelector(".video-close").onclick = closeModal;
@@ -145,9 +153,23 @@ modal.addEventListener("click", e => {
   if (e.target.id === "videoModal") closeModal();
 });
 
-function closeModal() {
-  modal.classList.remove("open");
-  document.getElementById("videoFrame").src = "";
+/* ===========================
+   SETAS DO MODAL (FIX FINAL)
+=========================== */
+
+const modalUpBtn = document.querySelector(".modal-up");
+const modalDownBtn = document.querySelector(".modal-down");
+
+if (modalUpBtn) {
+  modalUpBtn.addEventListener("click", () => {
+    changeVideo(-1);
+  });
+}
+
+if (modalDownBtn) {
+  modalDownBtn.addEventListener("click", () => {
+    changeVideo(1);
+  });
 }
 
 /* ===========================
@@ -160,12 +182,11 @@ document.addEventListener("keydown", e => {
 
   if (e.key === "ArrowDown") changeVideo(1);
   if (e.key === "ArrowUp") changeVideo(-1);
-
   if (e.key === "Escape") closeModal();
 });
 
 /* ===========================
-   SCROLL DO RATO (NOVO)
+   SCROLL (LIMITADO PELO IFRAME)
 =========================== */
 
 modal.addEventListener("wheel", e => {
@@ -177,11 +198,8 @@ modal.addEventListener("wheel", e => {
 
   scrollLock = true;
 
-  if (e.deltaY > 0) {
-    changeVideo(1);
-  } else {
-    changeVideo(-1);
-  }
+  if (e.deltaY > 0) changeVideo(1);
+  else changeVideo(-1);
 
   setTimeout(() => {
     scrollLock = false;
