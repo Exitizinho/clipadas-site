@@ -35,17 +35,32 @@ function showSearchResults(videos) {
     return;
   }
 
-  resultsBox.innerHTML = videos.map(video => `
+  resultsBox.innerHTML = videos.map(video => {
+
+  let icon = "🎬";
+
+  if (video.page === "gaming") icon = "🎮";
+  if (video.page === "react") icon = "😂";
+  if (video.page === "entretenimento") icon = "🎉";
+  if (video.page === "topclipadas") icon = "📱";
+  if (video.page === "fails") icon = "💀";
+
+  return `
   
     <div class="search-item" data-id="${video.video_id}">
       <img src="https://img.youtube.com/vi/${video.video_id}/hqdefault.jpg">
-      <div>
+
+      <div class="search-info">
+        <span class="search-icon">${icon}</span>
         <h4>${video.title}</h4>
-        <span>${video.channel}</span>
+        <span class="search-channel">${video.channel}</span>
       </div>
+
     </div>
 
-  `).join("");
+  `;
+
+}).join("");
 
   // 🔥 CLICK RESULTADO
   resultsBox.querySelectorAll(".search-item").forEach(item => {
