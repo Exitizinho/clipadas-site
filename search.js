@@ -43,7 +43,7 @@ function showSearchResults(videos) {
   if (video.page === "react") icon = "😂";
   if (video.page === "entretenimento") icon = "🎉";
   if (video.page === "topclipadas") icon = "📱";
-  if (video.page === "rage") icon = "💀";
+  if (video.page === "rage") icon = "🔥";
 
   return `
   
