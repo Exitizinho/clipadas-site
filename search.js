@@ -71,3 +71,17 @@ function showSearchResults(videos) {
   });
 
 }
+
+document.addEventListener("click", (e) => {
+
+  if (!e.target.closest(".search-box")) {
+
+    const results = document.querySelector(".search-results");
+
+    if (results) {
+      results.innerHTML = "";
+    }
+
+  }
+
+});
