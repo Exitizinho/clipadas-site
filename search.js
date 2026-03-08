@@ -47,4 +47,27 @@ function showSearchResults(videos) {
 
   `).join("");
 
+  // 🔥 CLICK RESULTADO
+  resultsBox.querySelectorAll(".search-item").forEach(item => {
+
+    item.addEventListener("click", () => {
+
+      const id = item.dataset.id;
+
+      const modal = document.getElementById("videoModal");
+      const frame = document.getElementById("videoFrame");
+      const youtubeLink = document.getElementById("youtubeLink");
+
+      frame.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+      youtubeLink.href = `https://www.youtube.com/watch?v=${id}`;
+
+      modal.classList.add("open");
+
+      resultsBox.innerHTML = "";
+      document.querySelector(".global-search").value = "";
+
+    });
+
+  });
+
 }
