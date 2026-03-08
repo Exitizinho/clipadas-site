@@ -6,7 +6,7 @@ searchInput.addEventListener("input", async () => {
 
   if (query.length < 2) return;
 
-  const { data, error } = await supabase
+  const { data, error } = await supabaseClient
     .from("videos")
     .select("*")
     .or(`title.ilike.%${query}%,channel.ilike.%${query}%`)
