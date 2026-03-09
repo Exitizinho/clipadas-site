@@ -43,7 +43,7 @@ function showSearchResults(videos) {
     gaming: "🎮",
     react: "😂",
     entretenimento: "🎉",
-    topclipadas: "📱",
+    topclipadas: "🎬",
     rage: "🔥"
   };
 
