@@ -37,13 +37,17 @@ function showSearchResults(videos) {
 
   resultsBox.innerHTML = videos.map(video => {
 
-  let icon = "🎬";
+  const page = video.page || "";
 
-  if (video.page === "gaming") icon = "🎮";
-  if (video.page === "react") icon = "😂";
-  if (video.page === "entretenimento") icon = "🎉";
-  if (video.page === "topclipadas") icon = "📱";
-  if (video.page === "rage") icon = "🔥";
+  const icons = {
+    gaming: "🎮",
+    react: "😂",
+    entretenimento: "🎉",
+    topclipadas: "📱",
+    rage: "🔥"
+  };
+
+  const icon = icons[page] || "🎬";
 
   return `
   
@@ -51,8 +55,7 @@ function showSearchResults(videos) {
       <img src="https://img.youtube.com/vi/${video.video_id}/hqdefault.jpg">
 
       <div class="search-info">
-        <span class="search-icon">${icon}</span>
-        <h4>${video.title}</h4>
+        <h4>${icon} ${video.title}</h4>
         <span class="search-channel">${video.channel}</span>
       </div>
 
