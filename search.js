@@ -51,7 +51,10 @@ function showSearchResults(videos) {
 
   return `
   
-    <div class="search-item" data-id="${video.video_id}">
+    <div class="search-item"
+     data-id="${video.video_id}"
+     data-platform="${video.platform}">
+     
       <img src="https://img.youtube.com/vi/${video.video_id}/hqdefault.jpg">
 
       <div class="search-info">
