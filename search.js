@@ -74,13 +74,30 @@ function showSearchResults(videos) {
     item.addEventListener("click", () => {
 
       const id = item.dataset.id;
+const platform = item.dataset.platform;
 
-      const modal = document.getElementById("videoModal");
-      const frame = document.getElementById("videoFrame");
-      const youtubeLink = document.getElementById("youtubeLink");
+const modal = document.getElementById("videoModal");
+const frame = document.getElementById("videoFrame");
+const youtubeLink = document.getElementById("youtubeLink");
 
-      frame.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
-      youtubeLink.href = `https://www.youtube.com/watch?v=${id}`;
+if (platform === "twitch") {
+
+  frame.src =
+    `https://clips.twitch.tv/embed?clip=${id}&parent=${location.hostname}`;
+
+  youtubeLink.href =
+    `https://clips.twitch.tv/${id}`;
+
+} else {
+
+  frame.src =
+    `https://www.youtube.com/embed/${id}?autoplay=1`;
+
+  youtubeLink.href =
+    `https://www.youtube.com/watch?v=${id}`;
+}
+
+modal.classList.add("open");
 
       modal.classList.add("open");
 
