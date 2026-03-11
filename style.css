@@ -838,6 +838,18 @@ body {
   opacity: .7;
 }
 
+.search-title{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.platform-icon{
+  width:14px;
+  height:14px;
+  opacity:.85;
+}
+
 /* ========================= */
 /* MOBILE */
 /* ========================= */
