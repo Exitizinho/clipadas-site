@@ -17,7 +17,7 @@ searchInput.addEventListener("input", async () => {
     return;
   }
 
-  showSearchResults(data);
+  showSearchResults(data, query);
 });
 
 function showSearchResults(videos) {
