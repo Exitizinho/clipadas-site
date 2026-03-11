@@ -20,7 +20,7 @@ searchInput.addEventListener("input", async () => {
   showSearchResults(data, query);
 });
 
-function showSearchResults(videos) {
+function showSearchResults(videos, query) {
 
   let resultsBox = document.querySelector(".search-results");
 
