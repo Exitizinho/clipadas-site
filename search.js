@@ -38,6 +38,7 @@ function showSearchResults(videos) {
   resultsBox.innerHTML = videos.map(video => {
 
   const page = video.page || "";
+  const platform = video.platform || "youtube";
 
   const icons = {
     gaming: "🎮",
@@ -47,23 +48,36 @@ function showSearchResults(videos) {
     rage: "🔥"
   };
 
-  const icon = icons[page] || "🎬";
+  const pageIcon = icons[page] || "🎬";
+
+  const platformIcon =
+    platform === "twitch"
+      ? `<img class="platform-icon" src="assets/twitch.svg">`
+      : `<img class="platform-icon" src="assets/youtube.svg">`;
 
   return `
   
     <div class="search-item"
-     data-id="${video.video_id}"
-     data-platform="${video.platform}">
-     
+         data-id="${video.video_id}"
+         data-platform="${platform}">
+
       <img src="https://img.youtube.com/vi/${video.video_id}/hqdefault.jpg">
 
       <div class="search-info">
-        <h4>${icon} ${video.title}</h4>
-        <span class="search-channel">${video.channel}</span>
+
+        <div class="search-title">
+          <span class="search-icon">${pageIcon}</span>
+          <h4>${highlight(video.title, query)}</h4>
+          ${platformIcon}
+        </div>
+
+        <span class="search-channel">
+          ${highlight(video.channel, query)}
+        </span>
+
       </div>
 
     </div>
-
   `;
 
 }).join("");
