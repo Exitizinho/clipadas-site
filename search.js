@@ -20,6 +20,16 @@ searchInput.addEventListener("input", async () => {
   showSearchResults(data, query);
 });
 
+function highlight(text, query){
+
+  if(!query) return text;
+
+  const regex = new RegExp(`(${query})`, "gi");
+
+  return text.replace(regex,'<span class="search-highlight">$1</span>');
+
+}
+
 function showSearchResults(videos, query) {
 
   let resultsBox = document.querySelector(".search-results");
@@ -111,7 +121,7 @@ if (platform === "twitch") {
     `https://www.youtube.com/watch?v=${id}`;
 }
 
-modal.classList.add("open");
+;
 
       modal.classList.add("open");
 
