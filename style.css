@@ -844,13 +844,6 @@ body {
   gap:6px;
 }
 
-.platform-icon img,
-.platform-icon svg{
-  width:14px;
-  height:14px;
-  display:block;
-}
-
 /* ========================= */
 /* MOBILE */
 /* ========================= */
