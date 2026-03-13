@@ -106,23 +106,28 @@ function showSearchResults(videos, query) {
       const modal = document.getElementById("videoModal");
       const frame = document.getElementById("videoFrame");
       const youtubeLink = document.getElementById("youtubeLink");
+      const watchButton = document.getElementById("youtubeLink");
 
       if (platform === "twitch") {
 
-        frame.src =
-          `https://clips.twitch.tv/embed?clip=${id}&parent=${location.hostname}`;
+  frame.src =
+    `https://clips.twitch.tv/embed?clip=${id}&parent=${location.hostname}`;
 
-        youtubeLink.href =
-          `https://clips.twitch.tv/${id}`;
+  youtubeLink.href =
+    `https://clips.twitch.tv/${id}`;
 
-      } else {
+  watchButton.innerText = "Ver na Twitch";
 
-        frame.src =
-          `https://www.youtube.com/embed/${id}?autoplay=1`;
+} else {
 
-        youtubeLink.href =
-          `https://www.youtube.com/watch?v=${id}`;
-      }
+  frame.src =
+    `https://www.youtube.com/embed/${id}?autoplay=1`;
+
+  youtubeLink.href =
+    `https://www.youtube.com/watch?v=${id}`;
+
+  watchButton.innerText = "Ver no YouTube";
+}
 
       modal.classList.add("open");
 
