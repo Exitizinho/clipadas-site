@@ -114,11 +114,19 @@ function initHoverPreview(){
 
       iframe.allow = "autoplay";
       iframe.frameBorder = "0";
+
+      iframe.style.position = "absolute";
+      iframe.style.top = "0";
+      iframe.style.left = "0";
       iframe.style.width = "100%";
       iframe.style.height = "100%";
+      iframe.style.borderRadius = "10px";
 
-      img.parentElement.innerHTML = "";
-      img.parentElement.appendChild(iframe);
+      const wrapper = img.parentElement;
+
+      wrapper.style.position = "relative";
+
+      wrapper.appendChild(iframe);
 
     });
 
@@ -126,9 +134,7 @@ function initHoverPreview(){
 
       if (!iframe) return;
 
-      img.parentElement.innerHTML =
-        `<img src="https://img.youtube.com/vi/${videoId}/hqdefault.jpg">`;
-
+      iframe.remove();
       iframe = null;
 
     });
