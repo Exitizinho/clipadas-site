@@ -47,81 +47,73 @@ function showSearchResults(videos, query) {
 
   resultsBox.innerHTML = videos.map(video => {
 
-  const page = video.page || "";
-  const platform = video.platform || "youtube";
+    const page = video.page || "";
+    const platform = video.platform || "youtube";
 
-  const icons = {
-    gaming: "🎮",
-    react: "😂",
-    entretenimento: "🎉",
-    topclipadas: "🎬",
-    rage: "🔥"
-  };
+    const icons = {
+      gaming: "🎮",
+      react: "😂",
+      entretenimento: "🎉",
+      topclipadas: "🎬",
+      rage: "🔥"
+    };
 
-  const pageIcon = icons[page] || "🎬";
+    const pageIcon = icons[page] || "🎬";
 
-  const platformIcon =
-    platform === "twitch"
-      ? `<img class="platform-icon" src="assets/twitch.svg">`
-      : `<img class="platform-icon" src="assets/youtube.svg">`;
+    return `
+    
+      <div class="search-item"
+           data-id="${video.video_id}"
+           data-platform="${platform}">
 
-  return `
-  
-    <div class="search-item"
-         data-id="${video.video_id}"
-         data-platform="${platform}">
+        <img src="https://img.youtube.com/vi/${video.video_id}/hqdefault.jpg">
 
-      <img src="https://img.youtube.com/vi/${video.video_id}/hqdefault.jpg">
+        <div class="search-info">
 
-      <div class="search-info">
+          <div class="search-title">
+            <span class="search-icon">${pageIcon}</span>
+            <h4>${highlight(video.title, query)}</h4>
+          </div>
 
-        <div class="search-title">
-          <span class="search-icon">${pageIcon}</span>
-          <h4>${highlight(video.title, query)}</h4>
-          ${platformIcon}
+          <span class="search-channel">
+            ${highlight(video.channel, query)}
+          </span>
+
         </div>
 
-        <span class="search-channel">
-          ${highlight(video.channel, query)}
-        </span>
-
       </div>
+    `;
 
-    </div>
-  `;
+  }).join("");
 
-}).join("");
-
-  // 🔥 CLICK RESULTADO
+  // CLICK RESULTADO
   resultsBox.querySelectorAll(".search-item").forEach(item => {
 
     item.addEventListener("click", () => {
 
       const id = item.dataset.id;
-const platform = item.dataset.platform;
+      const platform = item.dataset.platform;
 
-const modal = document.getElementById("videoModal");
-const frame = document.getElementById("videoFrame");
-const youtubeLink = document.getElementById("youtubeLink");
+      const modal = document.getElementById("videoModal");
+      const frame = document.getElementById("videoFrame");
+      const youtubeLink = document.getElementById("youtubeLink");
 
-if (platform === "twitch") {
+      if (platform === "twitch") {
 
-  frame.src =
-    `https://clips.twitch.tv/embed?clip=${id}&parent=${location.hostname}`;
+        frame.src =
+          `https://clips.twitch.tv/embed?clip=${id}&parent=${location.hostname}`;
 
-  youtubeLink.href =
-    `https://clips.twitch.tv/${id}`;
+        youtubeLink.href =
+          `https://clips.twitch.tv/${id}`;
 
-} else {
+      } else {
 
-  frame.src =
-    `https://www.youtube.com/embed/${id}?autoplay=1`;
+        frame.src =
+          `https://www.youtube.com/embed/${id}?autoplay=1`;
 
-  youtubeLink.href =
-    `https://www.youtube.com/watch?v=${id}`;
-}
-
-;
+        youtubeLink.href =
+          `https://www.youtube.com/watch?v=${id}`;
+      }
 
       modal.classList.add("open");
 
