@@ -844,6 +844,13 @@ body {
   gap:6px;
 }
 
+.search-icon{
+  font-size:16px;
+  line-height:1;
+  display:flex;
+  align-items:center;
+}
+
 /* ========================= */
 /* MOBILE */
 /* ========================= */
