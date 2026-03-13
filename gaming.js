@@ -121,12 +121,9 @@ function initHoverPreview(){
       iframe.style.width = "100%";
       iframe.style.height = "100%";
       iframe.style.borderRadius = "10px";
-
-      /* ESTA LINHA RESOLVE O PROBLEMA */
       iframe.style.pointerEvents = "none";
 
       const wrapper = img.parentElement;
-
       wrapper.style.position = "relative";
 
       wrapper.appendChild(iframe);
@@ -139,6 +136,16 @@ function initHoverPreview(){
 
       iframe.remove();
       iframe = null;
+
+    });
+
+    /* 👇 IMPORTANTE */
+    card.addEventListener("click", () => {
+
+      if (iframe) {
+        iframe.remove();
+        iframe = null;
+      }
 
     });
 
