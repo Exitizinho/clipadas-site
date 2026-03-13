@@ -53,8 +53,11 @@ document.addEventListener("DOMContentLoaded", () => {
   ============================ */
   document.addEventListener("click", function (e) {
 
-    const card = e.target.closest(".video-card, .hero-card");
-    if (!card) return;
+  const card = e.target.closest(".video-card, .hero-card");
+  if (!card) return;
+
+  /* REMOVE PREVIEWS ATIVOS */
+  document.querySelectorAll(".video-card iframe").forEach(i => i.remove());
 
     e.preventDefault();
 
