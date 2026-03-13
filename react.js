@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ===========================
-     MOBILE SIDEBAR (GAMING)
+     MOBILE SIDEBAR (REACT)
   ============================ */
   const menuBtn = document.querySelector(".mobile-menu-btn");
   const sidebar = document.querySelector(".sidebar");
@@ -216,17 +216,17 @@ async function loadVideos(page, containerId) {
   /* ATIVAR HOVER PREVIEW */
   initHoverPreview();
 
-  loadGamingHero();
+  loadReactHero();
   
 }
 
 
-async function loadGamingHero() {
+async function loadReactHero() {
 
   const { data, error } = await supabaseClient
     .from("videos")
     .select("*")
-    .eq("page", "gaming")
+    .eq("page", "react")
     .eq("featured", true)
     .order("date", { ascending: false })
     .limit(1);
@@ -235,7 +235,7 @@ async function loadGamingHero() {
 
   const video = data[0];
 
-  const hero = document.getElementById("gamingHero");
+  const hero = document.getElementById("reactHero");
   const title = hero.querySelector(".hero-title");
   const channel = hero.querySelector(".hero-channel");
   const thumb = hero.querySelector(".hero-bg");
