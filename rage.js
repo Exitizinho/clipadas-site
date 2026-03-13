@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ===========================
-     MOBILE SIDEBAR (GAMING)
+     MOBILE SIDEBAR (RAGE)
   ============================ */
   const menuBtn = document.querySelector(".mobile-menu-btn");
   const sidebar = document.querySelector(".sidebar");
@@ -219,20 +219,20 @@ async function loadVideos(page, containerId) {
   /* ATIVAR HOVER PREVIEW */
   initHoverPreview();
 
-  loadGamingHero();
+  loadRageHero();
   
 }
 
 
-async function loadGamingHero() {
+async function loadRageHero() {
 
-  const hero = document.getElementById("gamingHero");
+  const hero = document.getElementById("rageHero");
   if (!hero) return;
 
   const { data, error } = await supabaseClient
     .from("videos")
     .select("*")
-    .eq("page", "gaming")
+    .eq("page", "rage")
     .eq("featured", true)
     .order("date", { ascending: false })
     .limit(1);
