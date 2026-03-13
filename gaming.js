@@ -122,6 +122,9 @@ function initHoverPreview(){
       iframe.style.height = "100%";
       iframe.style.borderRadius = "10px";
 
+      /* ESTA LINHA RESOLVE O PROBLEMA */
+      iframe.style.pointerEvents = "none";
+
       const wrapper = img.parentElement;
 
       wrapper.style.position = "relative";
