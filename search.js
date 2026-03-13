@@ -1,23 +1,32 @@
+let searchTimeout;
+
 const searchInput = document.querySelector(".global-search");
 
-searchInput.addEventListener("input", async () => {
+searchInput.addEventListener("input", () => {
 
-  const query = searchInput.value.trim();
+  clearTimeout(searchTimeout);
 
-  if (query.length < 2) return;
+  searchTimeout = setTimeout(async () => {
 
-  const { data, error } = await supabaseClient
-    .from("videos")
-    .select("*")
-    .or(`title.ilike.%${query}%,channel.ilike.%${query}%`)
-    .limit(12);
+    const query = searchInput.value.trim();
 
-  if (error) {
-    console.error(error);
-    return;
-  }
+    if (query.length < 2) return;
 
-  showSearchResults(data, query);
+    const { data, error } = await supabaseClient
+      .from("videos")
+      .select("*")
+      .or(`title.ilike.%${query}%,channel.ilike.%${query}%`)
+      .limit(12);
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    showSearchResults(data, query);
+
+  }, 300);
+
 });
 
 function highlight(text, query){
