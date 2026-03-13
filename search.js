@@ -71,7 +71,7 @@ function showSearchResults(videos, query) {
         <div class="search-info">
 
           <div class="search-title">
-            <span class="search-icon">${pageIcon}</span>
+            <span class="category-icon">${pageIcon}</span>
             <h4>${highlight(video.title, query)}</h4>
           </div>
 
