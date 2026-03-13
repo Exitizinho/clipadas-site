@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ===========================
-     MOBILE SIDEBAR (GAMING)
+     MOBILE SIDEBAR (RAGE)
   ============================ */
   const menuBtn = document.querySelector(".mobile-menu-btn");
   const sidebar = document.querySelector(".sidebar");
