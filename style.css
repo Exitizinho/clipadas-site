@@ -844,11 +844,9 @@ body {
   gap:6px;
 }
 
-.search-icon{
-  font-size:16px;
-  line-height:1;
-  display:flex;
-  align-items:center;
+.category-icon{
+  font-size:14px;
+  margin-right:6px;
 }
 
 /* ========================= */
