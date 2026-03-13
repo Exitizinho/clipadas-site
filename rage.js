@@ -226,6 +226,9 @@ async function loadVideos(page, containerId) {
 
 async function loadGamingHero() {
 
+  const hero = document.getElementById("gamingHero");
+  if (!hero) return;
+
   const { data, error } = await supabaseClient
     .from("videos")
     .select("*")
@@ -238,7 +241,6 @@ async function loadGamingHero() {
 
   const video = data[0];
 
-  const hero = document.getElementById("gamingHero");
   const title = hero.querySelector(".hero-title");
   const channel = hero.querySelector(".hero-channel");
   const thumb = hero.querySelector(".hero-bg");
