@@ -468,7 +468,7 @@ body.gaming-page .mobile-menu-btn {
   top:8px;
   left:8px;
 
-  background:#ff004c;
+  background:linear-gradient(45deg,#ff004c,#ff7a00);
   color:white;
 
   font-size:11px;
