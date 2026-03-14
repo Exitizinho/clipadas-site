@@ -2,6 +2,7 @@ const supabaseUrl = "https://tjuoffrvparnbjqdkbbd.supabase.co";
 const supabaseKey = "sb_publishable__mJcSyoWJ8XzxN_0vOysAQ_Kru4kzjO";
 
 const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+
 // ===============================
 // VARIÁVEIS GLOBAIS
 // ===============================
@@ -25,7 +26,6 @@ let autoplayEnabled = true;
 // ===============================
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ELEMENTOS
   track = document.getElementById("videoTrack");
   prevBtn = document.querySelector(".video-btn.left");
   nextBtn = document.querySelector(".video-btn.right");
@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
   frame = document.getElementById("videoFrame");
   youtubeLink = document.getElementById("youtubeLink");
 
-  // BOTÕES CAROUSEL
   prevBtn.addEventListener("click", () => {
     autoplayEnabled = false;
     stopAutoplay();
@@ -50,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCarousel();
   });
 
-  // MODAL CLICK GLOBAL (hero + trending + latest)
+  // MODAL CLICK GLOBAL
   document.addEventListener("click", function (e) {
 
     const card = e.target.closest(".video-card, .video-slide");
@@ -58,6 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const videoId = card.dataset.id;
     if (!videoId) return;
+
+    /* REMOVE PREVIEWS */
+    document.querySelectorAll(".video-card iframe").forEach(i => i.remove());
 
     frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
     youtubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
@@ -68,7 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
     stopAutoplay();
   });
 
-  // FECHAR MODAL
   function closeModal() {
     modal.classList.remove("open");
     frame.src = "";
@@ -86,11 +87,65 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "Escape") closeModal();
   });
 
-  // 🚀 CARREGAR DADOS
   loadHero();
   loadTrending();
   loadLatest();
 });
+
+
+// ===============================
+// HOVER PREVIEW
+// ===============================
+function initHoverPreview() {
+
+  document.querySelectorAll(".video-card").forEach(card => {
+
+    const videoId = card.dataset.id;
+    const img = card.querySelector("img");
+
+    if (!videoId || !img) return;
+
+    let iframe = null;
+
+    card.addEventListener("mouseenter", () => {
+
+      if (iframe) return;
+
+      iframe = document.createElement("iframe");
+
+      iframe.src =
+        `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0`;
+
+      iframe.allow = "autoplay";
+      iframe.frameBorder = "0";
+
+      iframe.style.position = "absolute";
+      iframe.style.top = "0";
+      iframe.style.left = "0";
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.pointerEvents = "none";
+      iframe.style.borderRadius = "10px";
+
+      const wrapper = img.parentElement;
+      wrapper.style.position = "relative";
+
+      wrapper.appendChild(iframe);
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+      if (!iframe) return;
+
+      iframe.remove();
+      iframe = null;
+
+    });
+
+  });
+
+}
 
 
 // ===============================
@@ -160,7 +215,7 @@ function initCarousel() {
 
 
 // ===============================
-// HERO (FEATURED)
+// HERO
 // ===============================
 async function loadHero() {
 
@@ -218,6 +273,8 @@ async function loadTrending() {
       </div>
     </div>
   `).join("");
+
+  initHoverPreview();
 }
 
 
@@ -248,4 +305,6 @@ async function loadLatest() {
       </div>
     </div>
   `).join("");
+
+  initHoverPreview();
 }
