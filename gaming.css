@@ -478,6 +478,8 @@ body.gaming-page .mobile-menu-btn {
   border-radius:6px;
 
   box-shadow:0 4px 10px rgba(0,0,0,.4);
+
+  z-index:5;
 }
 
 /* ========================= */
