@@ -463,6 +463,40 @@ body.entretenimento-page .mobile-menu-btn {
   box-shadow: 0 25px 60px rgba(0,0,0,.6);
 }
 
+.badge-new{
+  position:absolute;
+  top:10px;
+  left:10px;
+
+  background:linear-gradient(45deg,#ff004c,#ff7a00);
+  color:white;
+
+  font-size:12px;
+  font-weight:700;
+
+  padding:5px 10px;
+  border-radius:999px;
+
+  box-shadow:0 6px 15px rgba(0,0,0,.45);
+
+  display:flex;
+  align-items:center;
+  gap:4px;
+
+  z-index:5;
+  animation:pulseNew 2s infinite;
+}
+
+@keyframes pulseNew{
+  0%{ transform:scale(1); }
+  50%{ transform:scale(1.08); }
+  100%{ transform:scale(1); }
+}
+
+.video-card{
+  position:relative;
+}
+
 /* ========================= */
 /* MOBILE */
 /* ========================= */
