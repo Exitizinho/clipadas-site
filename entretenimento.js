@@ -56,6 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const card = e.target.closest(".video-card, .hero-card");
     if (!card) return;
 
+    document.querySelectorAll(".video-card iframe").forEach(i => i.remove());
+
     e.preventDefault();
 
     const videoId = card.dataset.id;
@@ -87,6 +89,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+
+/* ===========================
+   DETETAR VIDEO NOVO
+=========================== */
+function isNewVideo(date) {
+
+  const videoDate = new Date(date);
+  const now = new Date();
+
+  const diff = now - videoDate;
+  const hours = diff / (1000 * 60 * 60);
+
+  return hours <= 24;
+}
 
 
 /* ===========================
@@ -139,7 +156,6 @@ function initHoverPreview(){
 
     });
 
-    /* 👇 IMPORTANTE */
     card.addEventListener("click", () => {
 
       if (iframe) {
@@ -179,15 +195,26 @@ async function loadVideos(page, containerId) {
     return;
   }
 
-  container.innerHTML = videos.map(video => `
-    <div class="video-card" data-id="${video.video_id}">
-      <img src="https://i.ytimg.com/vi/${video.video_id}/maxresdefault.jpg">
-      <div class="info">
-        <h4>${video.title}</h4>
-        <span>${video.channel}</span>
+  container.innerHTML = videos.map(video => {
+
+    const badge = isNewVideo(video.date)
+      ? `<span class="badge-new">🔥 Novo</span>`
+      : "";
+
+    return `
+      <div class="video-card" data-id="${video.video_id}">
+        <img src="https://i.ytimg.com/vi/${video.video_id}/maxresdefault.jpg">
+
+        ${badge}
+
+        <div class="info">
+          <h4>${video.title}</h4>
+          <span>${video.channel}</span>
+        </div>
       </div>
-    </div>
-  `).join("");
+    `;
+  }).join("");
+
 
   /* ===========================
      THUMBNAILS YOUTUBE
@@ -213,7 +240,6 @@ async function loadVideos(page, containerId) {
     img.decoding = "async";
   });
 
-  /* ATIVAR HOVER PREVIEW */
   initHoverPreview();
 
   loadEntretenimentoHero();
