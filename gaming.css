@@ -484,6 +484,13 @@ body.gaming-page .mobile-menu-btn {
   gap:4px;
 
   z-index:5;
+  animation:pulseNew 2s infinite;
+}
+
+@keyframes pulseNew{
+  0%{ transform:scale(1); }
+  50%{ transform:scale(1.08); }
+  100%{ transform:scale(1); }
 }
 
 .video-card{
