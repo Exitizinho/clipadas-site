@@ -482,6 +482,10 @@ body.gaming-page .mobile-menu-btn {
   z-index:5;
 }
 
+.video-card{
+  position:relative;
+}
+
 /* ========================= */
 /* MOBILE */
 /* ========================= */
